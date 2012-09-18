@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Creepy Guy Formula</title>
+</head>
+<body>
+  
+  <script>
+    var male_age = prompt("Age of the male","");
+    var female_age = prompt("Age of the female","");
+
+    console.log("Male age: " + male_age);
+    console.log("Female age: " + female_age);
+    
+    if ( female_age >= (male_age / 2 ) + 7 ) {
+      document.writeln("<h3>Awwww, cute couple!</h3>");
+      document.writeln("<img src=\"http://www.okmagazine.com/sites/okmagazine.com/files/imagecache/node_page_image/article_images/selena-gomez-justin-bieber-july6_0.jpg\"/>");
+      
+    } else {
+      document.writeln("<h3>Dude, that's pretty creepy.</h3>");
+      document.writeln("<img src=\"http://cdn.blogs.babble.com/babble-voices/he-said-she-said/files/infamous-marriages/marriages-08.jpg\"/>");
+    }
+
+    document.writeln("<p>Source: <a href=\"http://www.urbandictionary.com/define.php?term=Creepy%20Guy%20Formula&defid=6470574\">Creepy Guy Formula (Urban Dictionary)</a></p>");
+  </script>
+  
+</body>
+</html>
