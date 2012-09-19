@@ -300,7 +300,7 @@ your homepage. Each solution should be its own web page:</p>
 
 <ol>
 
-<li>Create a web page with a Javascript program that computes the future
+<li>Create a web page with a JavaScript program that computes the future
 value of an initial investment that receives <i>x</i>% interest per
 year after <i>n</i> years. Feel free to
 use <a href="assignments/assignment3-template1.html">this template</a>
@@ -309,7 +309,7 @@ know where you should put your code). Wikipedia provides a refresher
 on <a href="http://en.wikipedia.org/wiki/Compound_interest">compound
 interest</a>.</li>
 
-<li>Create a web page with a Javascript program that computes the
+<li>Create a web page with a JavaScript program that computes the
 minimum number of years that an initial investment will at least
 double at a particular interest rate per year. As with above, feel
 free to use <a href="assignments/assignment3-template2.html">this
@@ -330,9 +330,34 @@ question.</p>
 <div>
 <h2>Assignment 4 <small>due October 4, 2012</small></h2>
 
-... will be detailed here at a later point in time.
+<p>In this assignment, you will start with the two pages you created
+for assignment 3 and add to them. In addition to showing the final
+answer (for part 1 and part 2), each page will also show a table with
+the value of the investment over time.</p>
 
-<!-- On mouseover, show picture of wine. -->
+<p>For example, in part 1, if I set the interest rate to 7% and number
+of years to 10, I should see something like this:</p>
+
+<table class="table table-bordered">
+<tr><td><b>year</b></td><td><b>amount</b></td></tr>
+<tr><td>1</td><td>1070</td></tr>
+<tr><td>2</td><td>1144.9</td></tr>
+<tr><td>3</td><td>1225.0430000000001</td></tr>
+<tr><td>4</td><td>1310.7960100000003</td></tr>
+<tr><td>5</td><td>1402.5517307000005</td></tr>
+<tr><td>6</td><td>1500.7303518490005</td></tr>
+<tr><td>7</td><td>1605.7814764784307</td></tr>
+<tr><td>8</td><td>1718.186179831921</td></tr>
+<tr><td>9</td><td>1838.4592124201556</td></tr>
+<tr><td>10</td><td>1967.1513572895667</td></tr>
+</table>
+
+<p>Your JavaScript program will have to manipulate the DOM and add
+table rows programmatically. Note that if I enter a particular set of
+values, and then another set of values, the table should only show
+results from the most recent computation&mdash;this means that you
+have to make sure the table is "cleared" before each computation
+begins.</p>
 
 </div>
 </section>
