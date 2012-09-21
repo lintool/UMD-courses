@@ -10,13 +10,13 @@
 
 var s = prompt("How many scoops?","3");
 
-for ( var i=0; i<s; i++ ) {
+for ( var i=1; i<=s; i++ ) {
   var z = s - i;
 
-  if ( i == 0 ) {
+  if ( i == 1 ) {
     // This is the top scoop.
     document.writeln("<img style=\"position:relative; z-index: 5; z-index: " + z + "\" src=\"http://lintool.github.com/INFM603-2012f/content/demo-js/scoop-chocolate.gif\"><br/>");
-  } else if ( i == s-1 ) {
+  } else if ( i == s ) {
     // This is the bottom scoop.
     document.writeln("<img style=\"position:relative; margin-top: -50px; z-index: " + z + "\" src=\"http://lintool.github.com/INFM603-2012f/content/demo-js/scoop-bottom.gif\"><br/>");
   } else {
