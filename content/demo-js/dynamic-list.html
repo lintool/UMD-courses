@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Dynamic List</title>
+<meta charset="utf-8">
+
+<script>
+function add() {
+  var textInput = document.getElementById("textInput");
+  var value = textInput.value;
+  console.log("Adding " + value);
+
+  if (value == "") {
+    alert("Please enter an item");
+  } else {
+    var li = document.createElement("li");
+    li.innerHTML = value;
+    var ul = document.getElementById("list");
+    ul.appendChild(li);
+  }
+}
+
+function remove() {
+  var textInput = document.getElementById("textInput");
+  var value = textInput.value;
+  console.log("I'm now going to remove " + value);
+
+  if (value == "") {
+    alert("Please enter an item");
+  } else {
+    var ul = document.getElementById("list");
+    var elements = ul.childNodes;
+    for ( var i=0; i< elements.length; i++ ) {
+      console.log("Examining " + elements[i].innerHTML);
+      if ( elements[i].innerHTML == value ) {
+        console.log("Found " + value + ": removing.");
+        ul.removeChild(elements[i]);
+        break;
+      }
+    }
+  }
+}
+</script>
+
+<style type="text/css">
+body {
+	font-family: arial, sans-serif;
+}
+
+ul#list {
+	border: 1px solid #a9a9a9;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+ul#list li {
+	border-bottom: 1px solid #a9a9a9;
+	padding: 10px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e3e3e3));
+    background-image: -moz-linear-gradient(#f9f9f9, #e3e3e3);
+    background-image: -ms-linear-gradient(#f9f9f9, #e3e3e3);
+    background-image: -o-linear-gradient(#f9f9f9, #e3e3e3);
+    background-image: -webkit-linear-gradient(#f9f9f9, #e3e3e3);
+    background-image: linear-gradient(#f9f9f9, #e3e3e3);
+}
+</style>
+
+</head>
+<body>
+
+<form>
+<input type="text" id="textInput" size="40" placeholder="list item">
+<input onclick="add()" type="button" id="addButton" value="Add">
+<input onclick="remove()" type="button" id="removeButton" value="Remove">
+</form>
+
+<ul id="list"></ul>
+
+</body>
+</html>
+
