@@ -367,6 +367,8 @@ begins.</p>
 <div>
 <h2>Assignment 5 <small>due October 11, 2012</small></h2>
 
+<h3>Part 1</h3>
+
 <p>Start with the <a href="content/demo-js/ice-cream-dynamic.html">ice
 cream example</a>. The goal of this assignment is to "put everything
 together", combining JavaScript and CSS in a way that delivers
@@ -400,6 +402,33 @@ following ways:</p>
 
 </ol>
 
+<h3>Part 2</h3>
+
+<p>Start with the <a href="content/demo-js/wine-objects3.html">wine as
+objects (part 3) demo</a> and modify the program in the following
+ways:</p>
+
+<ol>
+
+  <li>The demo currently only displays the name of the wine and its
+  price in the table. Modify the program so that it
+  displays <i>all</i> of the object's properties (name, image,
+  location, varietal, price).</li>
+
+  <li>The discount button currently discounts prices by $1.00 each
+  time. Add a text box where you can input how much to discount the
+  wines by each time you click the button. Note that per the exercises
+  in class, <code>discount()</code> should be a method of the object,
+  not a function.</li>
+
+  <li>Implement a button that is the exact opposite of the discount
+  method: it raises prices of the wines. There should be a text box
+  that allows the user to enter how much to raise prices by. This
+  should be implemented as a method, not a function.</li>
+
+</ol>
+
+
 </div>
 </section>
 
@@ -410,6 +439,11 @@ following ways:</p>
 
 <p>In this assignment you'll be working with a simple SQL database
 engine called <a href="http://www.sqlite.org/">SQLite</a>. Download
+<a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">SQLite
+Manager</a>, which is an add-on to Firefox (so you'll need to get it
+first if you haven't already).</p>
+
+<!--
 SQLite <a href="http://www.sqlite.org/download.html">here</a>:</p>
 
 <ul>
@@ -424,19 +458,27 @@ SQLite <a href="http://www.sqlite.org/download.html">here</a>:</p>
 
 <p>Once you download SQLite, you may find
 this <a href="http://www.sqlite.org/sqlite.html">guide to the command
-line shell</a> useful.</p>
+line shell</a> useful.</p> 
+-->
 
 <p>We'll be working with the
-database <a href="content/demo-db/ChinookDatabase1.3_Sqlite.sql">
-ChinookDatabase1.3_Sqlite.sql</a>, which is
+database <a href="content/demo-db/ChinookDatabase1.3_Sqlite.sqlite">
+ChinookDatabase1.3_Sqlite.sqlite</a>, which is
 the <a href="http://chinookdatabase.codeplex.com/">Chinook
 Database</a> (version 1.3). You'll find
 the <a href="http://chinookdatabase.codeplex.com/wikipage?title=Chinook_Schema&referringTitle=Home">database
 schema</a> very helpful as you go about these exercises.</p>
 
+<!--
 <p>Start the SQLite command line shell and use the <code>.read</code>
 command to load in <code>ChinookDatabase1.3_Sqlite.sql</code>. Don't
 worry, I'll show you exactly how to do this in class.</p>
+-->
+
+<p>Open Firefox and start the SQLite Manager (under the Tools
+menu). You should now be able to
+open <code>ChinookDatabase1.3_Sqlite.sqlite</code>, downloaded from
+above.</p>
 
 <p>For the assignment, answer the following questions. For each,
 provide both the answer and the SQL statement you used to compute the
