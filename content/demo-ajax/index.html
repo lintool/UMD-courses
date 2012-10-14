@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Chinook Music Catalog</title>
+<meta charset="utf-8">
+
+<script>
+function search(artist) {
+  if (artist == "") {
+    document.getElementById("results").innerHTML="";
+    return;
+  } 
+
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("results").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+  xmlhttp.open("GET","search.php?name="+artist,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<h1>Chinook Music Catalog</h1>
+
+<p><b>Search for artist:</b> <input type="text" onkeyup="search(this.value)" size="20" /></p>
+
+<p><a href="catalog.php">Browse entire catalog</a></p>
+
+<hr/>
+
+<div id="results"/>
+
+</body>
+</html>
+
