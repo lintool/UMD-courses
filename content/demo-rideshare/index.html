@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>RideShare</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+<h1>RideShare</h1>
+
+<a href="all.php">View all rides</a>
+
+<h3>Post a Ride</h3>
+
+<form action="post_ride.php" method="post">
+<table>
+<tr><td width="80">Driver:</td><td><input type="text" name="driver"/></td></tr>
+<tr><td>Phone:</td><td><input type="text" name="phone"/></td></tr>
+<tr><td>Origin:</td><td><input type="text" name="origin"/></td></tr>
+<tr><td>Destination:</td><td><input type="text" name="destination"/></td></tr>
+<tr><td>Date:</td><td><input type="text" name="date"/></td></tr>
+<tr><td>Seats:</td><td><input type="text" name="seats"/></td></tr>
+</table>
+<p><input value="Post" type="submit" /></p>
+</form>
+
+<h3>Find a Ride</h3>
+
+<form action="find_ride.php" method="post">
+<table>
+<tr><td width="80">Origin:</td><td><input type="text" name="origin"/></td></tr>
+<tr><td>Destination:</td><td><input type="text" name="destination"/></td></tr>
+<tr><td>Date:</td><td><input type="text" name="date"/></td></tr>
+</table>
+<p><input value="Search" type="submit" /></p>
+</form>
+
+<h3>Find My Passengers</h3>
+
+<form action="find_passengers.php" method="post">
+<table>
+<tr><td width="80">Driver:</td><td><input type="text" name="driver"/></td></tr>
+<tr><td>Date:</td><td><input type="text" name="date"/></td></tr>
+</table>
+<p><input value="Find" type="submit" /></p>
+</form>
+
+</body>
+</html>
+
