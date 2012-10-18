@@ -26,7 +26,7 @@ mysql_select_db("a8061156_db1", $con);
 $result = mysql_query("select Artist.Name, Album.Title, Track.Name from Artist " .
     "join Album on Album.ArtistId = Artist.ArtistId " .
     "join Track on Album.AlbumId = Track.AlbumId " .
-    "where Artist.Name = \"" . $artist . "\"");
+    "where Artist.Name like \"" . $artist . "%\"");
 
 // Generate HTML from result of SQL query
 echo "<table border=\"1\">";
@@ -45,4 +45,3 @@ mysql_close($con);
 
 </body>
 </html>
-
