@@ -78,7 +78,7 @@
 <p>Complete
 the <a href="http://lintool.github.com/Cloud9/docs/word-count.html">word
 count tutorial</a> in Cloud<sup>9</sup>, which is a Hadoop toolkit we're
-going to use throughout the course. This tutorial will take you
+going to use throughout the course. The tutorial will take you
 through setting up Hadoop on your local machine and running Hadoop on
 the virtual machine. It'll also begin familiarizing you with
 github.</p>
@@ -99,7 +99,7 @@ part of Assignment 1.</p>
 the <a href="http://lintool.github.com/Cloud9/docs/word-count.html">word
 count tutorial</a> in Cloud<sup>9</sup>.</p>
 
-<p>Sign up for <a href="http://github.com/">GitHub</a> account. It is
+<p>Sign up for a <a href="http://github.com/">GitHub</a> account. It is
 very important that you do so as soon as possible, because GitHub is
 the mechanism by which you will submit assignments. Once you've signed
 up for an account, go to this page
@@ -112,9 +112,127 @@ is <a href="https://help.github.com/articles/create-a-repo">how you
 create a repo on GitHub</a>. For "Who has access to this repository?",
 make sure you click "Only the people I specify". If you've
 successfully gotten an educational account (per above), you should be
-able to create private repos for free.</p>
+able to create private repos for free. Take some time to learn about
+git if you've never used it before. There are plenty of good tutorials
+online: do a simple web search and find one you like. If you've used
+svn before, many of the concepts will be familiar, except that git
+is far more powerful.</p>
 
-<p>More to come...</p>
+<p>After you've learned about git, set aside the repo for now; you'll
+come back to it later.</p>
+
+<p>In the single node virtual cluster in the word count tutorial, you
+should have run the word count demo with five reducers:</p>
+
+<pre>
+etc/hadoop-cluster.sh edu.umd.cloud9.example.simple.DemoWordCount \
+  -input bible+shakes.nopunc.gz -output wc -numReducers 5
+</pre>
+
+<p>Answer the following questions:</p>
+
+<p><b>Question 1.</b> What is the first term
+in <code>part-r-00000</code> and how many times does it appear?</p>
+
+<p><b>Question 2.</b> What is the third to last term
+in <code>part-r-00004</code> and how many times does it appear?</p>
+
+<p><b>Question 3.</b> How many unique terms are there? (Hint: read the
+counter values)</p>
+
+<p>Let's do a little bit of cleanup of the words. Modify the word
+count demo so that only words consisting entirely of letters are
+counted. To be more specific, the word must match the following Java
+regular expression:</p>
+
+<pre>
+word.matches("[A-Za-z]+")
+</pre>
+
+<p>Now run word count again, also with five reducers. Answer the
+following questions:</p>
+
+<p><b>Question 4.</b> What is the first term
+in <code>part-r-00000</code> and how many times does it appear?</p>
+
+<p><b>Question 5.</b> What is the third to last term
+in <code>part-r-00004</code> and how many times does it appear?</p>
+
+<p><b>Question 6.</b> How many unique terms are there?
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Please follow these instructions carefully!</p>
+
+<p>Per above, you should have a private github repo called
+<code>MapReduce-assignments</code>. Inside the repo, create a
+directory called <code>assignment1</code>; in that directory, create a
+file called <code>assignment1.md</code>. In that file, put your
+answers to the above questions 1 through 6. Use the Markdown
+annotation format: here's
+a <a href="http://daringfireball.net/projects/markdown/basics">simple
+guide</a>. Here's an <a href="http://markable.in/editor/">online
+editor</a> that's also helpful.</p>
+
+<p>Create a directory called <code>assignment1/src/</code> and
+put your source code in there (i.e., the modified word count
+demo).</p>
+
+<p>Next, in the directory <code>assignment1/</code>, create a shell
+script called <code>run-assignment1.sh</code>, which when executed
+will run the code that answers questions 4 through 6 (i.e., modified
+word count). When I check out your repo in my copy of the virtual
+machine, I should be able to execute that script to run your code.</p>
+
+<p>You can assume, just like in the the word count tutorial, that the
+input file is already in HDFS
+as <code>bible+shakes.nopunc.gz</code>. Your script should put the
+word count output in a directory that is the same as your GitHub
+username. Please don't name the output directory <code>output/</code>
+or something generic.
+
+<p>However you structure your repo to make the script work is up to
+you. My recommendation would be to check in compiled jars into the
+repo and then have <code>run-assignment1.sh</code> execute the
+appropriate hadoop command, but working out these details is part of the
+assignment.</p>
+
+<p>In summary, there are three deliverables to this homework:</p>
+
+<ul>
+
+  <li><code>MapReduce-assignments/assignment1/assignment1.md</code>: actual answers to questions.</li>
+  <li><code>MapReduce-assignments/assignment1/src/</code>: source code goes into this directory.</li>
+  <li><code>MapReduce-assignments/assignment1/run-assignment1.sh</code>: run script.</li>
+
+</ul>
+
+<p>Make sure you've committed your code and pushed your repo back to
+origin. You can verify that it's there by logging into your GitHub
+account, and your assignment should be viewable in the web
+interface.</p>
+
+<p>Almost there! Add the
+user <a href="https://github.com/teachtool">teachtool</a> a
+collaborator to your repo so that I can check it out (under settings
+in the main web interface on the top right corner of your repo). Note:
+do <b>not</b> add my primary GitHub
+account <a href="https://github.com/lintool">lintool</a> as a
+collaborator.</p>
+
+<p>Finally, send me an email, to jimmylin@umd.edu with the subject
+line "MapReduce Assignment #1". In the body of the email message, tell
+me what your GitHub username is so that I can link your repo to
+you. Also, in your email please tell me how long you spent doing the
+assignment, including everything (installing the VM, learning about
+git, working through the tutorial, etc.).</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The purpose of this assignment is to familiarize you with the
+Hadoop development environment. You'll get a "pass" if you've
+successfully completed the assignment. I expect everyone to get a
+"pass".</p>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
@@ -123,7 +241,7 @@ able to create private repos for free.</p>
 
 <section id="assignment2" style="padding-top:35px">
 <div>
-<h3>Assignment 2: Counting <small>due February 7</small></h3>
+<h3>Assignment 2: Counting <small>due February 14</small></h3>
 
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
@@ -133,7 +251,7 @@ able to create private repos for free.</p>
 
 <section id="assignment3" style="padding-top:35px">
 <div>
-<h3>Assignment 3: Inverted Indexing <small>due February 21</small></h3>
+<h3>Assignment 3: Inverted Indexing <small>due February 28</small></h3>
 
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
@@ -143,7 +261,7 @@ able to create private repos for free.</p>
 
 <section id="assignment4" style="padding-top:35px">
 <div>
-<h3>Assignment 4: Graphs <small>due March 7</small></h3>
+<h3>Assignment 4: Graphs <small>due March 14</small></h3>
 
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
