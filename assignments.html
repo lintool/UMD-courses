@@ -81,9 +81,9 @@ count tutorial</a> in Cloud<sup>9</sup>, which is a Hadoop toolkit we're
 going to use throughout the course. The tutorial will take you
 through setting up Hadoop on your local machine and running Hadoop on
 the virtual machine. It'll also begin familiarizing you with
-github.</p>
+GitHub.</p>
 
-<p><b>Note:</b> This assignment is not explictly graded, except as
+<p><b>Note:</b> This assignment is not explicitly graded, except as
 part of Assignment 1.</p>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
@@ -164,7 +164,7 @@ in <code>part-r-00004</code> and how many times does it appear?</p>
 
 <p>Please follow these instructions carefully!</p>
 
-<p>Per above, you should have a private github repo called
+<p>Per above, you should have a private GitHub repo called
 <code>MapReduce-assignments</code>. Inside the repo, create a
 directory called <code>assignment1</code>; in that directory, create a
 file called <code>assignment1.md</code>. In that file, put your
@@ -194,13 +194,13 @@ or something generic.
 <p>However you structure your repo to make the script work is up to
 you. My recommendation would be to check in compiled jars into the
 repo and then have <code>run-assignment1.sh</code> execute the
-appropriate hadoop command, but working out these details is part of the
+appropriate Hadoop command, but working out these details is part of the
 assignment.</p>
 
 <table><tr><td valign="top"><span class="label label-warning">Warning</span></td>
 <td style="padding-left: 10px">Make sure your assignment <b>does
 not</b> depend on any files or paths outside your repo. If you have a
-hardcoded absolute path in your run script, for example, it will
+hard-coded absolute path in your run script, for example, it will
 probably break, since the same locations may not exist on my
 machine. The only exception is the <code>bible+shakes.nopunc.gz</code>
 data, which you can except to be in HDFS.</td></tr></table>
@@ -271,7 +271,10 @@ the web
 via <a href="https://github.com/lintool/MapReduce-course-2013s/tree/master/assignments-stub">this
 link</a>. Copy the contents of the directory into your own assignments
 private repo,
-under <code>MapReduce-assignments/assignment2/</code>. Go ahead and
+under <code>MapReduce-assignments/assignment2/</code>.
+Note that the directory contains (normally invisible dot-files)
+e.g., <code>.gitignore</code>; remember to copy those also.
+Go ahead and
 commit the contents so that you can revert to this point easily. Go
 into <code>MapReduce-assignments/assignment2/</code>: you should be
 able to type <code>ant</code> and successfully build the contents.</p>
@@ -369,6 +372,16 @@ ant javadoc
 
 <p>Stay tuned!</p>
 
+
+<h4 style="padding-top: 10px">Tips</h4>
+
+<p>Stay tuned!</p>
+
+<!-- Have access to Cloud9
+
+Eclipse, rsync, build -->
+
+
 <h4 style="padding-top: 10px">Turning in the Assignment</h4>
 
 <p>Stay tuned!</p>
@@ -388,6 +401,67 @@ ant javadoc
 <section id="assignment3" style="padding-top:35px">
 <div>
 <h3>Assignment 3: Inverted Indexing <small>due February 28</small></h3>
+
+<h4>Setting Up Your Development Environment</h4>
+
+<p>Before you begin, update all packages in the VM:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>In your private repo,
+create <code>MapReduce-assignments/assignment3/</code>. Pull the
+<a href="https://github.com/lintool/MapReduce-course-2013s">Git repo
+for the course</a> to make sure you have the latest updates.  Copy
+the contents of <code>assignments-stub/</code>
+into <code>MapReduce-assignments/assignment3/</code>. Make sure you have
+the latest version of the files: <b>do not</b> just copy files from
+<code>MapReduce-assignments/assignment2/</code> because you may not
+get the latest code updates.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>This assignment begins with an optional <i>but recommended</i>
+component: complete
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/indexing.html">inverted
+indexing exercise</a>
+and <a href="http://lintool.github.com/Cloud9/docs/exercises/retrieval.html">boolean
+retrieval exercise</a> in Cloud<sup>9</sup>. The solution is already
+checked in the repo, so it won't be graded. However, the rest of the
+assignment builds from there. Even if you decide not to write code for
+those two exercises, take some time to sketch out what the solution
+would look like. The exercises are designed to help you learn: jumping
+directly to the solution defeats the purpose.</p>
+
+<p>Starting from the inverted indexing baseline, modify the indexer
+code in the two following ways:</p>
+
+<p><b>1. Index Compression.</b> The index should be compressed using
+VInts: see <code>org.apache.hadoop.io.WritableUtils</code>. You should
+also use gap-compression techniques as appropriate.</p>
+
+<p><b>2. Scalability.</b> The baseline indexer implementation
+currently buffers and sorts postings in the reducer, which as we
+discussed in class is not a scalable solution. Address this
+scalability bottleneck using techniques we discussed in class and in
+the textbook.</p>
+
+<p>Correspondingly, modify the
+<code><a href="https://github.com/lintool/Cloud9/blob/master/src/dist/edu/umd/cloud9/example/ir/BooleanRetrieval.java">BooleanRetrieval</a></code>
+program to read the new inverted indexes. After it runs, it should
+return <b>exactly</b> the same output as before, but with the new
+indexes.</p>
+
+<p>Stay tuned for additional details!</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Stay tuned!</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>Stay tuned!</p>
 
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
