@@ -251,6 +251,134 @@ successfully completed the assignment. I expect everyone to get a
 <div>
 <h3>Assignment 2: Counting <small>due February 14</small></h3>
 
+<h4>Setting Up Your Development Environment</h4>
+
+<p>First, just so everyone's VM is sync'ed up, update all packages
+via:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>Might take a bit, so grab a cup of coffee.</p>
+
+<p>After the VM is updated, clone
+the <a href="https://github.com/lintool/MapReduce-course-2013s">Git
+repo for the course</a>. You'll find a
+directory <code>assignments-stub/</code>, which provides a template
+for your assignment. You can browse the contents of the directory on
+the web
+via <a href="https://github.com/lintool/MapReduce-course-2013s/tree/master/assignments-stub">this
+link</a>. Copy the contents of the directory into your own assignments
+private repo,
+under <code>MapReduce-assignments/assignment2/</code>. Go ahead and
+commit the contents so that you can revert to this point easily. Go
+into <code>MapReduce-assignments/assignment2/</code>: you should be
+able to type <code>ant</code> and successfully build the contents.</p>
+
+<p>Since we're going to be working with this basic repository
+structure for subsequent assignments, you should familiarize yourself
+with the setup. Let's first take a tour: <a href="http://ant.apache.org/">Ant</a> is a build
+system, and through <a href="http://ant.apache.org/ivy/">Ivy</a>, it
+downloads all dependent jars and places them
+in <code>lib/</code>. That is, all the jars in <code>lib/</code> are
+automatically placed there&mdash;you shouldn't ever need to worry
+about copying jars there directly. Also, <code>lib/</code> should <b>not</b>
+be placed under version control.</p>
+
+<p>How does Ivy know what dependencies to pull in? This is specified
+in <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/ivy/ivy.xml">ivy/ivy.xml</a></code>,
+in this line:</p>
+
+<pre>
+&lt;dependency org="edu.umd" name="cloud9" rev="1.4.7" conf="*->*,!sources,!javadoc"/&gt;
+</pre>
+
+<p>Ivy automatically finds and downloads Cloud<sup>9</sup> and
+transitively pulls its dependencies also. Add to this file if you want
+to use any external libraries.</p>
+
+<p>Source code is kept in <code>src/</code>: main code goes
+into <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/src/main">src/main/</a></code>,
+JUnit tests go
+into <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/src/test">src/test/</a></code>. There
+are source code stubs to get you started. If you use Eclipse as your
+IDE, you should be able to directly import the project.</p>
+
+<p>After Ant successfully completes the build, the packaged jar is
+created in <code>dist/</code>. Note that <code>dist/</code>
+should <b>not</b> be placed under version control since it should be
+built automatically.</p>
+
+<p>For your convenience, <code>ant</code> generates four run scripts
+in <code>etc/</code>:</p>
+
+<p>Use <code>run.sh</code> to run any normal Java class with
+a <code>main</code>, e.g.:</p>
+
+<pre>
+etc/run.sh HelloWorld
+</pre>
+
+<p>Use <code>junit.sh</code> to run a specific JUnit test, e.g.:</p>
+
+<pre>
+etc/junit.sh SampleTest
+</pre>
+
+<p>Use <code>hadoop-local.sh</code> to run a Hadoop job in local
+(standalone) mode, e.g.:</p>
+
+<pre>
+etc/hadoop-local.sh WordCount -input bible+shakes.nopunc.gz -output wc
+</pre>
+
+<p>Use <code>hadoop-cluster.sh</code> to run a Hadoop job in the VM in
+pseudo-distributed mode, e.g.:</p>
+
+<pre>
+etc/hadoop-cluster.sh WordCount -input bible+shakes.nopunc.gz -output wc -numReducers 5
+</pre>
+
+<p>Ant provides a couple other useful features. To run all test
+cases:</p>
+
+<pre>
+ant test
+</pre>
+
+<p>If you're getting an error along the lines of "the class
+org.apache.tools.ant.taskdefs.optional.junit.JUnitTask was not found"
+or "java.lang.ClassNotFoundException:
+org.apache.tools.ant.taskdefs.optional.TraXLiaison", do:</p>
+
+<pre>
+sudo yum install ant-junit
+sudo yum install ant-trax
+</pre>
+
+<p>To generate Javadoc:</p>
+
+<pre>
+ant javadoc
+</pre>
+
+<p>The API docs will be deposited in <code>docs/api/</code>.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>Stay tuned!</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Stay tuned!</p>
+<!--p>Kill your ivy cache.</p-->
+
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>Stay tuned!</p>
+
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
