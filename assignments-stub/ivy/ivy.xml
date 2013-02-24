@@ -7,7 +7,7 @@
   </publications>
 
   <dependencies>
-    <dependency org="edu.umd" name="cloud9" rev="1.4.11" conf="*->*,!sources,!javadoc">
+    <dependency org="edu.umd" name="cloud9" rev="1.4.12" conf="*->*,!sources,!javadoc">
       <exclude org="fastutil"/>
     </dependency>
     <dependency org="junit" name="junit" rev="4.11" conf="*->*,!sources,!javadoc"/>

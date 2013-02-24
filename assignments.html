@@ -620,6 +620,15 @@ discussed in class is not a scalable solution. Address this
 scalability bottleneck using techniques we discussed in class and in
 the textbook.</p>
 
+<p><b>Note:</b> The major scalability issue is
+buffering <i>uncompressed</i> postings in memory. In your solution,
+you'll still end up buffering each postings list, but
+in <i>compressed</i> form (raw bytes, no additional object
+overhead). This is fine because if you use the right compression
+technique, the postings lists are quite small. As a data point, on a
+collection of 50 million web pages, 2GB heap is more than enough for a
+full <i>positional</i> index.</p>
+
 <p>This new indexer should be
 named <code>BuildInvertedIndexCompressed</code>.</p>
 
@@ -677,21 +686,26 @@ successfully.</p>
 (in the VM):</p>
 
 <pre>
-etc/hadoop-local.sh BuildInvertedIndexCompressed -input bible+shakes.nopunc.gz -output YOURNAME-index -numReducers 1
+etc/hadoop-cluster.sh BuildInvertedIndexCompressed -input bible+shakes.nopunc.gz -output YOURNAME-index -numReducers 1
 </pre>
 
 <p>You can assume that <code>bible+shakes.nopunc.gz</code> is already
 in HDFS but otherwise there is nothing else on HDFS. The final output
-should appear in a directory called <code>YOURNAME-index</code>. There
+should appear in a directory called <code>YOURNAME-index</code> on HDFS. There
 is no need for the index to be human readable; in fact, it shouldn't
 be.</p>
 
 <p>I will then issue the following commands:</p>
 
 <pre>
-etc/run.sh LookupPostingsCompressed -index YOURNAME-index -collection bible+shakes.nopunc > lookup.out
-etc/run.sh BooleanRetrievalCompressed -index YOUNAME-index -collection bible+shakes.nopunc > retrieval.out
+etc/hadoop-cluster.sh LookupPostingsCompressed -index YOURNAME-index -collection bible+shakes.nopunc > lookup.out
+etc/hadoop-cluster.sh BooleanRetrievalCompressed -index YOUNAME-index -collection bible+shakes.nopunc > retrieval.out
 </pre>
+
+<p><b>Note:</b> The above two classes should read the index and
+collection directly from HDFS. If you look at the solutions to the
+inverted indexing exercise and boolean retrieval exercise, you'll see
+that the equivalent classes can also read data directly from HDFS.</p>
 
 <p>The file <code>lookup.out</code> should be identical to what you
 checked in as <code>LookupPostingsCompressed.out</code> and the file
