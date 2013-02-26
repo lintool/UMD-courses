@@ -686,10 +686,10 @@ successfully.</p>
 (in the VM):</p>
 
 <pre>
-etc/hadoop-cluster.sh BuildInvertedIndexCompressed -input bible+shakes.nopunc.gz -output YOURNAME-index -numReducers 1
+etc/hadoop-cluster.sh BuildInvertedIndexCompressed -input bible+shakes.nopunc -output YOURNAME-index -numReducers 1
 </pre>
 
-<p>You can assume that <code>bible+shakes.nopunc.gz</code> is already
+<p>You can assume that <code>bible+shakes.nopunc</code> is already
 in HDFS but otherwise there is nothing else on HDFS. The final output
 should appear in a directory called <code>YOURNAME-index</code> on HDFS. There
 is no need for the index to be human readable; in fact, it shouldn't
@@ -764,6 +764,324 @@ your code to build and run inside my VM, you will only get a score of
 <div>
 <h3>Assignment 4: Graphs <small>due 6:00pm March 14</small></h3>
 
+
+<h4>Setting Up Your Development Environment</h4>
+
+<p>Before you begin, update all packages in the VM:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>In your private repo,
+create <code>MapReduce-assignments/assignment4/</code>. Pull the
+<a href="https://github.com/lintool/MapReduce-course-2013s">Git repo
+for the course</a> to make sure you have the latest updates.  Copy
+the contents of <code>assignments-stub/</code>
+into <code>MapReduce-assignments/assignment4/</code>. Make sure you have
+the latest version of the files: <b>do not</b> just copy files from
+<code>MapReduce-assignments/assignment3/</code> because you may not
+get the latest code updates.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>Begin this assignment by taking the time to understand
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/pagerank.html">PageRank
+reference implementation</a> in Cloud<sup>9</sup>. There is no need to
+try the exercise from scratch, but study the code carefully to
+understand exactly how it works.</p>
+
+<p>For this assignment, you are going to implement multiple-source
+personalized PageRank. As we discussed in class, personalized PageRank
+is different from ordinary PageRank in a few respects:</p>
+
+<ul>
+
+  <li>There is the notion of a <i>source</i> node, which is what we're
+  computing the personalization with respect to.</li>
+
+  <li>When initializing PageRank, instead of a uniform distribution
+  across all nodes, the source node gets a mass of one and every other
+  node gets a mass of zero.</li>
+
+  <li>Whenever the model makes a random jump, the random jump is
+  always back to the source node; this is unlike in ordinary PageRank,
+  where there is an equal probability of jumping to any node.</li>
+
+  <li>All mass lost in the dangling nodes are put back into the source
+  node; this is unlike in ordinary PageRank, where the missing mass is
+  evenly distributed across all nodes.</li>
+
+</ul>
+
+<p>Your implementation is going to run multiple personalized PageRank
+computations in parallel, one with respect to each source. The user is
+going to specify on the command line the sources. This means that each
+PageRank node object (i.e., <code>Writable</code>) is going to contain
+an array of PageRank values.</p>
+
+<p>Here's how the implementation is going to work; it largely follows
+the reference implementation in the exercise above. It's your
+responsibility to make your implementation work with respect to the
+command-line invocations specified below.</p>
+
+<p>First, the user is going to convert the adjacency list into
+PageRank node records:</p>
+
+<pre>
+etc/hadoop-cluster.sh BuildPersonalizedPageRankRecords -input sample-large.txt \
+  -output YOURNAME-PageRankRecords -numNodes 1458 -sources 9627181,9370233,10207721
+</pre>
+
+<p>Note that we're going to use the "large" graph from the exercise
+linked above. The <code>-sources</code> option specifies the source
+nodes for the personalized PageRank computations. In this case, we're
+running three computations in parallel, with respect to node
+ids 9627181, 9370233, and 10207721. You can expect the option value to
+be in the form of a comma-separated list, and that all node ids
+actually exist in the graph. The list of source nodes may be
+arbitrarily long, but for practical purposes I won't test your code
+with more than a few.</p>
+
+<p>Since we're running three personalized PageRank computations in
+parallel, each PageRank node is going to hold an array of three
+values, the personalized PageRank values with respect to the first
+source, second source, and third source. You can expect the array
+positions to correspond exactly to the position of the node id in the
+source string.</p>
+
+<p>Next, the user is going to partition the graph and get ready to
+iterate:</p>
+
+<pre>
+hadoop fs -mkdir YOURNAME-PageRank
+
+etc/hadoop-cluster.sh PartitionGraph -input YOURNAME-PageRankRecords \
+  -output YOURNAME-PageRank/iter0000 -numPartitions 5 -numNodes 1458
+</pre>
+
+<p>This will be standard hash partitioning.</p>
+
+<p>After setting everything up, the user will iterate multi-source
+personalized PageRank:</p>
+
+<pre>
+etc/hadoop-cluster.sh RunPersonalizedPageRankBasic -base YOURNAME-PageRank \
+  -numNodes 1458 -start 0 -end 20 -sources 9627181,9370233,10207721
+</pre>
+
+<p>Note that the sources are passed in from the command-line
+again. Here, we're running twenty iterations.</p>
+
+<p>Finally, the user runs a program to extract the top ten personalized
+PageRank values, with respect to each source.</p>
+
+<pre>
+etc/hadoop-cluster.sh ExtractTopPersonalizedPageRankNodes -input YOURNAME-PageRank/iter0019 \
+  -top 10 -sources 9627181,9370233,10207721
+</pre>
+
+<p>The output should look like this (printed to stdout):</p>
+
+<pre>
+Source: 9627181
+0.43717 9627181
+0.10006 8618855
+0.09016 8980023
+0.07706 12135350
+0.07433 9562469
+0.07433 10027417
+0.01749 9547235
+0.01607 9880043
+0.01402 8070517
+0.01310 11122341
+
+Source: 9370233
+0.42119 9370233
+0.08627 11325345
+0.08378 11778650
+0.07160 10952022
+0.07160 10767725
+0.07160 8744402
+0.03259 10611368
+0.01716 12182886
+0.01467 12541014
+0.01467 11377835
+
+Source: 10207721
+0.38488 10207721
+0.07983 11775232
+0.07666 12787320
+0.06567 12876259
+0.06545 8642164
+0.06545 10541592
+0.02224 8669492
+0.01963 10940674
+0.01911 10867785
+0.01814 9619639
+</pre>
+
+<h4 style="padding-top: 10px">Additional Specifications</h4>
+
+<p>To make the final output easier to read, in the
+class <code>ExtractTopPersonalizedPageRankNodes</code>, use the
+following format to print each (personalized PageRank value, node id)
+pair:</p>
+
+<pre>
+String.format("%.5f %d", pagerank, nodeid)
+</pre>
+
+<p>This will generate the final results in the same format as
+above. Also note: print actual probabilities, not log
+probabilities&mdash;although during the actual PageRank computation
+keeping values as log probabilities is better.</p>
+
+<p>The final class <code>ExtractTopPersonalizedPageRankNodes</code>
+does not need to be a MapReduce job (but it does need to read from
+HDFS). Obviously, the other classes need to run MapReduce jobs.</p>
+
+<p>The reference implementation of PageRank in Cloud<sup>9</sup> has
+many options: you can either use in-mapper combining or
+ordinary combiners. In your implementation, choose one or the
+other. You do not need to implement both options. Also, the reference
+implementation has an option to either use range partitioning or hash
+partitioning: you only need to implement hash partitioning. You can
+start with the reference implementation and remove code that you don't
+need (see #2 below).</p>
+
+<h4 style="padding-top: 10px">Hints and Suggestion</h4>
+
+<p>To help you out, there's a small helper program in
+Cloud<sup>9</sup> that computes personalized PageRank using a
+sequential algorithm. Use it to check your answers:</p>
+
+<pre>
+etc/run.sh edu.umd.cloud9.example.pagerank.SequentialPersonalizedPageRank -input sample-large.txt -source 9627181
+</pre>
+
+<p>The values from your implementation should be pretty close to the
+output of the above program, but might differ a bit due to convergence
+issues. After 20 iterations, the output of the MapReduce
+implementation should match to at least the fourth decimal place.</p>
+
+<p>This is complex assignment. I would suggest breaking the
+implementation into the following steps:</p>
+
+<ol>
+
+<li>First, copy the reference PageRank implementation into your own
+assignments repo (renaming the classes appropriately). Make sure you
+can get it to run and output the correct results with ordinary
+PageRank.</li>
+
+<li>Simplify the code; i.e., if you decide to use the in-mapper
+combiner, remove the code that works with ordinary combiners.</li>
+
+<li>Implement personalized PageRank from a single source; that is, if
+the user sets option <code>-sources w,x,y,z</code>, simply
+ignore <code>x,y,z</code> and run personalized PageRank with respect
+to <code>w</code>. This can be accomplished with the
+existing <code>PageRankNode</code>, which holds a single floating
+point value.</li>
+
+<li>Extend the <code>PageRankNode</code> class to store an array of
+floats (length of array is the number of sources) instead of a single
+float. Make sure single-source personalized PageRank still runs.</li>
+
+<li>Implement multi-source personalized PageRank.</li>
+
+</ol>
+
+<p>In particular, #3 is a nice checkpoint. If you're not able to get
+the multiple-source personalized PageRank to work, at least completing
+the single-source implementation will allow me to give you partial
+credit.</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>When grading, I will pull your repo in my VM, <code>cd
+MapReduce-assignments/assignment3/</code> and type <code>ant</code> to
+build. Your code should build successfully.</p>
+
+<p>I will test your code by issuing the following commands:</p>
+
+<pre>
+etc/hadoop-cluster.sh BuildPersonalizedPageRankRecords -input sample-large.txt \
+  -output YOURNAME-PageRankRecords -numNodes 1458 -sources RECORDS
+
+hadoop fs -mkdir YOURNAME-PageRank
+
+etc/hadoop-cluster.sh PartitionGraph -input YOURNAME-PageRankRecords \
+  -output YOURNAME-PageRank/iter0000 -numPartitions 5 -numNodes 1458
+
+etc/hadoop-cluster.sh RunPersonalizedPageRankBasic -base YOURNAME-PageRank \
+  -numNodes 1458 -start 0 -end 20 -sources RECORDS
+
+etc/hadoop-cluster.sh ExtractTopPersonalizedPageRankNodes -input YOURNAME-PageRank/iter0019 \
+  -top 10 -sources RECORDS
+</pre>
+
+<p>Where <code>RECORDS</code> stands for a list of node ids of
+arbitrary length (although for practical reasons it won't be more than
+a few nodes long). This is hidden from you. The final
+program <code>ExtractTopPersonalizedPageRankNodes</code> should print
+to stdout a list of top 10 nodes with highest personalized PageRank
+values with respect to each source node (as above).</p>
+
+<p>In <code>MapReduce-assignments/assignment4/assignment4.md</code>,
+tell me if you were able to successfully complete the assignment. This
+is in case I can't get your code to run, I need to know if it is
+because you weren't able to complete the assignment successfully, or
+if it is due to some other issue. If you were not able to implement
+everything, describe how far you've gotten. Feel free to use this
+space to tell me additional things I should look for in your
+implementation.</p>
+
+<p>Also, in the
+file <code>MapReduce-assignments/assignment4/assignment4.md</code>,
+run your implementation with respect to the
+sources <code>9470136,9300650</code>. Run 20 iterations. Copy and
+paste the top ten personalized PageRank values with respect to each
+source in the file. So it should look something like this:</p>
+
+<pre>
+Source: 9470136
+...
+
+Source: 9300650
+...
+</pre>
+
+<p>In case I can't get your code to run, the file will at least give
+me something to look at.</p>
+
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 35 points:
+
+<ul>
+
+<li>The single-source personalized PageRank implementation is worth 10
+points.</li>
+
+<li>That I am able to run the single-source personalized PageRank
+implementation is worth 5 points.</li>
+
+<li>The multiple-source personalized PageRank implementation is worth 15
+points.</li>
+
+<li>That I am able to run the multiple-source personalized PageRank
+implementation is worth 5 points.</li>
+
+</ul>
+
+<p>For example, if you've only managed to get single-source working,
+but I was able to build it and run it successfully, then you'd get 15
+points. That is, I put in <code>-sources w,x,y,z</code> as the option,
+and your implementation ignores <code>x,y,z</code> but does correctly
+compute the personalized PageRank with respect to <code>w</code>.</p>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
