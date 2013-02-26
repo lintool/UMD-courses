@@ -627,7 +627,21 @@ in <i>compressed</i> form (raw bytes, no additional object
 overhead). This is fine because if you use the right compression
 technique, the postings lists are quite small. As a data point, on a
 collection of 50 million web pages, 2GB heap is more than enough for a
-full <i>positional</i> index.</p>
+full <i>positional</i> index (and in this assignment you're not asked
+to store positional information in your postings).</p>
+
+<p>To go into a bit more detail: in the reference implementation, the
+final key type is <code>PairOfWritables&lt;IntWritable,
+ArrayListWritable&lt;PairOfInts&gt;&gt;</code>. The most obvious idea
+is to change that into something
+like <code>PairOfWritables&lt;VIntWritable,
+ArrayListWritable&lt;PairOfVInts&gt;&gt;</code>. This does not work!
+The reason is that you will still be materializing each posting, i.e.,
+all <code>PairOfVInts</code> objects in memory. This translates into a
+Java object for every posting, which is wasteful in terms of memory
+usage and will exhaust memory pretty quickly as you scale. In other
+words, you're <i>still</i> buffering objects&mdash;just inside
+the <code>ArrayListWritable</code>.
 
 <p>This new indexer should be
 named <code>BuildInvertedIndexCompressed</code>.</p>
