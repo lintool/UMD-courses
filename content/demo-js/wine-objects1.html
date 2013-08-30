@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Wine as Objects</title>
+<meta charset="utf-8">
+
+<script>
+
+var DAutrefois = {
+  name: "D'Autrefois Pinot Noir",
+  image: "http://lintool.github.com/INFM603-2012f/assignments/wines/DAutrefois.jpg",
+  location: "Vins de Pays d'Oc, France",
+  varietal: "Pinot Noir",
+  price: 9.99
+};
+
+var RadiusCabernet = {
+  name: "Radius Cabernet",
+  image: "http://lintool.github.com/INFM603-2012f/assignments/wines/RadiusCabernet.jpg",
+  location: "Washington",
+  varietal: "Cabernet Sauvignon",
+  price: 8.99
+};
+
+var AngelineMerlot = {
+  name: "Angeline Merlot Sonoma",
+  image: "http://lintool.github.com/INFM603-2012f/assignments/wines/AngelineMerlot.jpg",
+  location: "Sonoma County, California",
+  varietal: "Merlot",
+  price: 13.99
+};
+
+var RodneyStrongCabernet = {
+  name: "Rodney Strong Cabernet Sonoma",
+  image: "http://lintool.github.com/INFM603-2012f/assignments/wines/RodneyStrongCabernet.jpg",
+  location: "Sonoma County, California",
+  varietal: "Cabernet Sauvignon",
+  price: 12.97
+};
+
+var RedKnotShiraz = {
+  name: "Red Knot Shiraz",
+  image: "http://lintool.github.com/INFM603-2012f/assignments/wines/RedKnotShiraz.jpg",
+  location: "McLaren Vale, Australia",
+  varietal: "Syrah/Shiraz",
+  price: 11.99
+};
+
+var wines = [ DAutrefois, RadiusCabernet, AngelineMerlot, RodneyStrongCabernet, RedKnotShiraz ];
+
+function loadStock() {
+  if (document.getElementById("table").childNodes.length != 0) {
+    alert("Stock already loaded!");
+    return;
+  }
+
+  for (var i = 0; i<wines.length; i++) {
+    var row = document.createElement("tr");
+    var col1 = document.createElement("td");
+    col1.innerHTML = wines[i].name;
+    var col2 = document.createElement("td");
+    col2.innerHTML = "$" + wines[i].price;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+
+    document.getElementById("table").appendChild(row);
+  }
+}
+
+function clearAll() {
+  var table = document.getElementById("table");
+  table.innerHTML = "";
+}
+
+function discount() {
+  for (var i = 0; i<wines.length; i++) {
+    wines[i].price = wines[i].price - 1;
+  }
+  clearAll();
+  loadStock();
+}
+
+</script>
+</head>
+<body onload="loadStock()">
+
+<form>
+<input onclick="loadStock()" type="button" id="loadButton" value="Load Stock">
+<input onclick="clearAll()" type="button" id="clearAllButton" value="Clear Stock">
+<input onclick="discount()" type="button" id="discountButton" value="Discount!">
+</form>
+
+<p>
+<table id="table" border="1" cellpadding="10"></table>
+</p>
+
+</body>
+</html>
+

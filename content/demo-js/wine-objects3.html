@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Wine as Objects</title>
+<meta charset="utf-8">
+
+<script>
+function Wine(name, url, location, varietal, price) {
+  this.name = name;
+  this.url = url;
+  this.location = location;
+  this.varietal = varietal;
+  this.price = price;
+
+  this.render = function() {
+    var row = document.createElement("tr");
+    var col1 = document.createElement("td");
+    col1.innerHTML = this.name;
+    var col2 = document.createElement("td");
+    col2.innerHTML = "$" + this.price;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+
+    return row;
+  };
+}
+
+var wines = [
+  new Wine("D'Autrefois Pinot Noir", "http://lintool.github.com/INFM603-2012f/assignments/wines/DAutrefois.jpg", "Vins de Pays d'Oc, France", "Pinot Noir", 9.99),
+  new Wine("Radius Cabernet", "http://lintool.github.com/INFM603-2012f/assignments/wines/RadiusCabernet.jpg", "Washington", "Cabernet Sauvignon", 8.99),
+  new Wine("Angeline Merlot Sonoma", "http://lintool.github.com/INFM603-2012f/assignments/wines/AngelineMerlot.jpg", "Sonoma County, California", "Merlot", 13.99),
+  new Wine("Rodney Strong Cabernet Sonoma", "http://lintool.github.com/INFM603-2012f/assignments/wines/RodneyStrongCabernet.jpg", "Sonoma County, California", "Cabernet Sauvignon", 12.97),
+  new Wine("Red Knot Shiraz", "http://lintool.github.com/INFM603-2012f/assignments/wines/RedKnotShiraz.jpg", "McLaren Vale, Australia", "Syrah/Shiraz", 11.99)
+];
+
+function loadStock() {
+  if (document.getElementById("table").childNodes.length != 0) {
+    alert("Stock already loaded!");
+    return;
+  }
+
+  for (var i = 0; i<wines.length; i++) {
+    document.getElementById("table").appendChild(wines[i].render());
+  }
+}
+
+function clearAll() {
+  var table = document.getElementById("table");
+  table.innerHTML = "";
+}
+
+function discount() {
+  for (var i = 0; i<wines.length; i++) {
+    wines[i].price = wines[i].price - 1;
+  }
+  clearAll();
+  loadStock();
+}
+
+</script>
+</head>
+<body onload="loadStock()">
+
+<form>
+<input onclick="loadStock()" type="button" id="loadButton" value="Load Stock">
+<input onclick="clearAll()" type="button" id="clearAllButton" value="Clear Stock">
+<input onclick="discount()" type="button" id="discountButton" value="Discount!">
+</form>
+
+<p>
+<table id="table" border="1" cellpadding="10"></table>
+</p>
+
+</body>
+</html>
+

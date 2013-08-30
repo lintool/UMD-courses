@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Events</title>
+<meta charset="utf-8">
+
+<script>
+function handleMouseOver() {
+  console.log("MouseOver event detected");
+}
+
+function handleMouseOut() {
+  console.log("MouseOut event detected");
+}
+
+function handleClick() {
+  console.log("Click event detected");
+}
+
+function handleDoubleClick() {
+  console.log("DoubleClick event detected");
+}
+
+</script>
+</head>
+<body>
+
+<h1 onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Mouse Over and Out</h1>
+
+<button onclick="handleClick()">Click me!</button>
+
+<button ondblclick="handleDoubleClick()">Double click me!</button>
+
+</body>
+</html>
+
