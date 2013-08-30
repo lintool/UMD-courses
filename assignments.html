@@ -75,6 +75,87 @@
 <div>
 <h2>Assignment 0 <small>due September 5</small></h2>
 
+<p><b>Note</b>: This assignment is due <i>on</i> the first day of
+classes, which means that you should have completed the assignment
+prior to our first class meeting. Although this assignment will not be
+graded, it is important that you complete it successfully on time to
+avoid falling behind.</p>
+
+<p>Assignments for this course will be "handed in" as web pages, and
+in this assignment you'll create a homepage for INFM 603. You'll "hand
+in" subsequent assignments by adding new pages linked from your
+homepage.</p>
+
+<p>If you've never created a website before, these instructions will
+show you how to create and upload your first web page on your
+TerpConnect account. Alternatively, if you already have a web site
+elsewhere and would like that use that instead, feel free to do
+so.</p>
+
+<ol>
+
+<li><p>Download and
+install <a href="http://www.sublimetext.com/">Sublime Text</a> (latest
+version is 2.0.2). An evaluation license to use the software is
+free. This is the text editor we'll be using throughout the
+semester. If you're already comfortable with some other text editor,
+you're welcome to use that.</p></li>
+
+<li><p>Create a file named <code>index.html</code> (all letters
+lowercased) with the following contents:</p>
+
+<pre style="margin-top: 10px;">
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Hello World!&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Hello world! I'm Jimmy. Welcome to my INFM 603 homepage!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Instead of my name, substitute your own!</p></li>
+
+<li>You should be able to open up the file in a web browser and see a
+very rudimentary webpage. Next, we're going to upload it to your
+TerpConnect account.</p>
+
+<li><p>Download one of following FTP clients, depending on your operating system:
+
+<ul>
+
+<li><a href="https://www.itsc.umd.edu/MRcgi/MRTicketPage.pl?USER=&MRP=0&PROJECTID=1&MR=37759">Fetch</a> (Mac OS X)</li>
+<li><a href="https://www.itsc.umd.edu/MRcgi/MRTicketPage.pl?USER=&MRP=0&PROJECTID=1&MR=7807">WinSCP</a> (Windows)</li>
+
+</ul>
+</p>
+</li>
+
+<li><p>Now
+follow <a href="https://www.itsc.umd.edu/MRcgi/MRTicketPage.pl?PROJECTID=1&MR=115578">these
+instructions</a> to upload <code>index.html</code> onto the
+server. Put the file in the folder <code>/pub/USERID/INFM603/</code>
+(where USERID is your Directory ID). Note that the directory probably
+doesn't exist initially, so you'll have to create it. For additional
+details,
+see <a href="https://www.itsc.umd.edu/MRcgi/MRTicketPage.pl?USER=&MRP=0&PROJECTID=1&MR=43278">this
+page for Fetch (Mac OS X)</a>
+and <a href="https://www.itsc.umd.edu/MRcgi/MRTicketPage.pl?USER=&MRP=0&PROJECTID=1&MR=39841">this
+page for WinSCP (Windows)</a>.</p>
+</li>
+
+<li><p>If you've completed these steps successfully, you should be
+able to navigate to your TerpConnect homepage for INFM
+603: <a href="http://terpconnect.umd.edu/~jimmylin/INFM603/"><code>http://terpconnect.umd.edu/~jimmylin/INFM603/</code></a>. Obviously,
+the URL for your homepage should have your Directory ID, not
+mine.</p></p>
+
+<li><p>To complete this assignment, send me an email with your name and
+the URL of your INFM 603 homepage. Note that this URL will either be
+of the form above (unless you've decided to host your page elsewhere,
+which is fine also).</p></li>
+
+</ol>
+
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
 </div>
@@ -84,6 +165,95 @@
 <section id="assignment1" style="padding-top:35px">
 <div>
 <h2>Assignment 1 <small>due September 12</small></h2>
+
+<p>"Turn in" this assignment by creating a new web page that contains
+answers to these questions. This page should be linked from your
+course homepage (the URL you gave me in Assignment 0).</p>
+
+<p>Consider the specifications of a laptop that you might consider
+buying:</p>
+
+<ul>
+  <li>Processor: 2.5GHz dual-core Intel Core i5</li>
+  <li>Hard drive: 500 GB, random access time of 10 ms</li>
+  <li>RAM: 4 GB, 100 ns access time</li>
+  <li>Peripherals: DVD-RW</li>
+</ul>
+
+<p>Although we talked about modern processors having multiple cores,
+for this assignment assume that all operations are performed by a
+single core. To simplify calculations, you can assume that 1 megabyte
+is 1,000,000 (one million) bytes, 1 gigabyte is 1,000,000,000 (one
+billion) bytes, etc.</p>
+
+<p>Answer the following questions:</p>
+
+<ol>
+
+<li><p>If you buy some 4.7 GB DVDs, how many would you need to back up
+a full hard drive to DVDs (assuming no compression)? Do you think it's
+convenient to back up your hard drive onto DVDs?</p></li>
+
+<li><p>Now let's see how much stuff that hard drive can hold.  Assume
+you have access to the following information for all 314 million
+people in the United States:</p>
+
+<p><ul>
+<li>Name: 40 characters</li>
+<li>Phone Number: 10 characters</li>
+<li>SSN: 9 characters</li>
+<li>taxes owed: one four-byte number</li>
+</ul></p>
+
+<p>Assume that each character is stored in one byte.</p>
+
+<p>Would all of these data fit on the hard drive of the laptop
+described above? If not, how big a hard drive would you need? If so,
+what fraction of the disk would this fill?</p>
+
+</li>
+
+<li><p>Now let's see how long it would take to read that much data off
+the disk. Assume you have a hard drive large enough to store all the
+data.</p>
+
+<p>Suppose you wanted to add up the taxes owed by all 310 million
+people. Assume that you access the data in a random order, and that
+you start a new disk access for each person (in the specifications
+above I have provided the latency of disk access). How long would it
+take to access all the data?</p>
+
+</li>
+
+<li><p>Assume for the sake of comparison that all of this data could
+fit in RAM.</p>
+
+<p>How long would it take to access all the data from RAM (in the same
+manner as above: reading data in a random order, one person at a
+time)? In the specifications above I have provided the latency of RAM
+access.</p>
+
+</li>
+
+<li><p>Which is faster, RAM or the hard disk? By how much?</p></li>
+
+<li><p>Now let's see how long it would take to move the bits
+around.</p>
+
+<p>How long would it take to move the contents of your entire hard
+drive to your friend's computer in California over a dial-up modem?
+Over broadband? Overnight mail? Note that this question requires you
+to figure out what the speeds of each of those techniques are. Cite
+your sources.</p>
+
+</li>
+
+</ol>
+
+<p>When you are done, your course homepage (i.e., the link you sent me
+in Assignment 0) should contain a link a page which has these
+answers. There is nothing to explicitly turn in; I'll look at your
+assignment directly over the web.</p>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
@@ -95,6 +265,34 @@
 <div>
 <h2>Assignment 2 <small>due September 19</small></h2>
 
+<p>The purpose of this assignment is to exercise the HTML and CSS
+skills learned in
+class. On <a href="assignments/assignment2-template.html">this very
+simple page</a> you'll find a list of red and white wines (Credit for
+the wine descriptions goes
+to <a href="http://www.totalwine.com/">Total Wine</a>). Build a simple
+wine catalog website that contains that content. Your site should have
+at least three inter-connected pages: a main page, a page for red
+wines, and a page for white wines. These pages should contain all
+information from the source page above, but you are welcome to add in
+whatever additional content to "round out" the site. When you are
+done, your course homepage (i.e., the link you sent me in Assignment
+0) should contain a link to the main page of this wine catalog.
+
+<p>Note that each wine comes with regular, structured data such as
+type, price, image, description, etc. It is expected that you will use
+appropriate markup to organize the data, such as tables, lists,
+etc. It is also expected that you use CSS to control the style of
+elements on your site. Your assignment will be graded in terms of
+technical execution (e.g., use of appropriate HTML elements) as well
+as esthetics (e.g., the overal flow of the site, organization of
+material, etc.).</p>
+
+<p>For extra credit, design the site
+using <a href="http://getbootstrap.com/">Bootstrap</a>,
+which is the collection of HTML/CSS tools used for this course
+website.</p>
+
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
 </div>
@@ -105,6 +303,33 @@
 <div>
 <h2>Assignment 3 <small>due September 26</small></h2>
 
+<p>Write the following two programs and post links to your solution on
+your homepage. Each solution should be its own web page:</p>
+
+<ol>
+
+<li>Create a web page with a JavaScript program that computes the future
+value of an initial investment that receives <i>x</i>% interest per
+year after <i>n</i> years. Feel free to
+use <a href="assignments/assignment3-template1.html">this template</a>
+as a starting point (the page currently does not work, but it lets you
+know where you should put your code). Wikipedia provides a refresher
+on <a href="http://en.wikipedia.org/wiki/Compound_interest">compound
+interest</a>.</li>
+
+<li>Create a web page with a JavaScript program that computes the
+minimum number of years that an initial investment will at least
+double at a particular interest rate per year. As with above, feel
+free to use <a href="assignments/assignment3-template2.html">this
+template</a>.</li>
+
+</ol>
+
+<p><i>Hint:</i> We learned about two different types of loop
+constructs in class. One provides a natural solution to one of the
+questions; the other provides a natural solution to the other
+question.</p>
+
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
 </div>
@@ -114,6 +339,35 @@
 <section id="assignment4" style="padding-top:35px">
 <div>
 <h2>Assignment 4 <small>due October 3</small></h2>
+
+<p>In this assignment, you will start with the two pages you created
+for assignment 3 and add to them. In addition to showing the final
+answer (for part 1 and part 2), each page will also show a table with
+the value of the investment over time.</p>
+
+<p>For example, in part 1, if I set the interest rate to 7% and number
+of years to 10, I should see something like this:</p>
+
+<table class="table table-bordered" style="width: 300px">
+<tr><td><b>year</b></td><td><b>amount</b></td></tr>
+<tr><td>1</td><td>1070</td></tr>
+<tr><td>2</td><td>1144.9</td></tr>
+<tr><td>3</td><td>1225.0430000000001</td></tr>
+<tr><td>4</td><td>1310.7960100000003</td></tr>
+<tr><td>5</td><td>1402.5517307000005</td></tr>
+<tr><td>6</td><td>1500.7303518490005</td></tr>
+<tr><td>7</td><td>1605.7814764784307</td></tr>
+<tr><td>8</td><td>1718.186179831921</td></tr>
+<tr><td>9</td><td>1838.4592124201556</td></tr>
+<tr><td>10</td><td>1967.1513572895667</td></tr>
+</table>
+
+<p>Your JavaScript program will have to manipulate the DOM and add
+table rows programmatically. Note that if I enter a particular set of
+values, and then another set of values, the table should only show
+results from the most recent computation&mdash;this means that you
+have to make sure the table is "cleared" before each computation
+begins.</p>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
