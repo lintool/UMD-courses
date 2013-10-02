@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>SQL Exercises</title>
+<meta charset="utf-8">
+
+</head>
+<body>
+
+<h1>Simple SELECTS</h1>
+
+<b>Which tracks are more expensive than $0.99?</b>
+
+<pre>
+select * from Track where UnitPrice > 0.99;
+</pre>
+
+<b>Which tracks are less expensive than $0.99?</b>
+
+<pre>
+select * from Track where UnitPrice < 0.99;
+</pre>
+
+<b>Which tracks have the word "love" in the title?</b>
+
+<pre>
+select * from Track where Name like "%love%";
+</pre>
+
+<b>Which track titles begin with the word "love"?</b>
+
+<font color="white"><pre>
+select * from Track where Name like "love%";
+</pre></font>
+
+<b>Which tracks were composed by Jimi Hendrix?</b>
+
+<font color="white"><pre>
+select * from Track where Composer = 'Jimi Hendrix';
+</pre></font>
+
+
+<h1>Simple Joins</h1>
+
+<b>Which albums are by Aerosmith?</b>
+
+<pre>
+select Name, Title from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+  where Name = "Aerosmith";
+</pre>
+
+<b>Who is the album "Facelift" by?</b>
+
+<pre>
+select Name from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+  where Album.Title = "Facelift";
+</pre>
+
+
+<b>Which albums are by Amy Winehouse?</b>
+
+<font color="white"><pre>
+select Name, Title from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+  where Name = "Amy Winehouse";
+</pre></font>
+
+<b>Which tracks are on the album "Frank"?</b>
+
+<font color="white"><pre>
+select Name from Track
+    join Album on Track.AlbumId = Album.AlbumId
+ where Album.Title = "Frank";
+</pre></font>
+
+<b>Which album is the track "Daughter" on?</b>
+
+<font color="white"><pre>
+Select Title, Name from Album
+    join Track on Track.AlbumId = Album.AlbumId
+  where Name = "Daughter";
+</pre></font>
+
+
+<h1>More Complex Joins</h1>
+
+<b>Which tracks are by Amy Winehouse?</b>
+
+<font color="white"><pre>
+select Artist.Name, Album.Title, Track.Name from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+    join Track on Album.AlbumId = Track.AlbumId
+  where Artist.Name = "Amy Winehouse";
+</pre></font>
+
+<b>Which tracks are on the playlist "Brazilian Music"?</b>
+
+<font color="white"><pre>
+select Playlist.Name, Track.Name from Playlist
+    join PlaylistTrack on PlaylistTrack.PlaylistId = Playlist.PlaylistId
+    join Track on PlaylistTrack.TrackId = Track.TrackId
+  where Playlist.Name = "Brazilian Music";
+</pre></font>
+
+<b>Which tracks are on the playlist "Brazilian Music" and who are they by?</b>
+
+<font color="white"><pre>
+select Playlist.Name, Track.Name, Artist.Name, Album.Title from Playlist
+    join PlaylistTrack on PlaylistTrack.PlaylistId = Playlist.PlaylistId
+    join Track on PlaylistTrack.TrackId = Track.TrackId
+    join Album on Track.AlbumId = Album.AlbumId
+    join Artist on Album.ArtistId = Artist.ArtistId
+  where Playlist.Name = "Brazilian Music";
+</pre></font>
+
+
+<h1>Aggregation</h1>
+
+<b>How many tracks are there on the album "Facelift"?</b>
+
+<pre>
+select count(*) from Track
+    join Album on Track.AlbumId = Album.AlbumId
+  where Title = "Facelift";
+</pre>
+
+<b>How many albums are there by Amy Winehouse?</b>
+
+<pre>
+select count(*) from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+  where Name = "Amy Winehouse";
+</pre>
+
+<b>How much would it cost to buy <i>all</i> the tracks?</b>
+
+<pre>
+select SUM(UnitPrice) from Track;
+</pre>
+
+<b>What's the longest track?</b>
+
+<pre>
+select Name, max(Milliseconds) from Track;
+</pre>
+
+<b>What's the shortest track?</b>
+
+<pre>
+select Name, min(Milliseconds) from Track;
+</pre>
+
+<b>How many tracks are there by each of Amy Winehouse's albums?</b>
+
+<pre>
+select Artist.Name, Album.Title, count(*) from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+    join Track on Album.AlbumId = Track.AlbumId
+  where Artist.Name = "Amy Winehouse"
+  group by title;
+</pre>
+
+<b>How expensive would it be to buy each of Amy Winehouse's albums?</b>
+
+<font color="white"><pre>
+select Artist.Name, Album.Title, SUM(Track.UnitPrice) from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+    join Track on Album.AlbumId = Track.AlbumId
+  where Artist.Name = "Amy Winehouse"
+  group by title;
+</pre></font>
+
+<b>How many songs are on each playlist? Order by the number of songs on each playlist, most to least.</n>
+
+<font color="white"><pre>
+select Playlist.Name, count(*) from PlaylistTrack
+    join Playlist on Playlist.PlaylistId = PlaylistTrack.PlaylistId
+  group by PlaylistTrack.PlaylistId
+  order by count(*) desc;
+</pre></font>
+
+<b>How many albums are there for each artist? Arrange by number of albums in descending order and I only want the top 5.</b>
+
+<font color="white"><pre>
+select Artist.Name, count(*) from Artist
+    join Album on Album.ArtistId = Artist.ArtistId
+  group by Artist.Name
+  order by count(*) desc
+  limit 10;
+</pre></font>
+
+<b>What are the top 5 longest albums and who are they by?</b>
+
+<font color="white"><pre>
+select Album.Title, sum(Milliseconds) from Track
+    join Album on Track.AlbumId = Album.AlbumId
+    join Artist on Album.ArtistId = Artist.ArtistId
+  group by Track.AlbumId
+  order by sum(Milliseconds) desc
+  limit 5;
+</pre></font>
+
+</body>
+</html>

@@ -387,6 +387,40 @@ exercise.</p>
 <div>
 <h2>Assignment 5 <small>due October 10</small></h2>
 
+<p>For this assignment, start with
+the <a href="content/demo-js/wine-objects3.html">wine as objects (part
+3) demo</a>. Modify the program in the following ways:</p>
+
+<ol>
+
+  <li>The demo only displays five wines. Add in content for all ten
+ wines in <a href="assignments/assignment2-template.html">the template
+ from assignment #2</a>. There is no need to include the wine
+ description, e.g., "Elegant, Cherry, Raspberry, Medium-bodied..."</li>
+
+  <li>The demo only displays the name of the wine and its price in the
+  table. Modify the program so that it displays <i>all</i> of the
+  object's properties (name, image, location, varietal, price). Note
+  that the table should show the image of the wine. There is no need
+  to include the description.</li>
+
+  <li>The discount button currently discounts prices by $1.00 each
+  time. Add a text box (note, <i>not</i> an alert box) where you can
+  input how much to discount the wines by each time you click the
+  button. Note that per the exercises in
+  class, <code>discount()</code> should be a method of the object, not
+  a function.</li>
+
+  <li>Implement a button that is the exact opposite of the discount
+  method: it raises prices of the wines. There should be a text box
+  that allows the user to enter how much to raise prices by. This
+  should be implemented as a method, not a function.</li>
+
+  <li>Add some CSS to change the appearance of the page so it does not
+  look so "plain".</li>
+
+</ol>
+
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
 </div>
@@ -396,6 +430,55 @@ exercise.</p>
 <section id="assignment6" style="padding-top:35px">
 <div>
 <h2>Assignment 6 <small>due October 17</small></h2>
+
+<p>In this assignment you'll be working with a simple SQL database
+engine called <a href="http://www.sqlite.org/">SQLite</a>. Download
+<a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">SQLite
+Manager</a>, which is an add-on to Firefox (so you'll need to get it
+first if you haven't already).</p>
+
+<p>We'll be working with the
+database <a href="content/demo-db/Chinook_Sqlite.sqlite">
+Chinook_Sqlite.sqlite</a>, which is
+the <a href="http://chinookdatabase.codeplex.com/">Chinook
+Database</a> (version 1.4). You'll find
+the <a href="http://chinookdatabase.codeplex.com/wikipage?title=Chinook_Schema&referringTitle=Home">database
+schema</a> very helpful as you go about these exercises.</p>
+
+<p>Open Firefox and start the SQLite Manager (under the Tools
+menu). You should now be able to
+open <code>Chinook_Sqlite.sqlite</code>, downloaded from
+above.</p>
+
+<p>For the assignment, answer the following questions. For each,
+provide both the answer and the SQL statement you used to compute the
+answer.</p>
+
+<ol>
+
+  <li>What's the total revenue (i.e., sum of all the invoices)?</li>
+
+  <li>How much in total was <code>InvoiceId</code> 404? (Answer this
+  question with the <code>Invoice</code> table)</li>
+
+  <li>How much in total was <code>InvoiceId</code> 404? (Answer this
+  question with <i>only</i> the <code>InvoiceLine</code> table)</li>
+
+  <li>How many times did John Gordon make a purchase?</li>
+
+  <li>Each time John Gordon made a purchase, on average how much does he spend?</li>
+
+  <li>How much as John Gordon spent in total?</li>
+
+  <li>What are the names of the songs that John Gordon has purchased?
+  How many of them are there?</li>
+
+  <li>How many employees are also customers?</li>
+
+  <li>Who are the 5 top spenders (customers who have spent the most
+  money) and how much have they each spent?</li>
+
+</ol>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 
