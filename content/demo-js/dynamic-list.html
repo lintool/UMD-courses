@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 
 <script>
-function add() {
+function addItem() {
   var textInput = document.getElementById("textInput");
   var value = textInput.value;
   console.log("Adding " + value);
@@ -20,10 +20,10 @@ function add() {
   }
 }
 
-function remove() {
+function removeItem() {
   var textInput = document.getElementById("textInput");
   var value = textInput.value;
-  console.log("I'm now going to remove " + value);
+  console.log("Removing " + value);
 
   if (value == "") {
     alert("Please enter an item");
@@ -74,8 +74,8 @@ ul#list li {
 
 <form>
 <input type="text" id="textInput" size="40" placeholder="list item">
-<input onclick="add()" type="button" id="addButton" value="Add">
-<input onclick="remove()" type="button" id="removeButton" value="Remove">
+<input onclick="addItem()" type="button" id="addButton" value="Add">
+<input onclick="removeItem()" type="button" id="removeButton" value="Remove">
 </form>
 
 <ul id="list"></ul>
