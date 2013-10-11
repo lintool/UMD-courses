@@ -15,7 +15,7 @@
 select * from Track where UnitPrice > 0.99;
 </pre>
 
-<b>Which tracks are less expensive than $0.99?</b>
+<b>Which tracks are less expensive than $0.99? (Are there any?)</b>
 
 <pre>
 select * from Track where UnitPrice < 0.99;
@@ -55,7 +55,7 @@ select Name, Title from Artist
 <pre>
 select Name from Artist
     join Album on Album.ArtistId = Artist.ArtistId
-  where Album.Title = "Facelift";
+  where Title = "Facelift";
 </pre>
 
 
@@ -194,7 +194,7 @@ select Artist.Name, count(*) from Artist
 <b>What are the top 5 longest albums and who are they by?</b>
 
 <font color="white"><pre>
-select Album.Title, sum(Milliseconds) from Track
+select Album.Title, Artist.Name, sum(Milliseconds) from Track
     join Album on Track.AlbumId = Album.AlbumId
     join Artist on Album.ArtistId = Artist.ArtistId
   group by Track.AlbumId
