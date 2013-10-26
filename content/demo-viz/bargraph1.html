@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simple Bar Graph</title>
+
+<script type="text/javascript" src="d3.v2.min.js"></script>
+<style type="text/css">
+
+.chart rect {
+   stroke: white;
+   fill: steelblue;
+ }
+
+</style>
+
+</head>
+<body>
+<script type="text/javascript">
+
+var width = 500;
+
+var data = [4, 8, 15, 16, 23, 42];
+
+var chart = d3.select("body").append("svg")
+     .attr("class", "chart")
+     .attr("width", width)
+     .attr("height", 20 * data.length);
+
+var scaleX = d3.scale.linear()
+     .domain([0, 50])
+     .range([0, width]);
+
+chart.selectAll("rect")
+     .data(data)
+     .enter().append("rect")
+     .attr("x", 0)
+     .attr("y", function(d, i) { return i * 20; })
+     .attr("width", function(d) { return scaleX(d); })
+     .attr("height", 20);
+
+</script>
+</body>
+</html>
