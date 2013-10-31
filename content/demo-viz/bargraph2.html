@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Simple Bar Graph</title>
 
-<script type="text/javascript" src="d3.v2.min.js"></script>
+<script type="text/javascript" src="http://lintool.github.io/INFM603-2013f/content/demo-viz/d3.v2.min.js"></script>
 <style type="text/css">
 
 .chart rect {
@@ -19,26 +19,27 @@
 <script type="text/javascript">
 
 var width = 500;
-var padding = 20;
+var height = 20;
+var hpadding = 20;
 
 var data = [4, 8, 15, 16, 23, 42];
 
 var chart = d3.select("body").append("svg")
      .attr("class", "chart")
      .attr("width", width)
-     .attr("height", 20 * data.length + 40);
+     .attr("height", height * data.length + 40);
 
 var scaleX = d3.scale.linear()
      .domain([0, 50])
-     .range([0, width - padding]);
+     .range([0, width - hpadding]);
 
 chart.selectAll("rect")
      .data(data)
      .enter().append("rect")
-     .attr("x", padding)
-     .attr("y", function(d, i) { return i * 20; })
+     .attr("x", hpadding)
+     .attr("y", function(d, i) { return i * height; })
      .attr("width", function(d) { return scaleX(d); })
-     .attr("height", 20);
+     .attr("height", height);
 
 chart.selectAll("text")
      .data(data)
@@ -48,7 +49,7 @@ chart.selectAll("text")
          return d;
       })
      .attr("x", 0)
-     .attr("y", function(d, i) { return i * 20 + 15; })
+     .attr("y", function(d, i) { return i * height + 15; })
      .attr("font-family", "sans-serif")
      .attr("font-size", "11px")
      .attr("fill", "black");
@@ -56,8 +57,8 @@ chart.selectAll("text")
 d3.select("svg")
   .append("text")
   .text("Graph Title Here")
-  .attr("x", padding)
-  .attr("y", 20 * data.length + 20)
+  .attr("x", hpadding)
+  .attr("y", height * data.length + 20)
   .attr("font-family", "sans-serif")
   .attr("font-size", "16px")
   .attr("font-weight", "bold")

@@ -25,10 +25,10 @@ var data = [4, 8, 15, 16, 23, 42];
 
 for (i=0; i<data.length; i++) {
   var bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-  bar.setAttributeNS(null, "x", 0);
-  bar.setAttributeNS(null, "y", i * 20);
-  bar.setAttributeNS(null, "width", data[i] * 10);
-  bar.setAttributeNS(null, "height", 20);
+  bar.setAttribute("x", 0);
+  bar.setAttribute("y", i * 20);
+  bar.setAttribute("width", data[i] * 10);
+  bar.setAttribute("height", 20);
 
   document.getElementById("svg").appendChild(bar);
 }

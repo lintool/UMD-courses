@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historical Population of Washington D.C.</title>
 
-<script type="text/javascript" src="d3.v2.min.js"></script>
+<script type="text/javascript" src="http://lintool.github.io/INFM603-2013f/content/demo-viz/d3.v2.min.js"></script>
 <style type="text/css">
 
 .chart rect {
@@ -43,26 +43,27 @@ data = [
 ];
 
 var width = 500;
-var padding = 75;
+var height = 20;
+var hpadding = 75;
 
 var f = d3.format(",");
 
 var chart = d3.select("body").append("svg")
      .attr("class", "chart")
      .attr("width", width)
-     .attr("height", 20 * data.length + 50);
+     .attr("height", height * data.length + 50);
 
 var scaleX = d3.scale.linear()
      .domain([0, 850000])
-     .range([0, width-padding]);
+     .range([0, width-hpadding]);
 
 chart.selectAll("rect")
      .data(data)
      .enter().append("rect")
-     .attr("x", padding)
-     .attr("y", function(d, i) { return i * 20; })
+     .attr("x", hpadding)
+     .attr("y", function(d, i) { return i * height; })
      .attr("width", function(d) { return scaleX(d[1]); })
-     .attr("height", 20);
+     .attr("height", height);
 
 chart.selectAll("text")
      .data(data)
@@ -72,7 +73,7 @@ chart.selectAll("text")
          return d[0] + ": " + f(d[1]);
       })
      .attr("x", 0)
-     .attr("y", function(d, i) { return i * 20 + 15; })
+     .attr("y", function(d, i) { return i * height + 15; })
      .attr("font-family", "sans-serif")
      .attr("font-size", "11px")
      .attr("fill", "black");
@@ -80,8 +81,8 @@ chart.selectAll("text")
 d3.select("svg")
   .append("text")
   .text("Historical Population of Washington D.C.")
-  .attr("x", padding)
-  .attr("y", 20 * data.length + 20)
+  .attr("x", hpadding)
+  .attr("y", height * data.length + 20)
   .attr("font-family", "sans-serif")
   .attr("font-size", "16px")
   .attr("font-weight", "bold")
@@ -90,8 +91,8 @@ d3.select("svg")
 d3.select("svg")
   .append("text")
   .text("(Source: Wikipedia)")
-  .attr("x", padding)
-  .attr("y", 20 * data.length + 33)
+  .attr("x", hpadding)
+  .attr("y", height * data.length + 33)
   .attr("font-family", "sans-serif")
   .attr("font-size", "10px")
   .attr("fill", "black");
