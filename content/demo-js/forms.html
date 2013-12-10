@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Forms</title>
+<meta charset="utf-8">
+
+<script>
+function handleClick() {
+  var textInput = document.getElementById("textInput");
+  var textValue = textInput.value;
+  console.log("text: " + textValue);
+
+  var selectInput = document.getElementById("selectInput");
+  var selectedIndex = selectInput.selectedIndex;
+  var selectedValue = selectInput.options[selectedIndex].value;
+  console.log("selected value: " + selectedValue);
+
+  var maleChecked = document.getElementById("radioMale").checked;
+  console.log("male checked: " +  maleChecked);
+  var femaleChecked = document.getElementById("radioFemale").checked;
+  console.log("female checked: " +  femaleChecked);
+
+  var hasDog = document.getElementById("checkDog").checked;
+  console.log("dog? " +  hasDog);
+  var hasCat = document.getElementById("checkCat").checked;
+  console.log("cat? " +  hasCat);
+}
+</script>
+</head>
+<body>
+
+<form>
+<p><input type="text" id="textInput" size="40"><br/></p>
+
+<p>
+<select id="selectInput">
+  <option value="volvo">Volvo (safe but boring)</option>
+  <option value="mercedes">Mercedes (luxurious but expensive)</option>
+  <option value="bmw">BMW (sporty but common)</option>
+  <option value="audi">Audi (nice alternative)</option>
+</select>
+</p>
+
+<p>
+<input id="radioMale" type="radio" name="sex" value="male">Male<br>
+<input id="radioFemale" type="radio" name="sex" value="female">Female
+</p>
+
+<p>
+<input id="checkDog" type="checkbox" name="pet" value="dog">I have a dog<br>
+<input id="checkCat" type="checkbox" name="pet" value="cat">I have a cat 
+</p>
+
+<p><input onclick="handleClick()" type="button" id="button" value="Click me!"></p>
+</form>
+
+</body>
+</html>

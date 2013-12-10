@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Temperature Conversion</title>
+<meta charset="utf-8">
+
+<script>
+function convertTemperature() {
+  var low = document.getElementById("textInputLow").value;
+  var high  = document.getElementById("textInputHigh").value;
+  console.log("Low: " + low);
+  console.log("High: " + high);
+
+  var celsiusLow = 5/9 * (low-32);
+  var celsiusHigh = 5/9 * (high-32);
+
+  document.getElementById("outputLow").value = celsiusLow;
+  document.getElementById("outputHigh").value = celsiusHigh;
+}
+</script>
+</head>
+<body>
+
+<h1>Temperature in Fahrenheit</h1>
+
+<form>
+Low: <input type="text" id="textInputLow" size="10">
+High: <input type="text" id="textInputHigh" size="10">
+<input onclick="convertTemperature()" type="button" id="convertButton" value="Convert">
+</form>
+
+<hr/>
+
+<h1>Temperature in Celsius</h1>
+
+<form>
+Low: <input type="text" id="outputLow" size="10" readonly="readonly">
+High: <input type="text" id="outputHigh" size="10" readonly="readonly">
+</form>
+
+
+</body>
+</html>
+

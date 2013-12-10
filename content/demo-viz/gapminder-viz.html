@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gapminder Visualization</title>
+
+<script type="text/javascript" src="http://lintool.github.io/INFM603-2013f/content/demo-viz/d3.v2.min.js"></script>
+<script type="text/javascript" src="http://lintool.github.io/INFM603-2013f/content/demo-viz/gapminder-data.js"></script>
+<style type="text/css">
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+</style>
+
+</head>
+<body>
+<script type="text/javascript">
+
+dataset.sort(function(a,b) { return b[3] - a[3]; } );
+
+// specifications of the SVG
+var w = 600;
+var h = 400;
+var padding = 25;
+
+// scales and axes
+var scaleX =
+  d3.scale.log()
+    .domain([100, 100000])
+    .range([padding, w - padding * 2]);
+
+var scaleY =
+  d3.scale.linear()
+    .domain([20, 90])
+    .range([h - padding, padding]);
+
+var scaleCircle =
+  d3.scale.linear()
+    .domain([10000000, 1500000000])
+    .range([5, 30]);
+
+var axisX =
+  d3.svg.axis()
+    .scale(scaleX)
+    .orient("bottom")
+    .tickFormat(d3.format(""))
+    .tickValues([100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000]);
+
+var axisY =
+  d3.svg.axis()
+    .scale(scaleY)
+    .orient("left")
+    .tickValues([20, 30, 40, 50, 60, 70, 80, 90]);
+
+// Create SVG element
+var svg =
+  d3.select("body")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("fill", "lightblue")
+   .attr("stroke", "black")
+   .attr("stroke-width", "1")
+   .attr("country", function(d) { return d[0]; })
+   .attr("cx", function(d) {
+       return scaleX(d[1]);
+     })
+   .attr("cy", function(d) {
+       return scaleY(d[2]);
+     })
+   .attr("r", function(d) { 
+       if (d[3] < 10000000 ) { return 2 };
+       return scaleCircle(d[3])
+     })
+   .on("mouseover", function() {
+       d3.select(this).style("fill", "blue");
+       d3.select("text")[0][0].textContent = d3.select(this)[0][0].getAttribute("country");
+     })
+   .on("mouseout", function() {
+       d3.select(this).style("fill", "lightblue");
+       d3.select("text")[0][0].textContent = "";}
+     );
+
+d3.select("svg")
+  .append("text")
+  .text("").attr("x", 300).attr("y", 300)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "16px")
+  .attr("fill", "blue");
+
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(0," + (h - padding) + ")")
+   .call(axisX);
+
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(" + padding + ",0)")
+   .call(axisY);
+
+d3.select("svg")
+  .append("text")
+  .text("Wealth and Health of Nations").attr("x", 175).attr("y", 20)
+  .attr("font-family", "sans-serif")
+  .attr("font-weight", "bold")
+  .attr("font-size", "16px")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("Life expectancy").attr("x", 5).attr("y", 10)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("(years)").attr("x", 25).attr("y", 21)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("Income per person (GDP/capita, PPP$ inflation-adjusted)").attr("x", 325).attr("y", 370)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("(radius proportional to population)").attr("x", 50).attr("y", 75)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("(source: gapminder.com)").attr("x", 220).attr("y", 33)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+</script>
+</body>
+</html>
