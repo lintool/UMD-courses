@@ -13,6 +13,9 @@
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
+      pre {
+        font-size: 90%;
+      }
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -298,6 +301,241 @@ successfully completed the assignment. I expect everyone to get a
 <div>
 <h3>Assignment 2: Counting <small>due 6:00pm February 16</small></h3>
 
+<p>Begin by setting up your development environment. In your GitHub
+repo <code>bigdata-assignments/</code>, create a Maven project with
+the following command:</p>
+
+<pre>
+$ mvn archetype:create -DgroupId=edu.umd.YOUR_USERNAME -DartifactId=assignment2
+</pre>
+
+<p>For <code>YOUR_USERNAME</code>, please use your GitHub username
+(not your UMD directory ID, not your email address, or anything
+else...). In what follows below, I will use
+<code>jimmylin</code>, but you should obviously substitute your
+own. Once you've executed the above command, change directory
+to <code>bigdata-assignments/assignment2</code>. In that directory,
+replace <code>pom.xml</code> with this
+version <a href="assignments/pom.xml">here</a> (which is set up
+properly for Hadoop). However, inside <code>pom.xml</code>, change the
+following line and replace my username with yours.</p>
+
+<pre>
+  &lt;groupId&gt;edu.umd.jimmylin&lt;/groupId&gt;
+</pre>
+
+<p>Also, replace all instances of <code>assignment1</code> with
+<code>assignment2</code>.</p>
+
+<p>The actual assignment begins with an optional <i>but
+recommended</i> component: complete
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/bigrams.html">bigram
+counts exercise</a> in Cloud<sup>9</sup>. The solution is already
+checked in the repo, so it won't be graded. Even if you decide not to
+write code for the exercise, take some time to sketch out what the
+solution would look like. The exercises are designed to help you
+learn: jumping directly to the solution defeats this purpose.</p>
+
+<p>In this assignment you'll be
+computing <a href="http://en.wikipedia.org/wiki/Pointwise_mutual_information">pointwise
+mutual information</a>, which is a function of two events <i>x</i>
+and <i>y</i>:</p>
+
+<p><img width="200" src="assignments/PMI.png"/></p>
+
+<p>The larger the magnitude of PMI for <i>x</i> and <i>y</i> is,
+the more information you know about the probability of seeing <i>y</i>
+having just seen <i>x</i> (and vice-versa, since PMI is
+symmetrical). If seeing <i>x</i> gives you no information about seeing
+<i>y</i>, then <i>x</i> and <i>y</i> are independent and the PMI is
+zero.</p>
+
+<p>To complete this assignment, you'll need to work with the UMIACS
+cluster. In the beginning of the assignment you'll be working with the
+toy <code>bible+shakes.nopunc.gz</code> corpus, but later you'll move
+to a larger corpus (more below). You can start working on the UMIACS
+cluster directly, or you can start on the Cloudera VM and move to the
+UMIACS cluster later. It's your choice, but as we discussed in class,
+debugging may be easier inside your Cloudera VM.</p>
+
+<p>Write a program that computes the PMI of words in the
+sample <code>bible+shakes.nopunc.gz</code> corpus. To be more
+specific, the event we're after is <i>x</i> occurring on a line in the
+file or <i>x</i> and <i>y</i> co-occurring on a line. That is, if a
+line contains A, A, B; then there is only one instance of A and B
+appearing together, not two. To reduce the number of spurious pairs,
+we are only interested in pairs of words that co-occur in ten or more
+lines. Use the same definition of "word" as in the word count demo:
+whatever Java's <code>StringTokenizer</code> gives.</p>
+
+<p>You will build two versions of the program (put both in
+package <code>edu.umd.YOUR_USERNAME</code>):</p>
+
+<ol>
+
+  <li>A "pairs" implementation. The implementation must use
+  combiners. Name this implementation <code>PairsPMI</code>.</li>
+
+  <li>A "stripes" implementation.  The implementation must use
+  combiners. <code>StripesPMI</code>.</li>
+
+</ol>
+
+<p>If you feel compelled (for extra credit), you are welcome to try
+out the "in-mapper combining" technique for both implementations.</p>
+
+<p>Since PMI is symmetrical, PMI(x, y) = PMI(y, x). However, it's
+actually easier in your implementation to compute both values, so
+don't worry about duplicates. Also, use <code>TextOutputFormat</code>
+so the results of your program are human readable.</p>
+
+<p><b>Note:</b> just so everyone's answer is consistent, please use
+log base 10.</p>
+
+<p>Answer the following questions:</p>
+
+<p><b>Question 0.</b> <i>Briefly</i> describe in prose your solution,
+both the pairs and stripes implementation. For example: how many
+MapReduce jobs? What are the input records? What are the intermediate
+key-value pairs? What are the final output records? A paragraph for
+each implementation is about the expected length.</p>
+
+<p><b>Question 1.</b> What is the running time of the complete pairs
+implementation? What is the running time of the complete stripes
+implementation? (Did you run this in your VM or on the UMIACS cluster?
+Either is fine, but tell me which one.)</p>
+
+<p><b>Question 2.</b> Now disable all combiners. What is the running
+time of the complete pairs implementation now? What is the running
+time of the complete stripes implementation? (Did you run this in your
+VM or on the UMIACS cluster?  Either is fine, but tell me which
+one.)</p>
+
+<p><b>Question 3.</b> How many distinct PMI pairs did you extract?</p>
+
+<p><b>Question 4.</b> What's the pair (x, y) with the highest PMI?
+Write a sentence or two to explain what it is and why it has such a
+high PMI.</p>
+
+<p><b>Question 5.</b> What are the three words that have the highest
+PMI with "cloud" and "love"? And what are the PMI values?</p>
+
+<p>Note that you can compute the answer to questions 3&mdash;5 however
+you wish: a helper Java program, a Python script, command-line
+manipulation, etc.</p>
+
+<p>Now, answer the same questions 1&mdash;5 for the following corpus, which
+is stored on HDFS on the UMAICS cluster:</p>
+
+<pre>
+/shared/simplewiki-20141222-pages-articles.txt
+</pre>
+
+<p>That file is 121 MB and contains the latest version
+of <a href="http://simple.wikipedia.org/wiki/Main_Page">Simple English
+Wikipedia</a>. Number the answers to these questions 6&mdash;10.</p>
+
+<p>Note that it is possible to complete questions 1&mdash;5 on your
+Cloudera VM, but you <i>must</i> answer questions 6&mdash;10 on the
+UMIACS cluster. This is to ensure that your code "scales
+correctly".</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Please follow these instructions carefully!</p>
+
+<p>Make sure your repo has the following items:</p>
+
+<ul>
+
+<li>Similar to your first assignment, the answers to the questions go
+in <code>bigdata-assignments/assignment2/assignment2.md</code>.</li>
+
+<li>The pairs and stripes implementation should be
+in <code>bigdata-assignments/assignment2/src/</code>. Of course, your
+repo may contain other Java code.</li>
+
+</ul>
+
+<p>When grading, I will perform a clean clone of your repo, change
+directory into <code>bigdata-assignments/assignment2/</code> and build
+your code:<p>
+
+<pre>
+$ mvn clean package
+</pre>
+
+<p>Your code should build successfully.  I am then going to run your
+code (for the pairs and stripes implementations, respectively):</p>
+
+<pre>
+$ hadoop jar target/assignment2-1.0-SNAPSHOT-fatjar.jar edu.umd.YOUR_USERNAME.PairsPMI \
+   -input DATA -output output-pairs -numReducers 5
+
+$ hadoop jar target/assignment2-1.0-SNAPSHOT-fatjar.jar edu.umd.YOUR_USERNAME.StripesPMI \
+   -input DATA -output output-stripes -numReducers 5
+</pre>
+
+<p>For <code>DATA</code>, I am either going to
+use <code>bible+shakes.nopunc</code>
+or <code>simplewiki-20141222-pages-articles.txt</code> (you can assume
+that I'll supply the correct HDFS path). Note that I am going to check
+the output and I expect the contents in the final output on HDFS to be
+human readable.</p>
+
+<p>When you've done everything, commit to your repo and remember to
+push back to origin. You should be able to see your edits in the web
+interface. Before you consider the assignment "complete", I would
+recommend that you verify everything above works by performing a clean
+clone of your repo and going through the steps above.</p>
+
+<p>That's it! There's no need to send me anything&mdash;I already know
+your username from the first assignment. Note that everything should
+be committed and pushed to origin before the deadline (before class on
+February 16). Git timestamps your commits and so I can tell if your
+assignment is late.</p>
+
+<h4 style="padding-top: 10px">Hints</h4>
+
+<ul>
+  <li>Did you take a look at the <a href="http://lintool.github.com/Cloud9/docs/exercises/bigrams.html">bigram
+counts exercise</a>?</li>
+
+  <li>Your solution may require more than one MapReduce job.</li>
+
+  <li>Recall from lecture techniques for loading in "side data"?</li>
+
+  <li>Look in <code>edu.umd.cloud9.example.cooccur</code> for a
+  reference implementation of the pairs and stripes techniques.</li>
+
+  <li>As disscussed in class,
+  my <a href="https://github.com/lintool/tools/tree/master/lintools-datatypes/">lintools-datatypes
+  package</a> package has <code>Writable</code> datatypes that you
+  might find useful.</li>
+
+</ul>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 40 points:
+
+<ul>
+
+<li>Each of the questions 1 to 10 is worth 1 point, for a total of 10
+points.</li>
+
+<li>The pairs implementation is worth 10 points and the stripes
+implementation is worth 10 points. The purpose of question 0 is to
+help me understand your implementation.</li>
+
+<li>Getting your code to run is worth 5 points for each implementation
+(i.e., 10 points total). That is, to earn all five points, I should be
+able to run your code (building and running), following exactly the
+procedure above. Therefore, if all the answers are correct and the
+implementation seems correct, but I cannot get your code to build and
+run, you will only get a score of 30/40.</li>
+
+</ul>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
