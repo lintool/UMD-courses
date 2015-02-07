@@ -546,6 +546,213 @@ run, you will only get a score of 30/40.</li>
 <div>
 <h3>Assignment 3: Inverted Indexing <small>due 6:00pm February 23</small></h3>
 
+<p>Begin by setting up your development environment. The process is
+exactly the same as in the previous assignment. In your GitHub
+repo <code>bigdata-assignments/</code>, create a Maven project with
+the following command:</p>
+
+<pre>
+$ mvn archetype:create -DgroupId=edu.umd.YOUR_USERNAME -DartifactId=assignment3
+</pre>
+
+<p>For <code>YOUR_USERNAME</code>, please use your GitHub
+username. Once you've executed the above command, change directory
+to <code>bigdata-assignments/assignment3</code>. In that directory,
+replace <code>pom.xml</code> with this
+version <a href="assignments/pom.xml">here</a> (which is set up
+properly for Hadoop). However, inside <code>pom.xml</code>, change the
+following line and replace my username with yours.</p>
+
+<pre>
+  &lt;groupId&gt;edu.umd.jimmylin&lt;/groupId&gt;
+</pre>
+
+<p>Also, replace all instances of <code>assignment1</code> with
+<code>assignment3</code>.</p>
+
+<p>This assignment begins with an optional <i>but recommended</i>
+component: complete
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/indexing.html">inverted
+indexing exercise</a>
+and <a href="http://lintool.github.com/Cloud9/docs/exercises/retrieval.html">boolean
+retrieval exercise</a> in Cloud<sup>9</sup>. The solution is already
+checked in the repo, so it won't be graded. However, the rest of the
+assignment builds from there. Even if you decide not to write code for
+those two exercises, take some time to sketch out what the solution
+would look like. The exercises are designed to help you learn: jumping
+directly to the solution defeats the purpose.</p>
+
+<p>Starting from the inverted indexing baseline, modify the indexer
+code in the two following ways:</p>
+
+<p><b>1. Index Compression.</b> The index should be compressed using
+VInts: see <code>org.apache.hadoop.io.WritableUtils</code>. You should
+also use gap-compression techniques as appropriate.</p>
+
+<p><b>2. Scalability.</b> The baseline indexer implementation
+currently buffers and sorts postings in the reducer, which as we
+discussed in class is not a scalable solution. Address this
+scalability bottleneck using techniques we discussed in class and in
+the textbook.</p>
+
+<p><b>Note:</b> The major scalability issue is
+buffering <i>uncompressed</i> postings in memory. In your solution,
+you'll still end up buffering each postings list, but
+in <i>compressed</i> form (raw bytes, no additional object
+overhead). This is fine because if you use the right compression
+technique, the postings lists are quite small. As a data point, on a
+collection of 50 million web pages, 2GB heap is more than enough for a
+full <i>positional</i> index (and in this assignment you're not asked
+to store positional information in your postings).</p>
+
+<p>To go into a bit more detail: in the reference implementation, the
+final key type is <code>PairOfWritables&lt;IntWritable,
+ArrayListWritable&lt;PairOfInts&gt;&gt;</code>. The most obvious idea
+is to change that into something
+like <code>PairOfWritables&lt;VIntWritable,
+ArrayListWritable&lt;PairOfVInts&gt;&gt;</code>. This does not work!
+The reason is that you will still be materializing each posting, i.e.,
+all <code>PairOfVInts</code> objects in memory. This translates into a
+Java object for every posting, which is wasteful in terms of memory
+usage and will exhaust memory pretty quickly as you scale. In other
+words, you're <i>still</i> buffering objects&mdash;just inside
+the <code>ArrayListWritable</code>.
+
+<p>This new indexer should be
+named <code>BuildInvertedIndexCompressed</code>. This new class should
+be in the package <code>edu.umd.YOUR_USERNAME</code>. Make sure it
+works on the <code>bible+shakes.nopunc</code> collection.</p>
+
+<p>Modify <code><a href="https://github.com/lintool/Cloud9/blob/master/src/main/java/edu/umd/cloud9/example/ir/BooleanRetrieval.java">BooleanRetrieval</a></code>
+so that it works with the new compressed indexes (on
+the <code>bible+shakes.nopunc</code> collection). Name this new
+class <code>BooleanRetrievalCompressed</code>. This new class should
+be in the package <code>edu.umd.YOUR_USERNAME</code> and
+give <i>exactly</i> the same output as the old version.</p>
+
+<p>Next, make sure your <code>BuildInvertedIndexCompressed</code>
+and <code>BooleanRetrievalCompressed</code> implementations work on
+the larger collection on HDFS in the UMIACS cluster:</p>
+
+<pre>
+/shared/simplewiki-20141222-pages-articles.txt
+</pre>
+
+<p>Note that <code>BooleanRetrievalCompressed</code> has a number of
+queries that are hard-coded in the <code>main</code>. For simplicity,
+use those same queries on the simplewiki collection also.</p>
+
+<p>Another note: the <code>BooleanRetrieval</code> reference
+implementation prints out the entire line (i.e., "document") that
+satisfies the query. For the <code>bible+shakes.nopunc</code>
+collection, this is fine since the lines are short. However, in the
+simplewiki collection, the lines (i.e., documents) are much longer, so
+you should somehow truncate: either print out only the article title
+or the first 80 characters, or something along those lines.</p>
+
+<p>Answer the following questions:</p>
+
+<p><b>Question 1.</b> What is the size of your compressed index for <code>bible+shakes.nopunc</code>?</p>
+
+<p><b>Question 2.</b> What is the size of your compressed index for <code>simplewiki-20141222-pages-articles.txt</code>?</p>
+
+<p><b>Question 3.</b> Which articles in <code>simplewiki-20141222-pages-articles.txt</code> satisfy the following boolean queries?</p>
+
+<pre>
+outrageous AND fortune
+means AND deceit
+(white OR red ) AND rose AND pluck
+(unhappy OR outrageous OR (good AND your)) AND fortune
+</pre>
+
+<p>Note that I just want the article titles only (not the actual text).</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Please follow these instructions carefully!</p>
+
+<p>Make sure your repo has the following items:</p>
+
+<ul>
+
+<li>Similar to your second assignment, the answers to the questions go
+in <code>bigdata-assignments/assignment3/assignment3.md</code>.</li>
+
+<li>Your code goes in <code>bigdata-assignments/assignment3/src/</code>.</li>
+
+</ul>
+
+<p>When grading, I will perform a clean clone of your repo, change
+directory into <code>bigdata-assignments/assignment3/</code> and build
+your code:<p>
+
+<pre>
+$ mvn clean package
+</pre>
+
+<p>Your code should build successfully. I am then going to run your
+code on the <code>bible+shakes.nopunc</code> collection:</p>
+
+<pre>
+$ hadoop jar target/assignment3-1.0-SNAPSHOT-fatjar.jar edu.umd.YOUR_USERNAME.BuildInvertedIndexCompressed \
+   -input bible+shakes.nopunc -output index-shakes -numReducers 1
+
+$ hadoop jar target/assignment3-1.0-SNAPSHOT-fatjar.jar edu.umd.YOUR_USERNAME.BooleanRetrievalCompressed \
+   -index index-shakes -collection bible+shakes.nopunc
+</pre>
+
+<p>The index should build properly (the size should match your answer
+to Question 1), and the output of the boolean retrieval should be
+correct.</p>
+
+<p>I am next going to test your code on
+the <code>simplewiki-20141222-pages-articles.txt</code>
+collection:</p>
+
+<pre>
+$ hadoop jar target/assignment3-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BuildInvertedIndexCompressed \
+   -input /shared/simplewiki-20141222-pages-articles.txt -output index-enwiki -numReducers 1
+
+$ hadoop jar target/assignment3-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BooleanRetrievalCompressed \
+   -index index-enwiki -collection /shared/simplewiki-20141222-pages-articles.txt
+</pre>
+
+<p>The index should build properly (the size should match your answer
+to Question 2). The output of <code>BooleanRetrievalCompressed</code>
+should match your answer to Question 3 above.</p>
+
+<p>When you've done everything, commit to your repo and remember to
+push back to origin. You should be able to see your edits in the web
+interface. Before you consider the assignment "complete", I would
+recommend that you verify everything above works by performing a clean
+clone of your repo and going through the steps above.</p>
+
+<p>That's it! There's no need to send me anything&mdash;I already know
+your username from the first assignment. Note that everything should
+be committed and pushed to origin before the deadline (before class on
+February 23). Git timestamps your commits and so I can tell if your
+assignment is late.</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 40 points:
+
+<ul>
+
+<li>The implementation of <code>BuildInvertedIndexCompressed</code> is
+worth 20 points: index compression is worth 10 points and making sure
+the algorithm is scalable is worth 10 points.</li>
+
+<li>The implementation of <code>BooleanRetrievalCompressed</code> is
+worth 10 points.</li>
+
+<li>Getting your code to run is worth 10 points. That is, to earn all
+10 points, I should be able to run your code (building and running),
+following exactly the procedure above. Therefore, if all the answers
+are correct and the implementation seems correct, but I cannot get
+your code to build and run, you will only get a score of 30/40.</li>
+
+</ul>
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
