@@ -1120,6 +1120,156 @@ compute the personalized PageRank with respect to <code>w</code>.</p>
 <div>
 <h3>Assignment 5: HBase <small>due 6:00pm April 6</small></h3>
 
+<p>Begin by setting up your development environment. The process is
+exactly the same as in the previous assignments. In your GitHub
+repo <code>bigdata-assignments/</code>, create a Maven project with
+the following command:</p>
+
+<pre>
+$ mvn archetype:create -DgroupId=edu.umd.YOUR_USERNAME -DartifactId=assignment5
+</pre>
+
+<p>For <code>YOUR_USERNAME</code>, please use your GitHub
+username. Once you've executed the above command, change directory
+to <code>bigdata-assignments/assignment5</code>. In that directory,
+replace <code>pom.xml</code> with this
+version <a href="assignments/pom-assignment5.xml">here</a> (which is set up
+properly for Hadoop and HBase). However, inside <code>pom.xml</code>, change the
+following line and replace my username with yours.</p>
+
+<pre>
+  &lt;groupId&gt;edu.umd.jimmylin&lt;/groupId&gt;
+</pre>
+
+<p>Note that the link to the <code>pom.xml</code> above is <b>not</b>
+the same as the ones from the previous assignments, since in this case
+we need to pull in the HBase-related artifacts.</p>
+
+<p>Start off by running <code>HBaseWordCount</code>
+and <code>HBaseWordCountFetch</code> in
+package <code>edu.umd.cloud9.example.hbase</code> of
+Cloud<sup>9</sup>. Make sure you've pulled the latest master branch in
+the Cloud<sup>9</sup> repo, because those classes are relatively new
+additions.</p>
+
+<p>The program <code>HBaseWordCount</code> is like the basic word
+count demo (from Assignment 0), except that it stores the output in an
+HBase table. That is, the reducer output is directly written to an
+HBase table: the word serves as the row key, "c" is the column family,
+"count" is the column qualifier, and the value is the actual count. As
+we discussed in class, this allows clients random access to data
+stored in HDFS.</p>
+
+<p>The program <code>HBaseWordCountFetch</code> illustrates how you
+can fetch these counts out of HBase and shows you how to use the basic
+HBase "get" API.</p>
+
+<p>Study these two programs to make sure you understand how they
+work. Make sure you can run both programs.</p>
+
+<p>In this assignment, you will start from
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/indexing.html">inverted
+indexing exercise</a>
+and <a href="http://lintool.github.com/Cloud9/docs/exercises/retrieval.html">boolean
+retrieval exercise</a> in Cloud<sup>9</sup> and modify the programs to
+use HBase as the storage backend. You can start from the solutions
+that are already checked in the repo. Specifically, you will write two
+programs, <code>BuildInvertedIndexHBase</code>
+and <code>BooleanRetrievalHBase</code>:</p>
+
+<p><code>BuildInvertedIndexHBase</code> is the HBase version
+of <code>BuildInvertedIndex</code> from the inverted indexing exercise
+above. Instead of writing the index to HDFS, you will write the index
+to an HBase table. Use the following table structure: the term will be
+the row key. Your table will have a single column family called
+"p". In the column family, each document id will be a column
+qualifier. The value will be the term frequency.</p>
+
+<p>Something for you to think about: do you need reducers?</p>
+
+<p><code>BooleanRetrievalHBase</code> is the HBase version
+of <code>BooleanRetrieval</code> from the boolean retrieval exercise
+above. This program should read postings from HBase. Note that the
+only thing you need to change is the
+method <code>fetchDocumentSet</code>: instead of reading from
+the <code>MapFile</code>, you'll read from the HBase. You shouldn't
+need to change anything else in the code.</p>
+
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>When grading, I will perform a clean clone of your repo, change
+directory into <code>bigdata-assignments/assignment5/</code> and build
+your code:<p>
+
+<pre>
+$ mvn clean package
+</pre>
+
+<p>Your code should build successfully. I am then going to run your
+code on the <code>bible+shakes.nopunc</code> collection:</p>
+
+<pre>
+$ hadoop jar target/assignment5-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BuildInvertedIndexHBase \
+   -input bible+shakes.nopunc -output index-bibleshakes-jimmylin
+
+$ hadoop jar target/assignment5-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BooleanRetrievalHBase \
+   -collection bible+shakes.nopunc -index index-bibleshakes-jimmylin
+</pre>
+
+<p>Of course, I will substitute your username
+for <code>jimmylin</code>. The output of the second command should be
+the same as the output of <code>BooleanRetrieval</code> in
+Cloud<sup>9</sup>. Therefore, if you get the same results you'll know
+that your implementation is correct.</p>
+
+<p>I will then run your code on the simplewiki dataset:</p>
+
+<pre>
+$ hadoop jar target/assignment5-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BuildInvertedIndexHBase \
+   -input /shared/simplewiki-20141222-pages-articles.txt -output index-simplewiki-jimmylin
+
+$ hadoop jar target/assignment5-1.0-SNAPSHOT-fatjar.jar edu.umd.jimmylin.BooleanRetrievalHBase \
+   -collection /shared/simplewiki-20141222-pages-articles.txt -index index-simplewiki-jimmylin
+</pre>
+
+<p>Finally, in the
+file <code>bigdata-assignments/assignment5/assignment5.md</code>,
+answer these two questions:</p>
+
+<p><b>1.</b> What is the scalability issue with this particular HBase
+table design?</p>
+
+<p><b>2.</b> How would you fix it? You don't need to actually
+implement the solution; just outline the design of both the indexer
+and retrieval engine that would overcome the scalability issues in the
+previous question.</p>
+
+<p>The answer to each shouldn't be longer than a couple of
+paragraphs.</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 35 points:
+
+<ul>
+
+<li>Question 1 is worth 5 points.</li>
+<li>Question 2 is worth 5 points.</li>
+
+<li>The implementation to <code>BuildInvertedIndexHBase</code> is
+worth 10 points; the implementation
+to <code>BooleanRetrievalHBase</code> is worth 5 points.</li>
+
+<li>Getting your code to run is worth 10 points. That is, to earn all
+10 points, I should be able to run your code (building and running),
+following exactly the procedure above. Therefore, if all the answers
+are correct and the implementation seems correct, but I cannot get
+your code to build and run, you will not earn these points.</li>
+
+</ul>
+
+
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
 </section>
