@@ -1167,6 +1167,12 @@ HBase "get" API.</p>
 <p>Study these two programs to make sure you understand how they
 work. Make sure you can run both programs.</p>
 
+<p><b>NOTE:</b> Since HBase is a shared resource across the
+cluster, <i>please</i> make your tables unique by using your username
+as part of the table name. Don't just name your
+table <code>index</code>, because that's likely to conflict to someone
+else's table; instead, name the table <code>index-USERNAME</code>.</p>
+
 <p>In this assignment, you will start from
 the <a href="http://lintool.github.com/Cloud9/docs/exercises/indexing.html">inverted
 indexing exercise</a>
