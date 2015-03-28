@@ -1451,15 +1451,174 @@ individual counts (in the <code>map</code>), finally group by and sum
 <p>In Spark, <code>join</code> takes <code>(K, V1)</code>
 and <code>(K, V2)</code> to give you <code>(K, (V1,
 V2))</code>. The <code>._1</code>, <code>._2</code> are Scala's
-notation for access fields in the Tuple, e.g., <code>s._2._1</code>
+notation to access fields in the tuple, e.g., <code>s._2._1</code>
 refers to <code>V1</code> in the joined structured,
 and <code>s._2._2</code> reers to <code>V2</code> in the joined
 structure.</p>
 
 <p>Finally, two helpful methods are <code>collect()</code>
 (e.g., <code>results.collect()</code>), which brings <i>all</i> data
-into the shell so that you can examine it, and <code>take(n)</code>,
+into the shell so that you can examine them, and <code>take(n)</code>,
 which allows you to sample <code>n</code> values.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>In this assignment, you'll be working with a collection of tweets
+on the UMIACS cluster. You are still advised to do initial development
+and testing within your VM, but the actual assignment will require
+running code on the UMIACS cluster.</p>
+
+<p>On the UMIACS cluster, in HDFS
+at <code>/shared/tweets2011.txt</code>, you'll find a
+collection of 16.1 million tweets, totaling 2.3 GB. These are tweet
+randomly sampled from January 23, 2011 to February 8, 2011
+(inclusive). The tweets are stored as TSV, with the following fields:
+tweet id, username, creation time, tweet text.</p>
+
+<p>On this dataset, you will perform two analyses:</p>
+
+<ol>
+
+<li>Compute the tweet volume on an hourly basis (i.e., number of
+tweets per hour) for the time period from 1/23 to 2/8,
+inclusive&mdash;that's a total of 408 data points. Note that there are
+tweets in the dataset outside this time range: ignore them. You'll end
+up with output along these lines (counts are completely made up):
+
+<p/>
+
+<pre>
+1/23 00      37401
+1/23 01      36025
+1/23 02      35968
+...
+2/08 23      30115
+</pre>
+
+<p/>
+
+Plot this time series, with time on the <i>x</i> axis and volume on
+the <i>y</i> axis. Use whatever tool you're comfortable with: Excel,
+gnuplot, Matlab, etc.
+</li>
+
+<li><p>Compute the tweet volume on an hourly basis for tweets that
+contain either the word Egypt or Cairo: same as above, except that
+we're only counting tweets that contain those two terms (note that
+this dataset contains the period of the Egyptian revolution). Also
+plot this time series, with time on the <i>x</i> axis and volume on
+the <i>y</i> axis.</p>
+
+<p>For the purposes of this assignment, don't worry about matching
+word boundaries and interior substrings of longer words; simply match
+the following regular expression pattern:
+
+<pre>
+.*([Ee][Gg][Yy][Pp][Tt]|[Cc][Aa][Ii][Rr][Oo]).*
+</pre>
+
+</li>
+
+</ol>
+
+<p>You are going to perform these two analyses using two approaches:
+Pig and Spark. Then you'll compare and contrast the two
+approaches.</p>
+
+<table><tr><td valign="top"><span class="label label-warning">Important</span></td>
+<td style="padding-left: 10px">Feel free to play with the Twitter data
+on the cluster. However, you <b>cannot</b> copy this dataset out of
+the cluster (e.g., onto your personal laptop). If you want to play
+with tweets, come talk to me and we'll make separate arrangements.</td></tr></table>
+
+<h4 style="padding-top: 10px">Hints and Suggestion</h4>
+
+<p>Most of the Pig you'll need to learn to complete this assignment is
+contained in the demo above. Everything else you need to know is
+contained in these two links:</p>
+
+<ul>
+
+<li><a href="http://pig.apache.org/docs/r0.12.0/basic.html">Pig Latin Basics</a></li>
+<li><a href="http://pig.apache.org/docs/r0.12.0/func.html">Built-In Functions</a></li>
+
+</ul>
+
+<p>I would suggest doing development inside your VM for faster
+iteration and run your code on the cluster only once you've debugged
+everything.</p>
+
+<p>When you type <code>pig</code> to drop into the "Grunt" shell, it
+will automatically connect you to the Hadoop (both in the VM or on the
+UMIACS cluster). However, for learning Pig, "local mode" is useful: in
+local mode, Pig does not execute scripts on Hadoop, but rather on the
+local machine, so it's a lot faster when you're playing around with
+toy datasets. To get into local mode type <code>pig -x
+local</code>. Note that in local mode your paths refer to local disk
+and not HDFS.</p>
+
+<p>Since you're not allowed to copy the Twitter data out of the
+cluster, when you're developing in your VM, simply make up some test
+data.</p>
+
+<p>Similarly, most of the Spark you'll need to complete this
+assignment is provided in the demo above. In addition, you'll find
+<a href="http://spark.apache.org/docs/1.2.1/programming-guide.html">this
+Spark programming guide</a> helpful. There are plenty of guides and
+tutorials on the web on Scala in general &mdash; just search for them.</p>
+
+<p>Like Pig, you can run Spark in "local" mode or using the YARN
+cluster (using the <code>--master yarn-client</code> option). Local
+model is helpful for debugging and interactively manipulating
+data. When running over the entire collection on the UMIACS cluster,
+feel free to set <code>--num-executors 10</code>, which should give
+you an adequate degree of parallelism. However, please don't set the
+value greater than 10, as you will be occupying too much capacity on
+the cluster and may prevent others from also running Spark.</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>In your GitHub repo <code>bigdata-assignments/</code>, create a
+directory named <code>assignment7/</code>.
+
+<p>In <code>bigdata-assignments/assignment7/assignment7.md</code>, put
+the two Pig scripts for analysis #1 and analysis #2 and the two Spark
+scripts for analysis #1 and analysis #2. The output of these two
+scripts should be the same. In the
+directory <code>MapReduce-assignments/assignment7/</code>, there
+should be four text files:
+
+<ul>
+<li><code>hourly-counts-pig-all.txt</code>
+<li><code>hourly-counts-pig-egypt.txt</code>
+<li><code>hourly-counts-spark-all.txt</code>
+<li><code>hourly-counts-spark-egypt.txt</code>
+</ul>
+
+<p>These text files should contains the results of analysis #1 and
+analysis #2 using Pig and Spark.</p>
+
+<p>Finally, in the
+directory <code>MapReduce-assignments/assignment7/</code>, there
+should be two plots (i.e., graphics
+files), <code>hourly-counts-all</code>
+and <code>hourly-counts-egypt</code> that plots the time series. The
+extensions of the two files should be whatever graphics format is
+appropriate, e.g., <code>.png</code>. Use whatever tool you're
+comfortable with: Excel, gnuplot, Matlab, etc.</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 25 points:</p>
+
+<ul>
+
+  <li>10 points for the Pig implementations.</li>
+  <li>10 points for the Spark implementations.</li>
+  <li>5 points for the plots.</li>
+
+</ul>
+
 
 <p style="padding-top: 20px"><a href="#">Back to top</a></p>
 </div>
