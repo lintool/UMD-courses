@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Historical Population of Washington D.C.</title>
+
+<script type="text/javascript" src="http://lintool.github.io/INFM603-2013f/content/demo-viz/d3.v2.min.js"></script>
+<style type="text/css">
+
+.chart rect {
+   stroke: white;
+   fill: steelblue;
+ }
+
+</style>
+
+</head>
+<body>
+<script type="text/javascript">
+data = [
+  [1800, 8144],
+  [1810, 15471],
+  [1820, 23336],
+  [1830, 30261],
+  [1840, 33745],
+  [1850, 51687],
+  [1860, 75080],
+  [1870, 131700],
+  [1880, 177624],
+  [1890, 230392],
+  [1900, 278718],
+  [1910, 331069],
+  [1920, 437571],
+  [1930, 486869],
+  [1940, 663091],
+  [1950, 802178],
+  [1960, 763956],
+  [1970, 756510],
+  [1980, 638333],
+  [1990, 606900],
+  [2000, 572059],
+  [2010, 601723]
+];
+
+var width = 500;
+var height = 20;
+var hpadding = 75;
+
+var f = d3.format(",");
+
+var chart = d3.select("body").append("svg")
+     .attr("class", "chart")
+     .attr("width", width)
+     .attr("height", height * data.length + 50);
+
+var scaleX = d3.scale.linear()
+     .domain([0, 850000])
+     .range([0, width-hpadding]);
+
+chart.selectAll("rect")
+     .data(data)
+     .enter().append("rect")
+     .attr("x", hpadding)
+     .attr("y", function(d, i) { return i * height; })
+     .attr("width", function(d) { return scaleX(d[1]); })
+     .attr("height", height);
+
+chart.selectAll("text")
+     .data(data)
+     .enter()
+     .append("text")
+     .text(function(d) {
+         return d[0] + ": " + f(d[1]);
+      })
+     .attr("x", 0)
+     .attr("y", function(d, i) { return i * height + 15; })
+     .attr("font-family", "sans-serif")
+     .attr("font-size", "11px")
+     .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("Historical Population of Washington D.C.")
+  .attr("x", hpadding)
+  .attr("y", height * data.length + 20)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "16px")
+  .attr("font-weight", "bold")
+  .attr("fill", "black");
+
+d3.select("svg")
+  .append("text")
+  .text("(Source: Wikipedia)")
+  .attr("x", hpadding)
+  .attr("y", height * data.length + 33)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "10px")
+  .attr("fill", "black");
+
+</script>
+</body>
+</html>

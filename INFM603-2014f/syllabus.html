@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>INFM 603: Information Technology and Organizational Context (Fall 2014)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="overview.html">Overview</a></li>
+              <li class="active"><a href="syllabus.html">Syllabus</a></li>
+              <li><a href="assignments.html">Assignments</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+  <div class="page-header">
+    <h1>Syllabus <small>INFM 603 (Fall 2014)</small></h1>
+  </div>
+
+<section id="schedule">
+<div>
+<h3>Schedule of Classes</h3>
+
+<table class="table table-striped table-condensed">
+<thead>
+<tr><td><b>Session</b></td>
+    <td><b>Date</b></td>
+    <td><b>Topic</b></td>
+    <td><b>Assignment due</b></td></tr>
+</thead>
+<tbody>
+
+<tr><td>1</td><td>September 11</td><td><a href="#session1">Physical and Web Infrastructure</a></td>
+<td><a href="assignments.html#assignment0">Assignment #0</a></td></tr>
+
+<tr><td>2</td><td>September 18</td><td><a href="#session2">HTML and CSS</a></td>
+<td><a href="assignments.html#assignment1">Assignment #1</a></td></tr>
+
+<tr><td>3</td><td>September 25</td><td><a href="#session3">JavaScript: Structured Programming</a></td>
+<td><a href="assignments.html#assignment2">Assignment #2</a></td></tr>
+
+<tr><td>4</td><td>October 2</td><td><a href="#session4">JavaScript: DOM and Events</a></td>
+<td><a href="assignments.html#assignment3">Assignment #3</a></td></tr>
+
+<tr><td>5</td><td>October 9</td><td><a href="#session5">JavaScript: Functions and Objects</a></td>
+<td><a href="assignments.html#assignment4">Assignment #4</a></td></tr>
+
+<tr><td>6</td><td>October 16</td><td><a href="#session6">Relational Databases</a></td>
+<td><a href="assignments.html#assignment5">Assignment #5</a></td></tr>
+
+<tr><td>7</td><td>October 23</td><td><a href="#session7">PHP</a></td>
+<td><a href="assignments.html#assignment6">Assignment #6</a></td></tr>
+
+<tr><td>8</td><td>October 30</td><td><a href="#session8">Ajax and Asynchronous Programming</a></td>
+<td><a href="assignments.html#assignment7">Assignment #7</a></td></tr>
+
+<tr><td>9</td><td>November 6</td><td><a href="#session9">Visualization</a></td><td><a href="assignments.html#finalproject">Project Proposal</a></td></tr>
+
+<tr><td>10</td><td>November 13</td><td><a href="#session10">Information Retrieval</a></td>
+<td></td></tr>
+
+<tr><td>11</td><td>November 20</td><td><a href="#session11">Cloud Computing and Big Data</a></td><td></td></tr>
+
+<tr><td>12</td><td>December 4</td><td>Project Presentations I</td>
+<td><a href="assignments.html#finalproject">Final Project</a></td></tr>
+
+<tr><td>13</td><td>December 11</td><td>Project Presentations II</td><td></td></tr>
+
+<tr><td>14</td><td>December 18</td><td>Final Exam</td><td></td></tr>
+
+</tbody>
+</table>
+
+</div>
+</section>
+
+
+<section id="session1" style="padding-top:35px">
+<div>
+<h3>Session 1: Physical and Web Infrastructure <small>September 11</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML</i>, Chapter 1: "Getting to Know HTML: The
+  Language of the Web". Note that pages 12-19 (same in both first and
+  second editions) about editing HTML on Mac and Windows. We're going
+  to be using Sublime Text, so this part is for reference only.</li>
+
+  <li><i>Head First HTML</i>, Chapter 2: "Going Further, with
+  Hypertext: Meeting the 'HT' in HTML."</li>
+
+  <li><i>Head First HTML</i>, Chapter 3: "Building Blocks: Web Page
+  Construction".</li>
+
+  <li><i>Head First HTML</i>, Chapter 4: "Getting Connected: A Trip to
+  Webville". When you come to a section about FTP, skim through it to
+  get the basic idea, but we'll be using slightly different procedures
+  to upload pages onto your TerpConnect account. In fact, this is part
+  of <a href="assignments.html#assignment0">Assignment 0</a>.</li>
+
+  <li><i>Head First HTML</i>, Chapter 5: "Adding Images to Your Pages:
+  Meeting the Media", pages 163-174 (in the second edition) or 165-177 (in
+  the first edition).</li>
+
+</ul>
+
+<p><a href="http://proquest.safaribooksonline.com/9781449324469" class="btn btn-small btn-inverse">Head First HTML (2nd Ed.)</a></p>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+<li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session01.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session01.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+
+</div>
+</section>
+
+
+<section id="session2" style="padding-top:35px">
+<div>
+<h3>Session 2: HTML and CSS <small>September 18</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML</i>: "Getting Started with CSS: Adding a
+  Little Style". (Chapter 7 in the 2nd edition, Chapter 8 in the 1st
+  edition)</li>
+
+  <li><i>Head First HTML</i>: "Styling with Fonts and Colors:
+  Expanding your Vocabulary". (Chapter 8 in the 2nd edition, Chapter
+  9 in the 1st edition)</li>
+
+  <li><i>Head First HTML</i>, Chapter 13: "Tables and More Lists:
+  Getting Tabular".</li>
+
+</ul>
+
+<p><a href="http://proquest.safaribooksonline.com/9781449324469" class="btn btn-small btn-inverse">Head First HTML (2nd Ed.)</a></p>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+<li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+
+<li><a href="content/fancy-tables.html">Fancy tables!</a></li>
+
+<li><b>CSS</b>
+<ul>
+  <li><a href="http://www.w3schools.com/css/css_intro.asp">Introduction to CSS</a></li>
+  <li><a href="http://www.blooberry.com/indexdot/css/propindex/all.htm">CSS Property Index</a><br/></li>
+  <li><a href="http://www.echoecho.com/csslinks.htm">Changing how links look with CSS</a></li>
+</ul>
+</li>
+
+<li><b>CSS: Demo</b>
+<ul>
+  <li><a href="content/demo-CSS/css-demo1.html">Demo 1</a></li>
+  <li><a href="content/demo-CSS/css-demo2.html">Demo 2</a></li>
+  <li><a href="content/demo-CSS/css-demo3.html">Demo 3</a></li>
+  <li><a href="content/demo-CSS/css-demo4.html">Demo 4</a></li>
+  <li><a href="content/demo-CSS/css-demo5.html">Demo 5</a> (<a href="content/demo-CSS/mystyle.css">style sheet</a>)</li>
+</ul>
+</li>
+
+<li><b>CSS: Exercise</b>
+<ul>
+  <li><a href="content/demo-CSS/CSStutorial_noCSS.html">Starting Point</a></li>
+  <li><a href="content/demo-CSS/CSStutorial_withCSS.html">Final Product</a></li>
+</ul>
+</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session02.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session02.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session3" style="padding-top:35px">
+<div>
+<h3>Session 3: JavaScript: Structured Programming <small>September 25</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML5 Programming</i>, Chapter 1: "Getting to know HTML5: Welcome to Webville".
+
+  <ul>
+    <li>Don't worry too much about the distinction between HTML4 and HTML5.</li>
+    <li>Pay particular attention to section "How HTML5 really works" (pages 14-15).</li>
+    <li>Don't worry too much about the browser support grid on page 17.</li>
+  </ul></li>
+
+  <li><i>Head First HTML5 Programming</i>, Chapter 2: "Introducing JavaScript and the DOM: A Little Code".
+
+  <ul>
+    <li>You'll learn about the DOM in this chapter, but we won't cover that in depth until Session 4.</li>
+    <li>You'll learn about arrays in this chapter, but we won't cover that in depth until Session 5.</li>
+  </ul></li>
+
+</ul>
+
+<p><a href="http://proquest.safaribooksonline.com/book/web-design-and-development/9781449314712" class="btn btn-small btn-inverse">Head First HTML5 Programming</a></p>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+<li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+<li><a href="http://www.w3schools.com/js/js_comparisons.asp">JavaScript Comparison and Logical Operators</a></li>
+<li><a href="content/demo-js/temp-conversion.html">Demo: temperature conversion, Fahrenheit to Celsius</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Conversion_of_units_of_temperature">Conversion of units of temperature (Wikipedia)</a></li>
+<li><a href="content/demo-js/creepy-guy-formula.html">Demo: creepy guy formula</a></li>
+<li><a href="http://www.urbandictionary.com/define.php?term=Creepy%20Guy%20Formula&defid=6470574">Definition of creepy guy formula (Urban Dictionary)</a></li>
+
+<li><a href="content/demo-js/bottles-of-beer.html">Demo: Bottles of Beer</a></li>
+<li><a href="http://www.99-bottles-of-beer.net/lyrics.html">99 Bottles of Beer</a></li>
+
+<li><a href="content/demo-js/ice-cream-static.html">Demo: ice cream scoops (static)</a></li>
+<li><a href="content/demo-js/ice-cream-dynamic.html">Demo: ice cream scoops (dynamic)</a></li>
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session03.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session03.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session4" style="padding-top:35px">
+<div>
+<h3>Session 4: JavaScript: DOM and Events <small>October 2</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML5 Programming</i>, Chapter 3: "Events, handlers and all that jazz: A Little Interaction". (Stop at page 102)</li>
+</ul>
+
+<p><a href="http://proquest.safaribooksonline.com/book/web-design-and-development/9781449314712" class="btn btn-small btn-inverse">Head First HTML5 Programming</a></p>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+
+<li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+
+<li><a href="content/demo-js/arrays1.html">Demo: arrays (part 1)</a></li>
+<li><a href="content/demo-js/arrays2.html">Demo: arrays (part 2)</a></li>
+
+<li><a href="http://www.w3schools.com/jsref/default.asp">JavaScript and HTML DOM Reference</a></li>
+
+<li><a href="content/demo-js/dom.html">Demo: manipulating the DOM</a></li>
+
+<li><a href="content/demo-js/events.html">Demo: events</a></li>
+<li><a href="http://www.w3schools.com/js/js_htmldom_events.asp">Guide to JavaScript Events</a></li>
+<li><a href="http://www.w3schools.com/jsref/dom_obj_event.asp">HTML DOM Events Reference</a></li>
+
+<li><a href="content/demo-js/forms.html">Demo: forms</a></li>
+<li><a href="http://www.w3schools.com/html/html_forms.asp">HTML Forms and Input</a></li>
+<li><a href="http://www.w3schools.com/tags/tag_select.asp">HTML &lt;select&gt; Tag</a></li>
+
+<li><a href="content/demo-js/dynamic-list.html">Demo: dynamic list</a></li>
+<li><a href="content/demo-js/dynamic-table.html">Demo: dynamic table</a></li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session04.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session04.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session5" style="padding-top:35px">
+<div>
+<h3>Session 5: JavaScript: Functions and Objects <small>October 9</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML5 Programming</i>, Chapter 4: "JavaScript functions and objects: Serious JavaScript".</li>
+</ul>
+
+<p><a href="http://proquest.safaribooksonline.com/book/web-design-and-development/9781449314712" class="btn btn-small btn-inverse">Head First HTML5 Programming</a></p>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+
+<li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+<li><a href="content/demo-js/function-temp.html">Exercise: temperature conversion (again)</a></li>
+<li><a href="content/demo-js/wine-objects1.html">Demo: wine as objects (part 1)</a></li>
+<li><a href="content/demo-js/wine-objects2.html">Demo: wine as objects (part 2)</a></li>
+<li><a href="content/demo-js/wine-objects3.html">Demo: wine as objects (part 3)</a></li>
+<li><a href="content/demo-js/summation-demo.html">Demo: summation (iteration and recursion)</a></li>
+<li><a href="content/demo-js/binary-search.html">Demo: binary search</a></li>
+<li><a href="content/demo-js/binary-search2.html">Demo: binary search (recursive version)</a></li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session05.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session05.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session6" style="padding-top:35px">
+<div>
+<h3>Session 6: Relational Databases <small>October 16</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<p>Note that readings for this week come from another book in the
+"Head First" series (see link below).</p>
+
+<ul>
+  <li><i>Head First SQL</i>, Chapter 1: "Data and Tables: A place for
+  everything", pages 1-14. (We're not going to worry about creating
+  tables and inserting data into tables.)</li>
+
+  <li><i>Head First SQL</i>, Chapter 2: "The SELECT Statement: Gifted
+  data retrieval", pages 53-63, pages 71-117.</li>
+
+  <li><i>Head First SQL</i>, Chapter 6: "Advanced SELECT: Seeing your
+  data with new eyes", pages 253-280.</li>
+ 
+  <li><i>Head First SQL</i>, Chapter 8: "Joins and Multi-Table
+  Operations: Can't we all just get along", pages 363-364 (inner
+  equi-joins only).</li>
+
+</ul>
+
+<a href="http://proquest.safaribooksonline.com/book/databases/sql/9780596526849" class="btn btn-small btn-inverse">Head First SQL</a>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<p>In class, we'll be working with a simple SQL database engine
+called <a href="http://www.sqlite.org/">SQLite</a>. Download
+<a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">SQLite
+Manager</a>, which is an add-on to Firefox (so you'll need to download
+Firefox first if you don't have it already).</p>
+
+<ul>
+<li><a href="content/demo-db/Chinook_Sqlite.sqlite">
+Chinook database: Chinook_Sqlite.sqlite</a></li>
+<li><a href="http://chinookdatabase.codeplex.com/wikipage?title=Chinook_Schema&referringTitle=Home">Chinook database schema</a></li>
+<li><a href="content/demo-db/sql-exercises.html">SQL exercises</a></li>
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session06.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session06.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session7" style="padding-top:35px">
+<div>
+<h3>Session 7: PHP <small>October 23</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<p>Note that readings for this week come from another book in the
+"Head First" series (see link below).</p>
+
+<ul>
+  <li><i>Head First PHP &amp; MySQL</i>, Chapter 1: "Add life to you
+  static pages: It's alive.", pages 1-42. (Don't worry about the email
+  stuff.)</li>
+
+  <li><i>Head First PHP &amp; MySQL</i>, Chapter 2: "Connecting to
+  MySQL: How it fits together", pages 59-101. (When reading this
+  chapter, it's important to understand how PHP and MySQL interact,
+  but the specifics of the database INSERT statement isn't as
+  important.)</li>
+
+</ul>
+
+<a href="http://proquest.safaribooksonline.com/book/databases/mysql/9780596157739" class="btn btn-small btn-inverse">Head First PHP &amp; MySQL</a>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+
+  <li>Free PHP &amp; MySQL hosting at <a href="https://www.2freehosting.com/">2freehosting.com</a> and <a href="http://www.000webhost.com/">000webhost.com</a>.</li>
+
+  <li><a href="content/demo-db/Chinook_MySql.sql">Chinook database</a> in MySQL format.</li>
+
+  <li>PHP demo files: [<a href="content/demo-php/index.html">index.html</a>]
+                      [<a href="content/demo-php/catalog.php">catalog.php</a>]
+                      [<a href="content/demo-php/search.php">search.php</a>]</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session07.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session07.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session8" style="padding-top:35px">
+<div>
+<h3>Session 8: Ajax and Asynchronous Programming <small>October 30</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><i>Head First HTML5 Programming</i>, Chapter 6: "Talking to the web: Extroverted Apps", pages 213-246.</li>
+
+</ul>
+
+<a href="http://proquest.safaribooksonline.com/book/web-design-and-development/9781449314712" class="btn btn-small btn-inverse">Head First HTML5 Programming</a>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+
+  <li>RideShare demo files:
+     [<a href="content/demo-rideshare/rideshare.zip">All files zipped together</a>]
+     [<a href="content/demo-rideshare/sql-statements.txt">SQL statements</a>]</li>
+
+  <li>PHP demo files (search + browse):
+     [<a href="content/demo-php/index2.html">index2.html</a>]
+     [<a href="content/demo-php/search.php">search.php</a>]
+     [<a href="content/demo-php/browse.php">browse.php</a>]
+     [<a href="content/demo-php/catalog.php">catalog.php</a>]</li>
+
+  <li>Might Gumball demo files:
+     [<a href="content/demo-ajax/mightygumball.html">mightygumball.html</a>]
+     [<a href="content/demo-ajax/mightygumball.css">mightygumball.css</a>]
+     [<a href="content/demo-ajax/mightygumball.js">mightygumball.js</a>]
+     [<a href="content/demo-ajax/sales.json">sales.json</a>]</li>
+
+  <li>AJAX + PHP demo files (search + browse):
+     [<a href="content/demo-ajax/chinook-ajax.html">chinook-ajax.html</a>]
+     [<a href="content/demo-ajax/search-ajax.php">search-ajax.php</a>]</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session08.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session08.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session9" style="padding-top:35px">
+<div>
+<h3>Session 9: Visualization <small>November 6</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+  <li><a href="content/p59-heer.pdf">A Tour Through the Visualization Zoo</a> by Jeffrey Heer, Michael Bostock, and Vadim Ogievetsky.</li>
+  <li>We're going to be using <a href="http://d3js.org/">d3.js</a> for visualization. Browse the contents of <a href="http://alignedleft.com/tutorials/d3/">this tutorial</a>, but in particular, pay attention to the following pages:
+
+  <ul>
+    <li><a href="http://alignedleft.com/tutorials/d3/an-svg-primer/">An SVG primer</a></li>
+    <li><a href="http://alignedleft.com/tutorials/d3/drawing-svgs/">Drawing SVGs</a></li>
+    <li><a href="http://alignedleft.com/tutorials/d3/making-a-scatterplot/">Making a scatterplot</a></li>
+  </ul>
+
+  </li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Resources</h4>
+
+<ul>
+
+  <li><a href="http://jsbin.com/">Dynamically play with HTML, CSS, and JavaScript</a></li>
+
+  <li><a href="content/demo-viz/svg1.html">Simple SVG shapes</a></li>
+  <li>Exercise: self-portrait<br/>
+   [<a href="content/demo-viz/stickfigure-empty.html">start here</a>]
+   [<a href="content/demo-viz/stickfigure.html">solution</a>]</li>
+
+  <li><a href="content/demo-viz/bargraph0.html">Very simple bar graph (with plain JavaScript)</a></li>
+
+  <li><a href="http://d3js.org/">d3.js</a></li>
+  <li><a href="content/demo-viz/bargraph1.html">Very simple bar graph (with d3)</a></li>
+  <li><a href="content/demo-viz/bargraph2.html">Simple bar graph with labels (with d3)</a></li>
+
+  <li>Exercise: bar graph of historical population of Washington, D.C.<br/>
+   [<a href="content/demo-viz/population-dc-empty.html">start here</a>]
+   [<a href="content/demo-viz/population-dc.html">solution</a>]
+   [<a href="http://en.wikipedia.org/wiki/Demographics_of_Washington,_D.C.">Wikipedia</a>]</li>
+
+  <li><a href="content/demo-viz/scatterplot.html">Simple scatterplot</a></li>
+
+  <li>Exercise: replicate Gapminder "Health and Wealth of Nations" chart for 2000.<br/>
+   [<a href="content/demo-viz/gapminder-viz-empty.html">start here</a>]
+   [<a href="content/demo-viz/gapminder-viz.html">solution</a>]</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session09.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session09.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session10" style="padding-top:35px">
+<div>
+<h3>Session 10: Information Retrieval <small>November 13</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li>Abhishek Das and Ankit Jain. (2011) <a href="content/indexing.pdf">Indexing The World Wide Web: The Journey So Far.</a> In C. Jouis, I. Biskri, J.-G. Ganascia, and M. Roux, editors, Next Generation Search Engines: Advanced Models for Information Retrieval. Hershey, Pennsylvania: IGI-Global. (Note: the beginning of this article provides a nice overview and so does the final section "Future Research Directions", but the middle dives into more technical detail than necessary, so feel free to skim through.)</li>
+
+  <li><a href="http://searchuserinterfaces.com/book/sui_ch1_design.html">Chapter 1</a> in "Search User Interfaces" by Marti Hearst, Cambridge University Press, 2009.</li>
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session10.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session10.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session11" style="padding-top:35px">
+<div>
+<h3>Session 11: Cloud Computing and Big Data <small>November 20</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="content/Economist-data.pdf">Economist report on "big data"</a> (2010).</li>
+  <li><a href="content/MGI_big_data_full_report.pdf">McKinsey Global Institute on "Big data: The next frontier for innovation, competition, and productivity"</a> (2011). (Note: this is a long report&mdash;read at least the executive summary and flip through the rest of the report if you're interested.)</li>
+  <li>Chapter 5, "Information Platforms and the Rise of the Data Scientist" in <a href="http://proquest.safaribooksonline.com/book/databases/9780596801656">Beautiful Data</a>.</li>
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session11.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session11.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+<p style="padding-top:100px" />
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Arrays</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Washington,_D.C.#Climate">Climate of Washington, D.C.</a></p>
+
+<script>
+var precipitation = new Array();
+precipitation[1] = 2.80;
+precipitation[2] = 2.58;
+precipitation[3] = 3.48;
+precipitation[4] = 3.06;
+precipitation[5] = 3.99;
+precipitation[6] = 3.77;
+precipitation[7] = 3.72;
+precipitation[8] = 2.92;
+precipitation[9] = 3.72;
+precipitation[10] = 3.40;
+precipitation[11] = 3.17;
+precipitation[12] = 3.05;
+
+// The short way to define arrays:
+// var precipitation = [0, 2.80, 2.58, 3.48, 3.06, 3.99, 3.77, 3.72, 2.92, 3.72, 3.40, 3.17, 3.05]
+
+var sum = 0;
+for (var i=1; i<precipitation.length; i++ ) {
+  console.log("precipitation for month " + i + " = " + precipitation[i]);
+  sum = sum + precipitation[i];
+}
+
+document.writeln("Average precipitation per month: " + sum/12);
+
+</script>
+
+</body>
+</html>

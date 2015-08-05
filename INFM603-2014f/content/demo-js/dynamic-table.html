@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Dynamic Table</title>
+<meta charset="utf-8">
+
+<script>
+function add() {
+  var col1Value = document.getElementById("textInput1").value;
+  var col2Value  = document.getElementById("textInput2").value;
+  console.log("Column 1: " + col1Value);
+  console.log("Column 2: " + col2Value);
+
+  if (col1Value == "" || col2Value == "") {
+    alert("Please enter values for column 1 and column 2");
+  } else {
+    var row = document.createElement("tr");
+    var col1 = document.createElement("td");
+    col1.innerHTML = col1Value;
+    var col2 = document.createElement("td");
+    col2.innerHTML = col2Value;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+
+    document.getElementById("table").appendChild(row);
+  }
+}
+
+function clearAll() {
+  var table = document.getElementById("table");
+  table.innerHTML = "";
+}
+</script>
+</head>
+<body>
+
+<form>
+<input type="text" id="textInput1" size="20" placeholder="1st column">
+<input type="text" id="textInput2" size="20" placeholder="2nd column"><br/>
+<input onclick="add()" type="button" id="addButton" value="Add">
+<input onclick="clearAll()" type="button" id="clearAllButton" value="Clear All">
+</form>
+
+<p>
+<table id="table" border="1" cellpadding="10"></table>
+</p>
+
+</body>
+</html>
+
