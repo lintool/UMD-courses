@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Data-Intensive Information Processing Applications (Spring 2010) | Assignment 4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<p><img alt="University of Maryland, College Park" src="images/umd.gif" width="357"/></p>
+
+<hr/>
+
+<h3>Data-Intensive Information Processing Applications (Spring 2010)</h3>
+
+<h2>Assignment 4: PageRank</h2>
+
+<p><b>Due:</b> Friday 3/26 (2pm)</p>
+
+<p>Complete
+the <a href="http://www.umiacs.umd.edu/~jimmylin/cloud9/docs/exercises/pagerank.html">PageRank
+exercise</a> in Cloud<sup><small>9</small></sup>.  The sample graphs
+are loaded on the cluster at /tmp/sample-data.  Although you may debug
+in standalone mode on your local machine, your final
+solution <b>must</b> run on the cluster.</p>
+
+<p><b>Question 1.</b> Describe your implementation.  In particular, I
+want a discussion of your approach to the following:</p>
+
+<ol>
+
+  <li>handling the dangling nodes,</li>
+  <li>incorporating the random jump factor, and</li>
+  <li>checking for convergence.</li>
+
+</ol>
+
+<p><b>Question 2.</b> For each of the sample graphs (small, medium,
+large), list the top ten nodes in order of descending PageRank
+value.</p>
+
+<p><b>Question 3.</b> For each of the sample graphs (small, medium,
+large), save the job details page for one iteration and attach it as
+part of your answer.  That is, from the jobtracker webapp, find your
+job, save that page in HTML, and include it in your assignment
+submission.</p>
+
+<p><b>Question 4.</b> How long did it take you to complete this
+assignment?</p>
+
+<h3>Submission Instructions</h3>
+
+<p>This assignment is due by 2pm, Friday 3/26.  Please send us (both
+Jimmy and Nitin) an email with "Cloud Computing Course: Assignment 4"
+as the subject.  In the body of the email put answers to the questions
+above.  If you have collaborated with anyone else or have received any
+assistance in completing this assignment, you must tell us.</p>
+
+<p>Pack up your code into a zip file named USERNAME-code.zip, and
+attach it your assignment submission.  So for example, I would pack up
+my code in a file named jimmylin-code.zip.  Once again, please follow
+these instructions <b>exactly</b>.</p>
+
+<p><b>Note:</b> The Google/IBM cluster is a shared resource accessible
+by many.  Any impropriety on the cluster will be taken very seriously.
+This includes tampering or attempting to tamper with another student's
+results, attempting to pass another student's result as one's own,
+etc.  See the <a href="http://www.shc.umd.edu/">Code of Academic
+Integrity or the Student Honor Council</a> for more information.</p>
+
+<p>For this assignment, you may not consult any existing
+implementation of PageRank in MapReduce/Hadoop. Consulting the
+implementation of any non-MapReduce implementation (e.g., in JUNG) is
+fine.</p>
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+<hr/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" align="left">
+<small>This page, first created: 15 Mar 2010; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2010-03-15 19:18:54 -0400 (Mon, 15 Mar 2010) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td>
+<td valign="top" align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a>
+
+</td></tr></table>
+
+</body>
+</html>

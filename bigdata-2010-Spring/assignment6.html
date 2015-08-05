@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Data-Intensive Information Processing Applications (Spring 2010) | Assignment 6</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style type="text/css">
+pre 
+{
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	white-space: pre;
+}
+</style>
+
+</head>
+
+<body>
+
+<p><img alt="University of Maryland, College Park" src="images/umd.gif" width="357"/></p>
+
+<hr/>
+
+<h3>Data-Intensive Information Processing Applications (Spring 2010)</h3>
+
+<h2>Assignment 6: Word Count with DryadLINQ</h2>
+
+<p><b>Due:</b> Tuesday 4/27 (2pm)</p>
+
+<p>Before you start, make sure you've read the Dryad and DryadLINQ
+papers assigned in class.  You will also find this
+helpful: <a href="http://research.microsoft.com/pubs/66811/programming-dryadlinq-dec2009.pdf">Some
+sample programs written in DryadLINQ</a>.</p>
+
+<p>Start Windows Remote Desktop.  Log into the Dryad cluster with the
+credentials distributed in class.  Keep in mind that this is a shared
+account everyone in the course will use, so be careful!</p>
+
+<h3>Partitioned Files</h3>
+
+<p>First, let's understand the notion of a partitioned file in
+DryadLINQ.  A partitioned file on disk consist of two parts:</p>
+
+<ul>
+
+  <li>The pieces of data themselves.</li>
+
+  <li>The metadata that relates the pieces together.</li>
+
+</ul>
+
+<p>In DryadLINQ, there is no equivalent of HDFS (at least in the
+academic release we have access to).  So the pieces of data reside on
+the local disks of the cluster nodes.  Let's start off by examining
+these files.</p>
+
+<p>Go to the Start menu, and in the "Start Search" box, type
+<code>\\tempest-cn01</code>.  A window should pop up allowing you to
+explore the file system on the remote node.  Go into
+folder <code>DryadData &gt; jjlin</code>: you should find a file named
+<code>InputPart.00000000</code>.  You will see something like
+this:</p>
+
+<p><img src="images/DryadLINQ-file.png" alt="Browsing a file in DryadLINQ"/></p>
+
+<p>You should be able to open the file in notepad and examine its
+contents.  Now go to the same location on cluster
+nodes <code>tempest-cn02</code>, <code>tempest-cn03</code>, <code>tempest-cn04</code>.
+Open the InputPart files in notepad.  They should all look familiar.
+Be careful not to modify these files, as others will be examining them
+also.</p>
+
+<p><b>Question 1.</b> Write down the first line of text in each of the
+four text files on the four cluster nodes.  This will demonstrate that
+you have indeed examined all four partitions.</p>
+
+<p>On the desktop you should find a file
+named <code>InputParts.pt</code>; open up that file in notepad.  Its
+contents should look like this:</p>
+
+<pre>
+DryadData\jjlin\InputPart
+4
+0,0,tempest-cn01
+1,0,tempest-cn02
+2,0,tempest-cn03
+3,0,tempest-cn04
+</pre>
+
+<p>The is the metadata that describe each of the pieces of this
+partitioned file.</p>
+
+<p>As a note, there is currently no command-line mechanism to
+partition a large file into pieces and distribute to each node (i.e.,
+there is no equivalent of a <code>hadoop fs -put</code> command).  You
+can perform the partitioning programmatically, but for this exercise,
+I had to manually copy each file onto each node.</p>
+
+<h3>Running WordCount</h3>
+
+<p>Click the Start button and launch the HPC Job Manager.  If the icon
+isn't in the Start menu, you can search for it.  It should look
+something like this:</p>
+
+<p><img src="images/DryadLINQ-jobmanager.png" alt="HPC Job Manager"/></p>
+
+<p>Put it aside for now.  This is the closest equivalent to the Hadoop
+Jobtracker in DryadLINQ, and through this application you'll be able
+to monitor the progress of your DryadLINQ job.</p>
+
+<p>On the desktop, you should find a folder
+called <code>samples</code>.  Open the folder, and inside find a
+folder named <code>Histogram</code>.  This is the word count example.
+Make a copy of that folder on the desktop, and append your name to the
+folder name: something like <code>Histogram-Jimmy</code>.  This way
+you will have your own copy of the code and will not affect other
+people who may be logged in at the same time.</p>
+
+<p>Go into the new folder you've created.  Double click on the Visual
+C# Project File named <code>Histogram</code>, and it should start
+Visual Studio.  On the right hand box you should
+find <code>Program.cs</code>; click on it and you should see the
+source code for the word count example.  The code is repeated
+here: <a href="DryadLINQ-wc.cs">complete C# code for the word count
+example in DryadLINQ</a>.</p>
+
+<p>Let's take a look at the <code>BuildHistogram</code> method, which
+is where the action takes place:</p>
+
+<pre>
+public static IQueryable&lt;Pair&gt; BuildHistogram(
+                    string directory,
+                    string fileName,
+                    int k)
+{
+    string uri = DataPath.FileUriPrefix + Path.Combine(directory, fileName);
+    PartitionedTable&lt;LineRecord&gt; inputTable = PartitionedTable.Get&lt;LineRecord&gt;(uri);
+
+    IQueryable&lt;string&gt; words = inputTable.SelectMany(x =&gt; x.line.Split(' '));
+    IQueryable&lt;IGrouping&lt;string, string&gt;&gt; groups = words.GroupBy(x =&gt; x);
+    IQueryable&lt;Pair&gt; counts = groups.Select(x =&gt; new Pair(x.Key, x.Count()));
+    IQueryable&lt;Pair&gt; ordered = counts.OrderByDescending(x =&gt; x.Count);
+    IQueryable&lt;Pair&gt; top = ordered.Take(k);
+
+    return top;
+}
+</pre>
+
+<p>First, we tell DryadLINQ where to get the input files:</p>
+
+<pre>
+string uri = DataPath.FileUriPrefix + Path.Combine(directory, fileName);
+PartitionedTable&lt;LineRecord&gt; inputTable = PartitionedTable.Get&lt;LineRecord&gt;(uri);
+</pre>
+
+<p>This is equivalent in Hadoop to specifying the
+TextInputFormat. Next:</p>
+
+<pre>
+IQueryable&lt;string&gt; words = inputTable.SelectMany(x =&gt; x.line.Split(' '));
+</pre>
+
+<p>The SelectMany method transforms a scalar into a list.  The following:</p>
+
+<pre>
+x =&gt; x.line.Split(' ')
+</pre>
+
+<p>can be understood as a lambda expression.  So if the input were "A
+B B C", the output would be ["A", "B", "B", "C"].  The next line of
+code performs a group by:</p>
+
+<pre>
+IQueryable&lt;IGrouping&lt;string, string&gt;&gt; groups = words.GroupBy(x =&gt; x);
+</pre>
+
+<p>If the input were ["A", "B", "B", "C"], the output would be [
+["A"], ["B", "B"], ["C"]].  The next line creates Pair objects from
+the groups:</p>
+
+<pre>
+IQueryable&lt;Pair&gt; counts = groups.Select(x =&gt; new Pair(x.Key, x.Count()));
+</pre>
+
+<p>And finally, we sort by count and take the top <i>k</i>.</p>
+
+<pre>
+IQueryable&lt;Pair&gt; ordered = counts.OrderByDescending(x =&gt; x.Count);
+IQueryable&lt;Pair&gt; top = ordered.Take(k);
+</pre>
+
+<p>Got it?  Now let's try running the code.</p>
+
+<p>In the Visual Studio toolbar next to the dropdown box that says
+"Debug", there should be an icon that's a green arrow pointing to the
+right.  Click on that button.  A command-line window should pop up and
+some code should scroll by, showing you something like this:</p>
+
+<img src="images/DryadLINQ-submission.png" alt="DryadLINQ submission"/>
+
+<p>This means your job has been queued.  An instant later it should
+start running, and you should be able to see the job in the HPC Job
+Manager from above.</p>
+
+<p><b>Question 2.</b> After your job completes, the command-line
+window should show the results.  Write down the five most
+frequently-occurring words in the collection and their counts, to
+demonstrate that you've successfully run the job.</p>
+
+<p><b>Question 3.</b> Modify the code so that it displays the first
+five words (ordered in reverse alphabetical order) and their counts
+from the collection.  In other words, suppose I arranged all words in
+the collection alphabetically.  I want the counts of the last five
+words (starting from the last word).  This requires changing only one
+token in the code.  Write down what that change is.</p>
+
+<h3>Submission Instructions</h3>
+
+<p>This assignment is due by 2pm, Tuesday 4/27.  Please send us (both
+Jimmy and Nitin) an email with "Cloud Computing Course: Assignment 6"
+as the subject.  In the body of the email put answers to the questions
+above.  If you have collaborated with anyone else or have received any
+assistance in completing this assignment, you must tell us.</p>
+
+<h3>Acknowledgments</h3>
+
+<p>I'd like to thank Geoffrey Fox's group at Indiana University for
+giving us access to their Dryad cluster; Jaliya Ekanayake for walking
+me through the initial process of submitting jobs; and Judy Qiu and
+Scott Beason for their technical support.</p>
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+<hr/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" align="left">
+<small>This page, first created: 15 Mar 2010; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2010-03-15 19:18:54 -0400 (Mon, 15 Mar 2010) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td>
+<td valign="top" align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a>
+
+</td></tr></table>
+
+</body>
+</html>

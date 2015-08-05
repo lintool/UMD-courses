@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Data-Intensive Information Processing Applications (Spring 2010) | Assignment 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<p><img alt="University of Maryland, College Park" src="images/umd.gif" width="357"/></p>
+
+<hr/>
+
+<h3>Data-Intensive Information Processing Applications (Spring 2010)</h3>
+
+<h2>Assignment 3: Inverted Indexing and Boolean Retrieval</h2>
+
+<p><b>Due:</b> Tuesday 3/2 (2pm)</p>
+
+<h3>Part I</h3>
+
+<p>Complete the <a
+href="http://www.umiacs.umd.edu/~jimmylin/cloud9/docs/exercises/indexer.html">inverted
+indexing exercise</a> in Cloud<sup><small>9</small></sup>.  You can
+implement Dean and Ghemawat's original algorithm&mdash;no need to
+implement the fancier algorithms we discussed in class.  You may
+complete this portion of the assignment in standalone mode if you
+wish.  Alternatively, if you wish to use the Google/IBM cluster, the
+sample collection (the Bible and the complete works of Shakespeare) is
+loaded at /tmp/sample-data.</p>
+
+<p>Answer the three questions listed in the exercise (repeated below),
+plus one more:</p>
+
+<p><b>Question 1.</b> Look up the postings corresponding to the
+term "starcross'd". There should only be one line in the entire
+collection that contains the term. What is that line? What's its docno
+(i.e., byte offset)?</p>
+
+<p><b>Question 2.</b> Look up the postings corresponding to the term
+"gold". Generate a histogram of tf values. That is, in how many lines
+does "gold" appear once, twice, three times, etc.?</p>
+
+<p><b>Question 3.</b> Do the same for the terms "silver" and
+"bronze".</p>
+
+<p><b>Question 4.</b> How did you represent postings lists in your
+implementation?</p>
+
+<h3>Part II</h3>
+
+<p>Complete
+the <a href="http://www.umiacs.umd.edu/~jimmylin/cloud9/docs/exercises/retrieval.html">Boolean
+retrieval exercise</a> in Cloud<sup><small>9</small></sup>.  Show
+results of the three queries, repeated below:</p>
+
+<ol>
+<li>means AND deceit</li>
+<li>(white OR red ) AND rose AND pluck</li>
+<li>(unhappy OR outrageous OR (good AND your)) AND fortune</li>
+</ol>
+
+<p>Extra credit will be given if you implement one or both of the
+"Extensions".  However, we strongly advise that you complete the
+entire assignment before trying out these extensions.</p>
+
+<h3>Part III</h3>
+
+<p>Now make sure your inverted indexing algorithm scales to a
+non-trivial collection.  We've prepared a Wikipedia collection for
+you, stored at /tmp/wiki-articles on the Google/IBM cluster.  From a
+raw Wikipedia XML dump, we sampled approximately one sixth of all
+articles (ignoring disambiguation and redirect pages)&mdash;953,999
+articles in total.  The entire collection is contained in one large
+file, with an article per line.</p>
+
+<p>Dean and Ghemawat's algorithm should scale to this collection,
+provided you do two things:</p>
+
+<p>First, ignore the terms with the highest document frequencies
+(i.e., treat these as stopwords).  We've compiled
+a <a href="assignment3-stopwords.txt">a list here</a> for you.</p>
+
+<p>Second, increase the heap size of your map and reduce tasks.  This
+is especially important in the reducer where you need to buffer all
+postings in memory before you write out the entire postings list.  To
+increase the heap size, call the following method on the JobConf
+object in your main driver code:</p>
+
+<pre>
+conf.set("mapred.child.java.opts", "-Xmx2048m");
+</pre>
+
+<p>Don't increase the heap size to more than 2 GB, because there isn't
+enough physical memory on the machines!  Remember, each node is
+running multiple tasks, and they all must share the same physical
+memory.  By dropping the most common terms, this heap size should be
+sufficient for you to complete the assignment.</p>
+
+<p>Make sure your inverted indexing algorithm is able to scale to the
+Wikipedia collection.  Put your output (inverted index for the entire
+collection) in /tmp/lin-course/index-USERNAME. Substitute USERNAME
+with your actual username <b>without</b> the "ccc_" prefix. Therefore,
+I would put my output in /tmp/lin-course/index-jimmylin.  It is
+important that you follow these instructions <b>exactly</b>, because
+this is where we are going to look for your output.</p>
+
+<p>There are only two more questions to answer:</p>
+
+<p><b>Question 1.</b>  The term "alien-elephant" appears exactly once
+in the collection.  Which Wikipedia article does the term appear
+in?</p>
+
+<p><b>Hint:</b> You'll need to find the right postings list, and then
+find the byte offset of the posting.  From there, you'll need to look
+up the actual Wikipedia article.  There's no reason why you couldn't
+write one or more separate programs to answer this question.</p>
+
+<p><b>Question 2.</b> How long did it take you to complete this
+assignment (Parts I through III)?</p>
+
+<h3>Submission Instructions</h3>
+
+<p>This assignment is due by 2pm, Tuesday 3/2.  Please send us (both
+Jimmy and Nitin) an email with "Cloud Computing Course: Assignment 3"
+as the subject.  In the body of the email put answers to the questions
+above.  If you have collaborated with anyone else or have received any
+assistance in completing this assignment, you must tell us.</p>
+
+<p>Pack up your code into a zip file named USERNAME-code.zip, and
+attach it your assignment submission.  So for example, I would pack up
+my code in a file named jimmylin-code.zip.  Once again, please follow
+these instructions <b>exactly</b>.</p>
+
+<p><b>Note:</b> The Google/IBM cluster is a shared resource accessible
+by many.  Any impropriety on the cluster will be taken very seriously.
+This includes tampering or attempting to tamper with another student's
+results, attempting to pass another student's result as one's own,
+etc.  See the <a href="http://www.shc.umd.edu/">Code of Academic
+Integrity or the Student Honor Council</a> for more information.</p>
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+<hr/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" align="left">
+<small>This page, first created: 10 Feb 2010; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2010-02-28 10:39:02 -0500 (Sun, 28 Feb 2010) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td>
+<td valign="top" align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a>
+
+</td></tr></table>
+
+</body>
+</html>

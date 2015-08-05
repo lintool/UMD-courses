@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Hadoop Boot Camp: Assignment #1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+
+<body>
+
+<center><table width="80%"><tbody><tr><td align="left">
+
+<h1>Web-Scale Information Processing Applications</h1>
+<h3>Hadoop "Boot Camp" Assignment #1</h3>
+
+<div class="main">
+
+<p><b>Note:</b> This assignment is still very incomplete... please
+stay tuned for more details.</p>
+
+<p>In this assignment, we're going to implement Hadoop in Scheme (no
+parallelism, just the functional abstraction!)...  As they say, the
+best way to understand something is to build it yourself.  I would
+recomend using <a
+href="http://www-swiss.ai.mit.edu/projects/scheme/">MIT/GNU
+Scheme</a>, especially if you are familiar with emacs, since it
+provides an emacs-like editing environment.  Otherwise, <a
+href="http://jscheme.sourceforge.net/jscheme/main.html">jscheme</a> is
+a good Java interpreter for Scheme, written in Java.</p>
+
+<p>Ultimately, we will write a Scheme procedure that looks like the
+following:</p>
+
+<pre>
+(map-reduce mapper reducer data)
+</pre>
+
+<p>The <code>map-reduce</code> procedure takes as input two
+other procedures, the mapper and the reducer, and data (key-value
+pairs).  Its output is a new set of key-value pairs, as dictated by
+the MapReduce programming paradigm.  This may seem daunting, so we'll
+get there in smaller steps.</p>
+
+<h3>Sorting</h3>
+
+<p>Let's start with sorting, a staple of computer science.  <a
+href="./mergesort.scm">Here</a> you'll find Scheme code that implements
+merge sort.  Download it and try it out... you should get something
+like this:</p>
+
+<pre>
+(mergesort '(1 5 3 7 6 2 8 4))
+-> (1 2 3 4 5 6 7 8)
+</pre>
+
+<p>So one problem with this merge sort implementation is that the
+comparison function is hard coded.  Tweak <code>mergesort</code> so
+that it now takes two arguments as input: the first being the list to
+sort, and the second being the procedure to use for comparison.  Once
+you make the modification, you should be able to do the following:</p>
+
+<pre>
+(mergesort '(1 5 3 7 6 2 8 4) <)
+-> (1 2 3 4 5 6 7 8)
+</pre>
+
+<p>That is, you pass in the <code>&lt;</code> operator as the
+comparison method to use in sorting.  Now of course, you can change
+the sort order by simply changing the comparator you pass in:</p>
+
+<pre>
+(mergesort '(1 5 3 7 6 2 8 4) >)
+-> (8 7 6 5 4 3 2 1)
+</pre>
+
+<p>Now you can use the primitive predicate <code>string<=?</code> to
+sort strings based on their lexicographic order:</p>
+
+<pre>
+(mergesort '("f" "a" "c" "h" "e" "d" "b" "g") string<=?)
+-> ("a" "b" "c" "d" "e" "f" "g" "h")
+</pre>
+
+<p>In MapReduce, we're going to have to deal with a lot of key-value
+pairs.  Let's represent them in the following manner:</p>
+
+<pre>
+(("f" 6) ("a" 1) ("c" 3) ("h" 8) ("e" 5) ("d" 4) ("b" 2) ("g" 7))
+</pre>
+
+<p>In other words, as a list of lists.  The first element in each
+sublist is a string key.  The second element is the value.  Now write
+a comparator that will allow us to sort key-value pairs:</p>
+
+<pre>
+(mergesort '(("f" 6) ("a" 1) ("c" 3) ("h" 8) ("e" 5) ("d" 4) ("b" 2) ("g" 7)) proc)
+-> (("a" 1) ("b" 2) ("c" 3) ("d" 4) ("e" 5) ("f" 6) ("g" 7) ("h" 8))
+</pre>
+
+<p>In other words, write <code>proc</code>.</p>
+
+<h3>Map</h3>
+
+<p>To be completed later...</p>
+
+<h3>Shuffling</h3>
+
+<p>To be completed later...</p>
+
+<h3>Reduce</h3>
+
+<p>To be completed later...</p>
+
+<h3>Putting it all together</h3>
+
+<p>To be completed later...</p>
+
+</div>
+
+<pre>
+</pre>
+
+<!--p style="text-align:left">
+  <a href="http://validator.w3.org/check/referer">
+  <img src="../images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="../images/vcss.gif"
+       alt="Valid CSS!" />
+  </a>
+</p-->
+
+</td></tr></tbody></table></center>
+
+</body></html>

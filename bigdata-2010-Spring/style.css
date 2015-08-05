@@ -1,0 +1,25 @@
+/* a { text-decoration: none; }*/
+a:link, A:visited { color: #990000; }
+a:hover { color: black; }
+body {
+  color: black;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: verdana, lucida sans unicode, verdana, sans, arial, helvetica, sans-serif;
+  font-size: 95%;
+}
+td {
+  padding: 5px;  }
+code {
+  font-size: 125%;
+}
+div.main {
+  text-align: left;
+  padding: 5px 10px 15px 0;
+  border-top: solid 1px gray;
+  border-bottom: solid 1px gray;
+}
+pre {
+  margin-left: 20px;
+}

@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><title>Tutorial for Ajax/LAMP on EC2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+
+<center><table width="80%"><tbody><tr><td align="left">
+
+<h2>Tutorial for Ajax/LAMP on EC2</h2>
+
+<div class="main">
+
+<h3>Introduction</h3>
+
+<p>This tutorial is intended to get you started with Ajax on EC2,
+running a complete LAMP stack.  For purposes of illustration, I'm
+using PHP (the 'P' in LAMP), but Python and Perl are other popular
+choices.  I'll take you through three separate demos, in increasing
+order of sophistication.  The third demo will involve Ajax, PHP, and
+MySQL&mdash;three important components of interactive Web-based
+applications.  Note that this tutorial focuses mostly on the mechanics
+of getting everything to work on EC2. I spend very little time
+actually explaining <i>how</i> things work&mdash;for that I assume
+you'll read the code to figure it out (in addition to what we go over
+in class).</p>
+
+<p>I'm assuming that you're already somewhat familiar with EC2 from
+working with Hadoop; if not, consult my guide for <a
+href="http://www.umiacs.umd.edu/~jimmylin/cloud9/umd-hadoop-dist/cloud9-docs/content/start-EC2.html">getting
+started with EC2 for Hadoop</a>.  Amazon's <a
+href="http://docs.amazonwebservices.com/AmazonEC2/gsg/2007-01-03/">EC2
+guide</a> is the authoritative resource for answers.  In writing this
+tutorial, I'm running Windows and doing everything in Cygwin (although
+none of the instructions are OS-specific, so this fact shouldn't
+matter).  In capturing traces of commands running, I use the
+convention of [...] to indicate places where the output has been
+truncated.</p>
+
+<p>Let's get started!</p>
+
+<h3>Start an Appropriate EC2 Instance</h3>
+
+<p>When you start an EC2 instance, you have to specify which AMI
+(Amazon Machine Image) you want to use.  An AMI is essentially a
+bundle consisting of the OS and additional software.  In previous
+exercises, when you started Hadoop clusters, you were in fact running
+an AMI with Hadoop.  Creating AMIs is a bit complex, but fortunately
+others have already created AMIs with the LAMP stack pre-configured.
+We're going to use one of these images.</p>
+
+<p>In case you're curious, you can list all publicly available AMIs
+with the following command:</p>
+
+<pre>
+$ ec2-describe-images -x all
+</pre>
+
+<p>You'll see a lot of AMIs that are available!  Amazon has a 
+<a href="http://developer.amazonwebservices.com/connect/kbcategory.jspa?categoryID=171">site
+that describes the AMIs</a>.  In this tutorial we're going to use an
+AMI created by <a href="http://www.rpath.com/rbuilder/">rBuilder</a>:</p>
+
+<pre>
+$ ec2-describe-images -x all | grep lamp
+IMAGE   ami-c68e6baf    rbuilder-online/lamp-1.2-x86_10187.img.manifest.xml [...]
+IMAGE   ami-5c8b6e35    rbuilder-online/lamp-1.3-x86_10419.img.manifest.xml [...]
+IMAGE   ami-218a6f48    rbuilder-online/lamp-1.3-x86_10539.img.manifest.xml [...]
+IMAGE   ami-8d9772e4    rbuilder-online/lamp-1.3.1-x86_10897.img.manifest.xml [...]
+IMAGE   ami-f69a7f9f    rbuilder-online/lamp-1.3.2-x86_11636.img.manifest.xml [...]
+IMAGE   ami-f1da3f98    rbuilder-online/lamp-1.3.2-x86_13550.img.manifest.xml [...]
+IMAGE   ami-ea43a683    rbuilder-online/lamp-2.0.beta1-x86_15600.img.manifest.xml [...]
+IMAGE   ami-e5b85c8c    rbuilder-online/unalamp-0.1-x86_16344.img.manifest.xml [...]
+</pre>
+
+<p>The folks at <a href="http://www.rpath.com/rbuilder/">rBuilder</a>
+have created very nice AMIs that come bundled with LAMP stack.
+See <a href="http://wiki.rpath.com/wiki/Appliance:LAMP_Appliance">this
+link for a nice description</a> of what exactly is included (in short,
+lots of goodies).  As a note, this image runs the rPath distribution
+of Linux.</p>
+
+<p>The most recent image at the time of this writing
+is <code>ami-f1da3f98</code>, so that's the one we'll use.  I'm
+assuming you've already generated a keypair (see Amazon's
+<a href="http://docs.amazonwebservices.com/AmazonEC2/gsg/2007-01-03/">EC2
+guide</a> otherwise).  Go ahead and fire up an instance:</p>
+
+<pre>
+$ ec2-run-instances ami-f1da3f98 -k gsg-keypair
+</pre>
+
+<p>You'll also need to authorize network access to your instances:</p>
+
+<pre>
+$ ec2-authorize default -p 22
+$ ec2-authorize default -p 80
+</pre>
+
+<p>Find the host name of your instance:</p>
+
+<pre>
+$ ec2-describe-instances
+RESERVATION     r-0711cd6e      613871172339    default
+INSTANCE        i-0f79d566      ami-f1da3f98    ec2-75-101-216-137.compute-1.amazonaws.com [...]
+</pre>
+
+<p>For me,
+it's <code>ec2-75-101-216-137.compute-1.amazonaws.com</code>.  Now ssh
+into the instance:</p>
+
+<pre>
+$ ssh -i KEY root@ec2-75-101-216-137.compute-1.amazonaws.com
+The authenticity of host 'ec2-75-101-216-137.compute-1.amazonaws.com (75.101.216.137)' can't be established.
+RSA key fingerprint is ee:29:d9:9a:18:87:8d:98:3a:e6:be:fe:20:ef:6c:5f.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-75-101-216-137.compute-1.amazonaws.com,75.101.216.137' (RSA) to the list of known hosts.
+[root@ip-10-251-66-9 ~]#
+</pre>
+
+<p>Substitute KEY for the path to
+your <code>id_rsa-gsg-keypair</code>.  Obviously, your host name will
+be different.  The instance should also have a running Web server.  Go
+in a browser and navigate to <code>http://EC2INSTANCE/</code>
+(substitute EC2INSTANCE with your actual host name).  You should
+see <a href="ajax/screenshot-ec2.png">something like this</a>.</p>
+
+<p>Congratulations, you've successfully started an EC2 instance
+running a LAMP stack!</p>
+
+<h3>Download Demo Files</h3>
+
+<p>Below are the files for the three demos.  Right click and "Save
+Link As..." (clicking on the links does nothing since PHP isn't
+enabled on this Web server).</p>
+
+<ul>
+
+  <li><a href="ajax/test.php">test.php</a>: test script to make sure
+  PHP is working</li>
+
+  <li><a href="ajax/demo1.html">demo1.html</a>: demo that prints a
+  greeting</li>
+
+  <li><a href="ajax/sayHello.php">sayHello.php</a>: PHP script that
+  constructs a simple greeting</li>
+
+  <li><a href="ajax/demo2.html">demo2.html</a>: demo illustrating
+  synchronous database access (one-click, one-page)</li>
+
+  <li><a href="ajax/demo3.html">demo3.html</a>: Ajax version of demo
+  2</li>
+
+  <li><a href="ajax/dumpContacts.php">dumpContacts.php</a>: PHP script
+  for dumping the contents for a MySQL table</li>
+
+  <li><a href="ajax/queryContacts.php">queryContacts.php</a>: PHP
+  script for querying the contents of a MySQL table</li>
+
+</ul>
+
+<p>Copy all the demo files over the your EC2 instance:</p>
+
+<pre>
+$ scp -i KEY FILE root@ec2-75-101-216-137.compute-1.amazonaws.com:/srv/www/html
+</pre>
+
+<p>Substitute KEY for the path to your <code>id_rsa-gsg-keypair</code>
+and FILE for each of the above files (or an appropriate wildcard
+expression).  Your website resides in the
+<code>/srv/www/html</code> directory on the EC2 instances.  Make sure
+the files are readable by the world (sometimes permissions get
+mangled, especially copying from Cygwin):</p>
+
+<pre>
+[root@ip-10-251-66-9 html]# cd /srv/www/html
+[root@ip-10-251-66-9 html]# chmod 644 *.html *.php
+[root@ip-10-251-66-9 html]# ls -l
+total 36
+-rw-r--r--  1 root root 1443 Oct 12 04:13 demo1.html
+-rw-r--r--  1 root root  713 Oct 12 04:13 demo2.html
+-rw-r--r--  1 root root 2026 Oct 12 04:13 demo3.html
+-rw-r--r--  1 root root  738 Oct 12 04:13 dumpContacts.php
+-rw-r--r--  1 root root 1799 Dec 10  2006 index.php
+drwxr-xr-x  2 root root 4096 Dec  8  2007 lamp
+-rw-r--r--  1 root root  909 Oct 12 04:13 queryContacts.php
+-rw-r--r--  1 root root  183 Oct 12 04:13 sayHello.php
+-rw-r--r--  1 root root   21 Oct 12 04:13 test.php
+</pre>
+
+
+<h3>Demo 1: Ajax with PHP</h3>
+
+<p>First, let's make sure PHP is working correctly.  In the browser,
+go to <code>http://EC2INSTANCE/test.php</code>; you should see
+something like <a href="ajax/screenshot-php-test.png">this test.php
+screenshot</a>.</p>
+
+<p>Now go and check out the first Ajax demo.  In the browser, go
+to <code>http://EC2INSTANCE/demo1.html</code>; you should see
+something like <a href="ajax/screenshot-demo1.png">this demo 1
+screenshot</a>.  As you type in your name, this demo constructs
+an <code>XMLHttpRequest</code>, calls the <code>sayHello.php</code>
+script, which constructs a greeting.  This is a pretty trivial use of
+Ajax... but it does illustrate how everything is put together.</p>
+
+<p>Let's now move on to something more interesting.</p>
+
+<h3>Demo 2: PHP and MySQL</h3>
+
+<p>We're moving towards using Ajax with information fetched from a
+backend MySQL database.  To do this, we of course need to populate the
+database.  Below are commands for creating a table in MySQL and
+inserting four rows&mdash;this represents a simple database of contact
+information.</p>
+
+<pre>
+CREATE TABLE contacts (id int(6) NOT NULL auto_increment, 
+                       first varchar(15) NOT NULL, 
+                       last varchar(15) NOT NULL, 
+                       phone varchar(20) NOT NULL, 
+                       email varchar(30) NOT NULL, 
+                       web varchar(30) NOT NULL, 
+                       PRIMARY KEY (id),UNIQUE id (id));
+
+INSERT INTO contacts VALUES ('','John','Smith','(123) 456-7890','john@foo.com','http://john.foo.com/');
+INSERT INTO contacts VALUES ('','Jane','Gray','(321) 222-3333','jane@bar.com','http://www.bar.com/~jane/');
+INSERT INTO contacts VALUES ('','Joe','Johnson','(314) 159-2653','jjohnson@baz.com','http://jjohnson.baz.com/');
+INSERT INTO contacts VALUES ('','Mary','Little','(271) 828-1828','little@lamb.org','http://www.lamb.org/mary/');
+</pre>
+
+<p>Fortunately, MySQL is already set up in the rBuilder EC2 instance.
+Start MySQL, connect to the <code>test</code> database as root and
+issue the above commends.  You shouldn't need a password to connect to
+the database (this is of course terrible practice, but it's okay for a
+demo).</p>
+
+<pre>
+[root@ip-10-251-66-9 html]# mysql -u root test
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.0.45 Source distribution
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> CREATE TABLE contacts (id int(6) NOT NULL auto_increment,
+    ->                        first varchar(15) NOT NULL,
+    ->                        last varchar(15) NOT NULL,
+    ->                        phone varchar(20) NOT NULL,
+    ->                        email varchar(30) NOT NULL,
+    ->                        web varchar(30) NOT NULL,
+    ->                        PRIMARY KEY (id),UNIQUE id (id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO contacts VALUES ('','John','Smith','(123) 456-7890','john@foo.com','http://john.foo.com/');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO contacts VALUES ('','Jane','Gray','(321) 222-3333','jane@bar.com','http://www.bar.com/~jane/');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO contacts VALUES ('','Joe','Johnson','(314) 159-2653','jjohnson@baz.com','http://jjohnson.baz.com/');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO contacts VALUES ('','Mary','Little','(271) 828-1828','little@lamb.org','http://www.lamb.org/mary/');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+</pre>
+
+<p>Check to make sure the rows have been properly inserted:</p>
+
+<pre>
+mysql> select * from contacts;
++----+-------+---------+----------------+------------------+---------------------------+
+| id | first | last    | phone          | email            | web                       |
++----+-------+---------+----------------+------------------+---------------------------+
+|  1 | John  | Smith   | (123) 456-7890 | john@foo.com     | http://john.foo.com/      |
+|  2 | Jane  | Gray    | (321) 222-3333 | jane@bar.com     | http://www.bar.com/~jane/ |
+|  3 | Joe   | Johnson | (314) 159-2653 | jjohnson@baz.com | http://jjohnson.baz.com/  |
+|  4 | Mary  | Little  | (271) 828-1828 | little@lamb.org  | http://www.lamb.org/mary/ |
++----+-------+---------+----------------+------------------+---------------------------+
+4 rows in set (0.00 sec)
+</pre>
+
+<p>Having populated the database, go
+to <code>http://EC2INSTANCE/demo2.html</code> and play with demo 2.
+You should see something like what's shown in the following
+screenshots.</p>
+
+<ul>
+
+  <li><a href="ajax/screenshot-demo2.png">screenshot of demo
+  2</a></li>
+
+  <li><a href="ajax/screenshot-demo2-dump.png">demo 2: listing all
+  contacts</a></li>
+
+  <li><a href="ajax/screenshot-demo2-query.png">demo 2: looking up a
+  contact</a></li>
+
+</ul>
+
+<p>This is what one might call an "old-school" Web application:
+one-click leads to a browser reload and a new HTML page.
+Click... wait.  Click... wait some more.</p>
+
+<h3>Demo 3: Ajax with PHP/MySQL</h3>
+
+<p>Here's the moment we've all been waiting for... go
+to <code>http://EC2INSTANCE/demo3.html</code>, which is the Ajax
+version of demo 2.  You should see something like what's shown in the
+following screenshots.</p>
+
+<ul>
+
+  <li><a href="ajax/screenshot-demo3.png">screenshot of demo 3</a></li>
+
+  <li><a href="ajax/screenshot-demo3-dump.png">demo 3: listing all contacts</a></li>
+
+  <li><a href="ajax/screenshot-demo3-query.png">demo 3: looking up a contact</a></li>
+
+</ul>
+
+<p>Poke around in the code.  You'll see that the demo asynchronously
+constructs an <code>XMLHttpRequest</code> object, queries the
+database, and populates the bottom of the page with the
+result&mdash;all without requiring a page reload.  This is the essence
+of Ajax!</p>
+
+<h3>Clean Up</h3>
+
+<p>As always, remember to terminate your instances when you are done:</p>
+
+<pre>
+$ ec2-describe-instances
+RESERVATION     r-0711cd6e      613871172339    default
+INSTANCE        i-0f79d566      ami-f1da3f98    ec2-75-101-216-137.compute-1.amazonaws.com [...]
+
+$ ec2-terminate-instances i-0f79d566
+INSTANCE        i-0f79d566      running shutting-down
+</pre>
+
+<p>As a final note, JavaScript programming can get quite tedious,
+especially when manipulating the DOM.  You might want to consider
+using existing frameworks (libraries) to make your life easier:</p>
+
+<ul>
+
+  <li><a href="http://www.dojotoolkit.org/">Dojo</a>: really cool set
+  of interface widgets.</li>
+
+  <li><a href="http://directwebremoting.org/">Direct Web Remoting</a>:
+  RPC library for calling server-side Java rom fclient-side
+  JavaScript.</li>
+
+  <li><a href="http://jquery.com/">jQuery</a>: supports chaining of
+  expressions for more concise code.</li>
+
+  <li><a href="http://www.prototypejs.org/">Prototype</a>: provides
+  support for more traditional object-oriented programming</li>
+
+</ul>
+
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top: 10px;">
+<tr><td align="left">
+<a href="http://aws.amazon.com"><img border="0" src="images/aws_s.gif" alt="Sponsored by Amazon Web Services"/></a>
+</td>
+<td align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a><br/>
+<small>This page, first created: 11 Oct 2008; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2008-10-14 11:16:19 -0400 (Tue, 14 Oct 2008) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td></tr></table>
+
+</td></tr></tbody></table></center>
+
+</body></html>

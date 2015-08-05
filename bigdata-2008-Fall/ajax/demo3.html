@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax (with PHP/mySQL) demo</title>
+
+<script language="javascript" type="text/javascript">
+<!--
+// Get the HTTP Object
+function getHTTPObject() {
+  if ( window.ActiveXObject ) {
+    return new ActiveXObject("Microsoft.XMLHTTP");
+  } else if ( window.XMLHttpRequest ) {
+    return new XMLHttpRequest();
+  } else {
+    alert("Your browser does not support AJAX.");
+    return null;
+  }
+}
+ 
+// Show results
+function setOutput(){
+  if ( httpObject.readyState == 4 ) {
+    document.getElementById('results').innerHTML = httpObject.responseText;
+  }
+}
+ 
+// Dump all contacts
+function dumpContacts(){
+  httpObject = getHTTPObject();
+  if (httpObject != null) {
+    httpObject.open("GET", "dumpContacts.php", true);
+    httpObject.send(null);
+    httpObject.onreadystatechange = setOutput;
+  }
+}
+
+// Search for a specific contact
+function queryContacts(){
+  httpObject = getHTTPObject();
+  if (httpObject != null) {
+    httpObject.open("GET", "queryContacts.php?first="
+                    + document.getElementById('first').value + "&last=" 
+                    + document.getElementById('last').value, true);
+    httpObject.send(null);
+    httpObject.onreadystatechange = setOutput;
+  }
+}
+ 
+var httpObject = null;
+ 
+//-->
+</script>
+
+</head>
+<body>
+
+<p>
+<form name="testForm1" action="">
+<table>
+<tr><td>First Name:</td><td><input type="text" onkeyup="queryContacts();" name="first" id="first" /></td></tr>
+<tr><td>Last Name:</td><td><input type="text" onkeyup="queryContacts();" name="last" id="last" /></td></tr>
+</table>
+</form>
+</p>
+
+<p>
+<input type="button" name="button" value="Show all contacts" onclick="dumpContacts();" />
+</p>
+
+<hr/>
+
+<p>
+<div id="results" />
+</p>
+
+</form>
+</body>
+</html>

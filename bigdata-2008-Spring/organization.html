@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Web-Scale Information Processing Applications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<center><table width="80%"><tbody><tr><td align="left">
+
+<h2>Web-Scale Information Processing Applications: Spring 2008</h2>
+<h3>Course Schedule and Organization</h3>
+
+<div class="main">
+
+<p>This course will meet MW 11:00am-12:15pm, location <i>TBA</i>.
+Please keep in mind that all this information is tentative and subject
+to change.  If you have suggestions on how I can improve the course,
+please let me know!</p>
+
+<h3>The Overview</h3>
+
+<p>Here an outline of the course schedule:</p>
+
+<table border="1">
+<tr>
+<td></td>
+<td width="300"><b>Team Leaders</b></td>
+<td width="300"><b>Team Members</b></td>
+</tr>
+
+<tr>
+<td>Week 1</td>
+<td bgcolor="#CCFFCC">Program management "boot camp"</td>
+<td bgcolor="#FFFFCC">Hadoop "boot camp" 1:<br/><a href="scheme/MapReduce-in-scheme.html">functional abstractions</a></td>
+</tr>
+
+<tr>
+<td>Week 2</td>
+<td bgcolor="#CCFFCC" rowspan="2">Prep work on research problem</td>
+<td bgcolor="#FFFFCC">Hadoop "boot camp" 2:<br/> "hello World"</td>
+</tr>
+
+<tr>
+<td>Week 3</td>
+<td bgcolor="#FFFFCC">Hadoop "boot camp" 3:<br/> graph algorithms</td></tr>
+
+<tr>
+<td>Weeks 4-8</td>
+<td bgcolor="#CCFFFF" colspan="2"><b>Project Work (Phase I):</b> hadoopify existing techniques</td> 
+</tr>
+
+<tr>
+<td>Weeks 9-12</td>
+<td bgcolor="#FFDDFF" colspan="2"><b>Project Work (Phase II):</b> build interesting extensions</td> 
+</tr>
+
+<tr>
+<td>Week 13</td>
+<td colspan="2">Final project presentations</td> 
+</tr>
+
+</table>
+
+<p><b>Hadoop "boot camp"</b> (team members): an introduction to the the
+ MapReduce programming paradigm.
+
+ <ul>
+
+    <li>Week 1: functional abstraction, implement <a
+    href="scheme/MapReduce-in-scheme.html">toy-MapReduce in
+    Scheme</a>.</li>
+
+    <li>Week 2: start to work on the cluster---writing and running
+    "Hello World" programs.</li>
+
+    <li>Week 3: more substantial programming exercises, graph
+    algorithms.</li>
+
+</ul>
+
+<p><b>Project management "boot camp"</b> (team leaders): Outside
+speakers will be invited to share their experiences in managing
+research projects---including such common issues as carving large
+problems into smaller pieces for the team members, managing
+expectations, etc.</p>
+
+<p><b>Project Work</b> will be divided into two major phases.  Each
+team will focus on a specific research problem.</p>
+
+<ul>
+
+  <li>The focus in Phase I is on how existing solutions to the
+  research problem can be recast into the MapReduce framework, i.e.,
+  how can we hadoopify existing sequential algorithms?</li>
+
+  <li>The focus in Phase II is on interesting extensions, i.e., does
+  the MapReduce framework allow us to do something that wasn't
+  possible before?</li>
+
+</ul>
+
+<p>Naturally, the exact duration of each phase will differ based on
+the individual project and progress; or the phases might be
+interwoven.</p>
+
+
+<h3>Assignments</h3>
+
+<p>Team leaders and team members will have different assignments,
+detailed below:</p>
+
+<table border="1">
+<tr>
+<td width="300"><b>Team Leaders</b></td>
+<td width="300"><b>Team Members</b></td>
+</tr>
+
+<tr>
+<td>Week 4: Detailed project plan<br/></td>
+<td>
+Week 2: Boot Camp assignment #1<br/>
+Week 3: Boot Camp assignment #2<br/>
+Week 4: Boot Camp assignment #3<br/>
+</td>
+</tr>
+
+<tr><td colspan="2">Week 9: Project update</td></tr>
+<tr><td colspan="2">Week 13: Final project report</td></tr>
+
+</table>
+
+
+<h3>The Weekly View</h3>
+
+<p>Focusing on a per-week basis, here is the weekly cycle for weeks
+4-12:</p>
+
+<table border="1">
+<tr>
+<td>
+<td width="350"><b>Monday</b></td>
+<td width="350"><b>Wednesday</b></td>
+</tr>
+
+<tr>
+<td><b>Description</b></td>
+<td valign="top">
+Project meetings:
+
+<ul>
+
+  <li>Team leaders and members meet to discuss progress, set goals,
+  review experiment results, etc.</li>
+
+  <li>Team leaders given the discretion to structure this time as they
+  see fit.  Among possible options are: whiteboard sessions,
+  discussion of readings, pair programming, demos, etc.</li>
+
+  <li>My role is to serve as facilitator and contribute substantively
+  to the extent possible.</li>
+
+</ul>
+
+As necessary, I'll organize informal presentations by the groups to
+disseminate information relevant to all projects, e.g., tips and
+tricks about the infrastructure.
+
+</td>
+<td valign="top">
+External speakers will be invited to present their work.  This will
+consist of two parts:
+
+<ul>
+
+  <li>Part 1: the speaker will give a research talk (~30
+  minutes).</li>
+
+  <li>Part 2: the class will discuss the presented work, focusing in
+  particular on how the research problem can be "Hadoopified".</li>
+
+</ul>
+
+The goal of this colloquium series is to expose students to a variety
+of different research problems and how MapReduce might be used to
+tackle them.  These talks have the secondary goal of building a
+broader community around this technology.
+
+</td>
+</tr>
+
+<tr>
+<td><b>Action Items</b></td>
+<td valign="top">
+<ul>
+
+  <li>Team leader and each team member agree on a deliverable for the
+  coming week.  Example deliverables: writing a piece of code, running
+  a set of experiments, deriving a model, etc.</li>
+
+  <li>Team leader and each team member assess the deliverables agreed
+  on from the previous week.</li>
+
+</ul>
+</td>
+<td valign="top">
+<ul>
+
+  <li>Each student will write a "response piece" to reflect on the
+research presentation and discussion.  This will be posted as a
+blog.</li>
+
+</ul>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<div align="right">
+<small align="right">This page, first created: October 17, 2007; last revision: $Date: 2007-11-19 08:12:05 -0500 (Mon, 19 Nov 2007) $</small>
+</div>
+
+</td></tr></tbody></table></center>
+
+</body></html>

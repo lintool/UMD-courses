@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Web-Scale Information Processing Applications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+
+<body>
+
+<center><table width="80%"><tbody><tr><td align="left">
+
+<h2>Web-Scale Information Processing Applications: Spring 2008</h2>
+<h3>Hadoop Tutorial</h3>
+<p>October 19, 2007</p>
+
+<div class="main">
+
+<p>This tutorial will help you get started with Hadoop on the IBM
+cluster.  We'll start with installation and end at the word count demo
+on a collection consisting of the Bible and Shakespeare's works.  I'm
+assuming you have working knowledge of Java and Eclipse.</p>
+
+<h3>Step 0: Relax</h3>
+
+<p>Relax.  Take a deep breath.  Remember that this is bleeding-edge
+stuff.  It may not work.  More likely than not, it won't work on the
+first try.  You may get frustrated.  (I certainly did the first time I
+tried setting everything up.)  Just remember this when you feel like
+banging your head against the computer.</p>
+
+<p><b>Warning:</b> As of this writing, the latest release of Hadoop is
+0.14.2.  If you are using JDK 1.5.x, don't use that release---since it
+was compiled with JDK 1.6, you're going to run into many non-obvious
+bugs (I learned this the hard way).</p>
+
+<h3>Step 1: Get account on the IBM cluster</h3>
+
+<p>Get your account info from IBM.  Log in via ssh and change your
+password.  You'll have to log into the gateway first, and then from
+there log into the controller.  Keep note of the IP address of both
+the gateway and the controller.</p>
+
+<h3>Step 2: Download Hadoop and Install Plug-in</h3>
+
+<p>Download Hadoop from <a
+href="http://lucene.apache.org/hadoop/releases.html">http://lucene.apache.org/hadoop/releases.html</a>.
+Unpack the distribution.  Make sure Eclipse is not running.  The
+Hadoop Eclipse plug-in is located <code>contrib/</code> directory,
+called <code>hadoop-eclipse-plugin.jar</code>.  Copy that into the
+<code>plugins/</code> directory of your Eclipse installation.</p>
+
+<p>Restart Eclipse.  The Eclipse Hadoop plugin should now be
+installed.</p>
+
+<ul>
+  <li>To use the MapReduce perspective go to: Window -> Open
+Perspective -> Other... -> Map/Reduce.</li>
+
+  <li>To enable the MapReduce servers window go to: Window -> Show
+  View -> Other... -> Map Reduce Tools -> Map Reduce Servers</p>
+
+</ul>
+
+<h3>Step 3: Connect to the IBM Cluster</h3>
+
+<p>Switch to the MapReduce perspective.  At the bottom of your window,
+you should have a "MapReduce Servers" tab.  If not, see second bullet
+above.  Switch to that tab.</p>
+
+<p>At the top right edge of the tab, you should see two little blue
+elephant icons.  The one on the right allows you to add a new
+MapReduce server location.  The hostname should be the IP address of
+the controller.  You want to enable "Tunnel Connections" and put in
+the IP address of the gateway.</p>
+
+<p>At this point, you should now have access to DFS.  It should show
+up under a little elephant icon in the Project Explorer (on the left
+side of Eclipse).  You can now browse the directory tree.  Find your
+home directory: it should be <code>/user/your_username</code>.</p>
+
+<h3>Step 4: Stage the data</h3>
+
+<p>We're next going to stage the data for processing by uploading it
+to DFS.  Our <a href="bible+shakes.nopunc">sample collection</a>
+consists of the Bible and Shakespeare's works (8,856 KB).  Each line
+in this large text file is considered a separate record.  Download
+this file and place it in a new folder called
+<code>sample-input</code>.  Browse over to your home directory in DFS,
+right click on it, and select "Import from local directory".  Upload
+the <code>sample-input</code> directory (with the collection in it).
+The collection is now staged.</p>
+
+<h3>Step 5: MapReduce away!</h3>
+
+<p>We're almost there... Download <a
+href="WordCount.java"><code>WordCount.java</code></a>, the Hadoop
+"hello world" program that counts up the occurrences of each word in
+the collection.  Create a new Java project in Eclipse and put this
+Java program in your project.</p>
+
+<p>You should now be able to run <code>WordCount</code> on the IBM
+Hadoop cluster.  Right click on <code>WordCount.java</code> in the
+Project Explorer: Run As -> Run on Hadoop.  Select the IBM Hadoop
+cluster... and you should be off to the races!  When the job finishes,
+verify that you have something like the following:</p>
+
+<pre>
+07/10/19 17:32:36 INFO mapred.JobClient:   Map-Reduce Framework
+07/10/19 17:32:36 INFO mapred.JobClient:     Map input records=156215
+07/10/19 17:32:36 INFO mapred.JobClient:     Map output records=1734298
+07/10/19 17:32:36 INFO mapred.JobClient:     Map input bytes=9068074
+07/10/19 17:32:36 INFO mapred.JobClient:     Map output bytes=15919397
+07/10/19 17:32:36 INFO mapred.JobClient:     Combine input records=1734298
+07/10/19 17:32:36 INFO mapred.JobClient:     Combine output records=135372
+07/10/19 17:32:36 INFO mapred.JobClient:     Reduce input groups=41788
+07/10/19 17:32:36 INFO mapred.JobClient:     Reduce input records=135372
+07/10/19 17:32:36 INFO mapred.JobClient:     Reduce output records=41788
+</pre>
+
+<p>Go into your DFS home directory, and you should find a new
+directory called <code>sample-counts</code>: in it you'll find files
+containing counts of each unique word.</p>
+
+<h3>Postscript</h3>
+
+<p>Don't want to depend on the IBM cluster, especially while you are
+tinkering around with small programs?  You can run a personal one-node
+Hadoop cluster on your local machine: instructions at <a
+href="http://code.google.com/edu/tools/hadoopvm/index.html">http://code.google.com/edu/tools/hadoopvm/index.html</a>.</p>
+
+</div>
+
+<pre>
+</pre>
+
+<!--p style="text-align:left">
+  <a href="http://validator.w3.org/check/referer">
+  <img src="../images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="../images/vcss.gif"
+       alt="Valid CSS!" />
+  </a>
+</p-->
+
+</td></tr></tbody></table></center>
+
+</body></html>

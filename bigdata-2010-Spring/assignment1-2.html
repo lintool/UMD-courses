@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Data-Intensive Information Processing Applications (Spring 2010) | Assignment 1-2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<p><img alt="University of Maryland, College Park" src="images/umd.gif" width="357"/></p>
+
+<hr/>
+
+<h3>Data-Intensive Information Processing Applications (Spring 2010)</h3>
+
+<h2>Assignment 1-2: Getting into the Clouds</h2>
+
+<p><b>Due:</b> Tuesday 2/9 (2pm)</p>
+
+<p>The purpose of this assignment is to familiarize you with running
+Hadoop in two different ways: on the Google/IBM cluster and on EC2.
+It is the second part follow-up
+to <a href="assignment1-1.html">Assignment 1-1</a> and builds directly
+on it.</p>
+
+<p>First, let's start with the Google/IBM cluster.  You should have
+received separate instructions on account creation.  Remember, when
+selecting a username, please prefix the username by "ccc_", so that,
+for example, I would be "ccc_jimmylin".  This allows us to distinguish
+students in the class from other cluster users.</p>
+
+<p>On the cluster, we've prepped a raw text dump of Wikipedia for you
+to play with:</p>
+
+<pre>
+hadoop fs -ls /tmp/wiki
+</pre>
+
+<p>You can check out the contents with something like this:</p>
+
+<pre>
+hadoop fs -cat /tmp/wiki/part-00000 | head
+</pre>
+
+<p>Now, run the word count demo on this dataset, with 100 reducers, as
+such:</p>
+
+<pre>
+hadoop jar cloud9.jar edu.umd.cloud9.demo.DemoWordCount /tmp/wiki /tmp/lin-course/cnt1-USERNAME 200 100
+</pre>
+
+<p>Substitute USERNAME with your actual username <b>without</b> the
+"ccc_" prefix. Therefore, I would put the output in
+/tmp/lin-course/cnt1-jimmylin.  It is important that you follow these
+instructions <b>exactly</b>, because this is where we are going to
+look for your output.</p>
+
+<p><b>Question 1.</b> What is your job id?  If you ran the code more
+than once, any job id of a successful run will do.</p>
+
+<p><b>Question 2.</b> How large is the input data? (Hint, look in the jobtracker webapp.)</p>
+
+<p><b>Question 3.</b> How many map tasks does your job contain?</p>
+
+<p><b>Question 4.</b> What is the 6th word in part-00042 and how many
+times does it appear?</p>
+
+<p>You'll notice that there is a lot of "junk" in the output.  Let's
+try to clean this up by throwing away terms that don't appear often.
+Modify the word count demo so to retain only words that occur more
+than 100 times (i.e., cnt > 100).</p>
+
+<p>Once you've modified the program, run it again:</p>
+
+<pre>
+hadoop jar cloud9.jar edu.umd.cloud9.demo.DemoWordCount /tmp/wiki /tmp/lin-course/cnt2-USERNAME 200 10
+</pre>
+
+<p>This time, use only 10 reducers.  Note the slightly different path
+in which to put your results.</p>
+
+<p><b>Question 5.</b> How many terms appear more than 100 times in the
+collection?</p>
+
+<p><b>Question 6.</b> How many time does "life" appear in the
+collection?</p>
+
+<p>Okay, we're done with exercises using the Google/IBM cluster.  Now
+lets play with EC2.  You should have separately received tokens for
+EC2.  First, go through all the steps described in 
+<a href="http://www.umiacs.umd.edu/~jimmylin/cloud9/docs/content/start-EC2.html">this
+tutorial</a> <b>except</b> Step 6 which asks you to terminate your cluster. You should
+not terminate because you still have stuff to do after the tutorial. </p>
+
+<p><b>Question 7.</b> Have you successfully completed the EC2
+tutorial?  (<i>yes</i> or <i>no</i>)</p>
+
+<p>Transfer part-00000 of the wiki data onto EC2 and run word count in
+EC2.  Keep the changes to the code where you retain only words that
+appear more than 100 times.</p>
+
+<p><b>Question 8.</b> What words beginning with "c" appear 160 times
+in this part of the collection?</p>
+
+<p>You should now terminate your cluster (see above tutorial for
+details). One final question:</p>
+
+<p><b>Question 9.</b> How long did it take you to complete this
+assignment?</p>
+
+<h3>Submission Instructions</h3>
+
+<p>This assignment is due by 2pm, Tuesday 2/9.   Please send us (both Jimmy and Nitin) an email with "Cloud Computing Course: Assignment 1-2" as the subject.
+In the body of the email put answers to the questions above.</p>
+
+<p><b>Note:</b> The Google/IBM cluster is a shared resource accessible
+by many.  Any impropriety on the cluster will be taken very seriously.
+This includes tampering or attempting to tamper with another student's
+results, attempting to pass another student's result as one's own,
+etc.  See the <a href="http://www.shc.umd.edu/">Code of Academic
+Integrity or the Student Honor Council</a> for more information.</p>
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+<hr/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" align="left">
+<small>This page, first created: 22 Jan 2010; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2010-02-11 21:20:26 -0500 (Thu, 11 Feb 2010) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td>
+<td valign="top" align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a>
+
+</td></tr></table>
+
+</body>
+</html>
