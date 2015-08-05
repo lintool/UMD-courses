@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>LBSC 796/INFM 718R: Information Retrieval Systems | Spring, 2005 | Homework 2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h2>LBSC 796/INFM 718R: Homework 2</h2>
+
+<p><a href="hw2-answers.pdf"><b>Solutions</b></a></p>
+
+<h3>Part 1: Boolean Retrieval</h3>
+
+<p><b>1.</b> Create the term frequency matrix for the four document
+titles below:</p>
+
+<ul>
+  <li>Doc 1: The Cornell Implementation of the SMART System</li>
+  <li>Doc 2: User's Manual for the SMART Information Retrieval System</li>
+  <li>Doc 3: Implementation of the SMART Information Retrieval System</li>
+  <li>Doc 4: Introduction to Modern Information Retrieval</li>
+</ul>
+
+<p>In building this matrix you should retain every word (i.e., there
+is no stopword list).  The indexed units should be individual words,
+all of which should be converted to lower case.  You should not apply
+stemming or other morphological processes to the words when creating
+the index terms.  Your term-by-document matrix should have one row for
+each unique term and one column for each document.  The entry in each
+cell should be the number of occurrences of the term that is
+associated with the element's row in the document that is associated
+with the element's column.  You may leave elements for which the value
+is zero blank if you like or you may place a zero there.  Turn in this
+matrix.</p>
+
+<p>Next, use the term-by-document matrix that you just created to
+perform boolean retrieval.</p>
+
+<p><b>2.</b> Create a new term frequency matrix from the matrix you
+prepared in question 1: each cell in this matrix should have a 1 in
+positions where the term frequency is not zero and a zero in places
+where the term frequency is zero in the original matrix (blanks are
+not a good idea here because we will need to see the zeros).  Turn in
+this matrix.  Use this new matrix for answering the rest of the
+questions in part 1.</p>
+
+<p><b>3.</b> Extract the rows for the terms "information" and
+"retrieval" from the matrix and write them down, one above the other.
+Each should have four binary digits (0 or 1) in them.  Then draw a
+horizontal line under them and compute the AND of the two rows.  This
+should produce a single row in which a 1 appears for each document
+that has both "information" and "retrieval".  What are these
+documents?  Show your work.</p>
+
+<p>As a reminder, the truth table for (a AND b) is:</p>
+
+<pre>
+  \B 0 | 1
+ A +-------
+ 0 | 0 | 0
+ --+---+---
+ 1 | 0 | 1
+</pre>
+
+<p><b>4.</b> Perform the same computation for the following queries:</p>
+
+<ul>
+  <li>(smart AND implementation) OR (introduction AND retrieval)</li>
+  <li>(Cornell OR SMART) AND (Implementation)</li>
+  <li>(information NOT retrieval)</li>
+</ul>
+
+<p>Refer to lecture notes if you need the truth tables for the OR and
+NOT operators.  Present your computation in any matter that you find
+clear.</p>
+
+<p><b>5.</b> Perform the same computation for the query:
+
+<p>(information XOR system)</p>
+
+<p>where the truth table for (a XOR b) is:</p>
+
+<pre>
+  \b 0 | 1
+ a +-------
+ 0 | 0 | 1
+ --+---+---
+ 1 | 1 | 0
+</pre>
+
+<p>Show the computation in the same form that you presented the answer
+to question 3.</p>
+
+<h3>Part 2: Vector Space Retrieval</h3>
+
+<p>For the following questions, use the term-by-document matrix
+provided below to perform vector space retrieval (blanks indicate
+zeros):</p>
+
+<pre>
+
+      d1  d2  d3
+    +---+---+---+
+t1  |   |   | 5 |
+    +---+---+---+
+t2  | 4 | 1 | 3 |
+    +---+---+---+
+t3  | 5 |   | 4 |
+    +---+---+---+
+t4  | 6 | 3 | 3 |
+    +---+---+---+
+t5  |   | 1 |   |
+    +---+---+---+
+t6  | 3 |   | 7 |
+    +---+---+---+
+t7  |   | 6 | 1 |
+    +---+---+---+
+t8  | 2 |   |   |
+    +---+---+---+
+
+</pre>
+
+<p><b>1.</b> Build the w matrix in which each element is computed as
+TF * IDF, where TF is what is specified in each element above and the
+IDF for term i is computed as:</p>
+
+<blockquote>
+log (total_number_of_documents / number_of_documents_containing_term_i)
+</blockquote>
+
+<p>Use base 10 logarithms.  Microsoft Windows systems have a
+scientific calculator built in (select "scientific" from the menu) if
+you need one.  Turn in this matrix.</p>
+
+<p><b>2.</b> Build the w' matrix by applying cosine normalization to
+the w matrix that you just created.  This is found by dividing each
+element in the matrix by the square root of the sum of the squares of
+every element in the same column as the element in question.  A
+formula for this that might be clearer but which says exactly the same
+thing is provided in the notes.  Turn in this matrix.</p>
+
+<p><b>3.</b> Using the w' matrix computed in question 2, compute the
+rank order of the documents that would be found using the vector space
+method for the UNWEIGHTED query:</p>
+
+<blockquote>t2 t7</blockquote>
+
+<p>In your answer, give the similarity score that is computed for each
+document and give the ranked list that the system would return.</p>
+
+<p><b>4.</b> Using the same w' matrix, compute the rank order for the
+WEIGHTED query:</b>
+
+<blockquote>t2(7) t7
+</blockquote>
+
+<p><b>5.</b> Compare your results for questions 1 through 4 to those
+presented in class for the same matrix (the starting point was the
+left three columns of the matrix used in the class slides) and BRIEFLY
+explain why any answers you obtained (weights, similarity scores, or
+rank orderings) were different.</b>
+
+<pre>
+
+</pre>
+
+<p>This assignment was borrowed from Doug Oard.</p>
+
+<hr size="1" noshade="noshade"/>
+<p style="text-align:right">
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a><br/>
+  Last updated: $Date: 2006/02/14 02:45:54 $
+</p>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>LBSC 796/INFM 718R: Information Retrieval Systems | Spring, 2005 | Homework 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h2>LBSC 796/INFM 718R: Homework 1</h2>
+
+<p>Assignment adapted from <a
+href="http://ciir.cs.umass.edu/cmpsci646/">James Allan's CMPSCI 646
+course (Fall, 2004)</a> at U. Mass.</p>
+
+<p><a href="hw1solutions.xls"><b>Solutions</b></a></p>
+
+<h3>Part 1: Gathering Relevance Judgments</h3>
+
+<p>The purpose of this exercise is to gain some "hands-on" experience
+in the process of evaluating information retrieval systems.  You will
+be assessing documents that are retrieved in response to two "topics"
+(statements of information needs).  The two search engines we'll be
+comparing are <a href="http://www.google.com">Google</a> and <a
+href="http://www.teoma.com/">Teoma</a>.</p>
+
+<ol>
+
+<li><p><i>gardening wet soil conditions</i><br/> What special
+considerations must be made when planting a garden in very wet soil
+conditions?  Are there plants that will not work and/or that will work
+particularly well?  Are there any special techniques that will help
+reduce the amount of moisture?  Only pages that deal with gardening
+are relevant. 
+
+<br/>[<a href="hw1/google.query1.htm">Google results</a>] [<a
+href="hw1/teoma.query1.htm">Teoma results</a>]</p></li>
+
+<li><p><i>oil vs. propane furnace</i><br/> Looking for pages that list
+the tradeoffs for using a propane furnace rather than a fuel oil
+furnace. The pages should provide comparison and are only relevant if
+they talk about both. They can talk about other types of heating
+(e.g., electric), provided they talk about oil and propane. Propane is
+also called LP or LPG (liquid propane [gas]). 
+
+<br/> [<a
+href="hw1/google.query2.htm">Google results</a>] [<a
+href="hw1/teoma.query2.htm">Teoma results</a>]</p></li>
+
+</ol>
+
+<p>To ensure that everyone evaluates the same hits, results from each
+search engine have been cached for you; follow the above links.  You
+will evaluate the relevance of a subset of these hits.  If your social
+security number ends in an even digit, evaluate the first 15 hits of
+each query.  If you social security number ends in an odd digit,
+evaluate the last 15 hits of each query.</p>
+
+<p>Use this <a href="hw1results.xls">Excel spreadsheet</a> to keep
+track of your relevance judgments.  In the column marked "Relevance",
+enter "R" if you think the document is relevant.  Enter "N" if you
+think the document is not relevant.  Email the results back to Lynne,
+who will gather the judgments from everyone.  Change the name of the
+spreadsheet to your last name so that Lynne does not receive a dozen
+files with the same filename.</p>
+
+<h3>Part 2: Evaluating Systems</h3>
+
+<p>This <a href="hw1judged.xls">Excel spreadsheet</a> contains three
+separate sets of judgments for the hits examined in part one of the
+homework.</p>
+
+<p>In the second part of this assignment, for <b>one</b> of the
+topics, you will</p>
+
+<ol>
+  <li>analyze agreement on the relevance judgments</li>
+  <li>adjudicate the judgments</li>
+  <li>use the adjudicated set to evaluate both Teoma and Google</li>
+</ol>
+
+<p><b>1. Agreement on Relevance Judgments</b></p>
+
+<p>The above spreadsheet should contain three sets of judgments for
+every document (Web page).  The first question you'll answer is: How
+often do judges agree on relevance?  There are four possibilities:</p>
+
+<ul>
+  <li><b>RRR</b>: all three judges agree that the document is relevant.
+
+  <li><b>NNN</b>: all three judges agree that the document is not
+  relevant.</li>
+
+  <li><b>RRN</b>: two of the three judges agree that the document is
+  relevant.</li>
+
+  <li><b>NNR</b>: two of the three judges agree that the document is
+  not relevant.</li>
+</ul>
+
+<p>For your chosen topic, figure out how often each case happens (both
+in terms of counts and in terms of percentage).  Turn this information
+in.  Pick three cases where judgments about a particular hit are not
+uniform, and <i>briefly</i> speculate why this may be so.  Try to
+employ the concepts of relevance discussed in lecture.  Turn this
+in.</p>
+
+<p><b>2. Adjudication</b></p>
+
+<p>Adjudication is simply the process of reconciling inconsistent
+judgments.  Do this by simple majority voting.  You do not need to
+turn anything in for this, but you will need the results for the third
+question.</p>
+
+<p><b>3. Evaluation of Teoma and Google</b></p>
+
+<p>Now, evaluate Teoma and Google using the adjudicated relevance
+judgments you just created (for the topic you chose).  <b>Make sure
+you are pooling judgments from both systems!</b> Turn in the following
+information for both search engines:</p>
+
+<ul>
+  <li>Precision at 10, 20, 30</li>
+  <li>Recall at 10, 20, 30</li>
+  <li>Precision at each of the 11 standard recall levels (interpolated)</li>
+  <li>The precision-recall graph</li>
+</ul>
+
+<p>In addition, answer the following questions:</p>
+
+<ul>
+  <li>Which system is better?  Why?</li>
+
+  <li>What is the assumption we're making with respect to the
+  completeness of the judgment set?  What are the implications on our
+  evaluation?</li>
+
+<pre>
+
+</pre>
+
+<hr size="1" noshade="noshade"/>
+<p style="text-align:right">
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a><br/>
+  Last updated: $Date: 2006/02/07 21:56:49 $
+</p>
+
+</body>
+</html>

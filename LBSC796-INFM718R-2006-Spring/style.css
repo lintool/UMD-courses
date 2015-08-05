@@ -1,0 +1,10 @@
+a { text-decoration: none; }
+a:link, A:visited { color: #99ffff; }
+a:hover { color: #cccccc; }
+body {
+  background-color: #333344;
+  color: #cccccc;
+  font-family: Verdana;
+  font-size: 90%;
+}
+
