@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>LBSC 690: Information Technology | Assignment #1 Solutions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<table width="100%"><tr><td align="right"><img alt="University of Maryland, College of Information Studies" src="images/logo.jpg"/></td></tr></table>
+
+<hr/>
+
+<h2>LBSC 690: Assignment #1 Solutions (Fall 2008)</h2>
+
+<p>For this assignment, consider the specifications of a computer
+system that you might consider buying:</p>
+
+<blockquote>
+Processor type: Intel Core 2 Duo<br/>
+Processor speed: 2.5 GHz<br/>
+Hard drive: 200 GB, 10 ms access time<br/>
+RAM: 2 GB, 50 ns access time<br/>
+Peripherals: DVD-RW<br/>
+</blockquote>
+
+<p>Although we talked about modern processors having multiple "cores",
+for this assignment assume that all operations are performed by a
+single core.  To simplify calculations, you can assume that 1 megabyte
+is 1,000,000 (one million) bytes, 1 gigabyte is 1,000,000,000 (one
+billion) bytes, etc.</p>
+
+<p>Answer the following questions:</p>
+
+<ol>
+
+<li>If you buy some 4.7 GB DVDs, how many would you need to back up a
+full hard drive to DVDs (assuming no compression)?  At 30 cents per
+DVD, how much would a full backup cost?  At 10 minutes per DVD, how
+long would a full backup take?
+
+<blockquote>
+<b>Answer:</b><br/>
+200 GB / 4.7 GB per DVD = 42.55 or 43 DVDs<br/>
+43 DVDs at $0.30 per DVD = $12.90<br/>
+43 DVDs at 10 minutes = 430 minutes = 7 hours, 10 minutes
+</blockquote>
+
+<p>Now let's see how much stuff that hard drive can hold.  Assume you
+have access to the following information for all 300 million people in
+the United States:</p>
+
+<blockquote>
+Name: 40 characters<br/>
+Phone Number: 10 characters<br/>
+SSN: 9 characters<br/>
+taxes owed: one four-byte number<br/>
+</blockquote>
+
+<p>Assume that each character is stored in one byte.</p>
+
+</li>
+
+<li>Would all of these data fit on the hard drive of the computer
+described above?  If not, how big a hard drive would you need?  If so,
+what fraction of the disk would this fill?
+
+<blockquote>
+<b>Answer:</b><br/>
+Record for each person would take up (40 + 10 + 9 + 4) = 63 bytes<br/>
+63 bytes per record * 300,000,000 records = 18,900,000,000 bytes = 18.9 GB<br/>
+18.9 GB / 200 GB = 0.0945, or all the data would only take up 9.45% of the entire hard drive
+</blockquote>
+
+<p>Now let's see how long it would take to read that much data off the
+disk.  Assume you have a hard drive large enough to store all the
+data.</p>
+
+</li>
+
+<li>Suppose you wanted to add up the taxes owed by all 300 million
+people.  Assume that you access the data in a random order, and that
+you start a new disk access for each person (in the specifications
+above I have provided the latency of disk access).  How long would it
+take to access all the data?  Could this be done in a second?  In a
+minute?  In an hour?  In a day?  In a month?  In a year?
+
+<blockquote>
+<b>Answer:</b><br/>
+300 million people means 300,000,000 disk accesses.<br/>
+Each access takes 10ms (which is 0.01s), so 300,000,000 disk accesses would take 3,000,000 seconds<br/>
+3,000,000 seconds / 86,400 seconds per day = 34.72 days, or a bit more than one month
+</blockquote>
+
+<p>Assume for the sake of comparison that all of this data could fit
+in RAM.</p>
+
+</li>
+
+<li>How long would it take to access all the data from RAM?  In the
+specifications above I have provided the latency of RAM access. Could
+this be done in a second?  In a minute?  In an hour?  In a day?  In a
+month?  In a year?
+
+<blockquote>
+<b>Answer:</b><br/>
+300 million people means 300,000,000 RAM accesses.<br/>
+Each access takes 50ns (which is 50 billionths of a second), so 300,000,000 RAM access would take 15 seconds.
+</blockquote>
+
+</li>
+
+<li>Which is faster, RAM or the hard disk?
+
+<blockquote>
+<b>Answer:</b><br/>
+RAM is much faster than the hard drive.
+</blockquote>
+
+<p>Now let's see how long it would take to move the bits around.</p>
+
+</li>
+
+<li>How long would it take to move the contents of your entire hard
+drive to your friend's computer in California over a modem?  Over DSL?
+Over a dedicated T1 line?  Overnight mail?
+
+<blockquote>
+<b>Answer:</b><br/>
+Note that transfer speeds are often measured in bits, not bytes.<br/>
+200 GB = 200,000,000,000 bytes = 1,600,000,000,000 bits 
+
+<p>Modem: 56 Kbps<br/>
+1,600,000,000,000 bits / 56,000 bits per second = 28,571,429 seconds = 330.7 days</p>
+
+<p>DSL: 256 Kbps<br/>
+1,600,000,000,000 bits / 256,000 bits per second = 6,250,000 seconds = 72.3 days</p>
+
+<p>T1: 1.544 Mbps = 1,544 Kbps<br/>
+1,600,000,000,000 bits / 1,544,000 bits per second = 1,036,269 seconds = 12 days</p>
+
+<p>Overnight mail: takes overnight!</p>
+</blockquote>
+
+</li>
+
+</ol>
+
+<p style="padding-top: 25px"><a href="index.html">Back to main page</a></p>
+
+<hr/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" align="left">
+<small>This page, first created: 7 Sep 2008; last updated:
+<script language="JavaScript" type="text/javascript">
+<!--
+var LastUpdated = "$Date: 2008-09-07 15:52:53 -0400 (Sun, 07 Sep 2008) $";
+LastUpdated = LastUpdated.substring(LastUpdated.length-14, LastUpdated.length-3);
+document.writeln (LastUpdated);
+-->
+</script>
+</small>
+</td>
+<td valign="top" align="right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+  <img src="images/creative-commons.png" border="0" alt="Creative Commons: Attribution-Noncommercial-Share Alike 3.0 United States"/>
+  </a>
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+                 xmlns="http://www.w3.org/1999/xhtml">
+
+<xsl:template match="poem">
+    <html>
+    <head><title>Rendered Poem</title></head>
+    <body>
+        <xsl:apply-templates/>
+    </body>
+    </html>
+</xsl:template>
+
+<xsl:template match="title">
+    <h1><font color="green">
+        <xsl:value-of select="text()"/>
+    </font></h1>
+</xsl:template>
+
+<xsl:template match="author">
+    <h2>
+     <xsl:apply-templates select="lastname"/>,
+     <xsl:apply-templates select="firstname"/>
+    </h2>
+</xsl:template>
+
+<xsl:template match="firstname">
+    <xsl:value-of select="text()"/>
+</xsl:template>
+
+<xsl:template match="lastname">
+    <xsl:value-of select="text()"/><BR/>
+</xsl:template>
+
+<xsl:template match="stanza">
+    <P><dl><xsl:apply-templates/></dl></P>
+</xsl:template>
+
+<xsl:template match="line">
+    <dt><xsl:value-of select="text()"/></dt>
+</xsl:template>
+
+<xsl:template match="linein">
+    <dd><xsl:value-of select="text()"/></dd>
+</xsl:template>
+
+</xsl:stylesheet>

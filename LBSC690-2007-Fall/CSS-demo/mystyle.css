@@ -1,0 +1,11 @@
+p.style1 { border: thin dashed black; 
+    background-color: #EEEEEE; 
+    padding: 10px 10px 10px 10px; 
+    font-family:arial; 
+    color:blue }
+
+p.style2 { border: medium solid orange; 
+    background-color: black; 
+    padding: 10px 10px 10px 10px; 
+    font-family: serif; 
+    color: yellow }

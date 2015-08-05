@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>LBSC 690: Information Technology (Fall, 2005) | Week 8</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+
+<h2>SQL Exercises</h2>
+
+<p>Tables:</p>
+
+<ul>
+  <li>course</li>
+  <li>department</li>
+  <li>empcourse</li>
+  <li>employee</li>
+  <li>jobhistory</li>
+</ul>
+
+<h3>Showing the contents of the tables</h3>
+
+<p>&gt;&gt; <code>select * from course;</code></p>
+
+<table>
+<tr><td width="100">COURSENO</td><td width="200">CNAME</td><td>CDATE</td></tr>
+<tr><td>1</td><td>Basic Accounting</td><td>11-JAN-89</td></tr>
+<tr><td>2</td><td>Further Accounting</td><td>25-JAN-89</td></tr>
+<tr><td>3</td><td>Issues In Administration</td><td>27-SEP-88</td></tr>
+<tr><td>4</td><td>More Administration</td><td>16-OCT-88</td></tr>
+<tr><td>5</td><td>Ada</td><td>01-NOV-88</td></tr>
+<tr><td>6</td><td>Introduction To Ingres</td><td>05-FEB-89</td></tr>
+<tr><td>7</td><td>New Topologies</td><td>10-MAR-89</td></tr>
+<tr><td>8</td><td>LANs</td><td>12-DEC-88</td></tr>
+<tr><td>9</td><td>Structural Stress Analysis</td><td>20-FEB-89</td></tr>
+<tr><td>10</td><td>Taffic Flow Analysis</td><td>24-OCT-88</td></tr>
+</table>
+
+<p>&gt;&gt; <code>select * from department;</code></p>
+
+<table>
+<tr><td width="75">DEPNO</td><td width="130">DNAME</td><td width="80">LOCATION</td><td width="80">HEAD</td></tr>
+<tr><td>1</td><td>accounts</td><td>floor 3</td><td>5</td></tr>
+<tr><td>2</td><td>administration</td><td>floor 2</td><td>5</td></tr>
+<tr><td>3</td><td>software design</td><td>floor 1</td><td>2</td></tr>
+<tr><td>4</td><td>communications</td><td>floor 4</td><td>3</td></tr>
+<tr><td>5</td><td>engineering</td><td>floor 5</td><td>7</td></tr>
+</table>
+
+<p>&gt;&gt; <code>select * from empcourse;</code></p>
+
+<table>
+<tr><td width="70">EMPNO</td><td>COURSENO</td></tr>
+<tr><td>2</td><td>1</td></tr>
+<tr><td>2</td><td>2</td></tr>
+<tr><td>2</td><td>4</td></tr>
+<tr><td>5</td><td>1</td></tr>
+<tr><td>5</td><td>2</td></tr>
+<tr><td>7</td><td>3</td></tr>
+<tr><td>7</td><td>4</td></tr>
+<tr><td>8</td><td>3</td></tr>
+<tr><td>8</td><td>4</td></tr>
+<tr><td>14</td><td>5</td></tr>
+<tr><td>14</td><td>6</td></tr>
+<tr><td>15</td><td>5</td></tr>
+<tr><td>15</td><td>6</td></tr>
+<tr><td>19</td><td>5</td></tr>
+<tr><td>19</td><td>6</td></tr>
+<tr><td>21</td><td>7</td></tr>
+<tr><td>22</td><td>7</td></tr>
+<tr><td>22</td><td>8</td></tr>
+<tr><td>25</td><td>6</td></tr>
+<tr><td>32</td><td>5</td></tr>
+</table>
+
+<p>&gt;&gt; <code>select * from employee;</code></p>
+
+<table>
+<tr><td style="padding: 0 10px 0 0;">EMPNO</td><td style="padding: 0 10px 0 0;">SURNAME</td><td style="padding: 0 50px 0 0;">FORENAMES</td><td style="padding: 0 60px 0 0;">DOB</td><td style="padding: 0 210px 0 0;">ADDRESS</td><td style="padding: 0 75px 0 0;">TELNO</td><td>DEPNO</td></tr>
+<tr><td>5</td><td>Jones</td><td>Elizabeth Barbara</td><td>05-JAN-44</td><td>26 Agnews Terrace, Shamrock Bay</td><td>212 337 2288</td><td>1</td></tr>
+<tr><td>2</td><td>Smith</td><td>Robert</td><td>07-FEB-47</td><td>18 Marsh Street, Tollcross, Edinburgh</td><td>031 732 8972</td><td>1</td></tr>
+<tr><td>3</td><td>White</td><td>Allan</td><td>05-MAY-61</td><td>6 Remote Place, North Berwick</td><td>121 555 6622</td><td>1</td></tr>
+<tr><td>4</td><td>Reid</td><td>Gordon</td><td>10-AUG-63</td><td>9 Noble Road, Penicuik</td><td>629 424 6713</td><td>1</td></tr>
+<tr><td>1</td><td>MacCallan</td><td>Claire</td><td>18-SEP-58</td><td>25 Crisis Avenue, Leith, Edinburgh</td><td>031 337 4166</td><td>1</td></tr>
+<tr><td>...</td></tr>
+</table>
+
+<h3>Simple selects</h3>
+
+
+<dl>
+<dt>What is Robert Smith's address?</dt>
+<dd><code>select address from employee where surname='Smith' and forenames='Robert';</code></dd>
+
+<dt>What is Allan White's phone number?</dt>
+<dd><code>select telno from employee where surname='White' and forenames='Allan';</code></dd>
+
+<dt>Where is the engineering department?</dt>
+<dd>??<code><font color="#333344">select location from department where dname='engineering';</font></code></dd>
+
+<dt>What department is on the second floor?</dt>
+<dd>??<code><font color="#333344">select dname from department where location='floor 2';</font></code></dd>
+
+</dl>
+
+<h3>Complex Joins</h3>
+
+<dl>
+<dt>What department is Robert Smith in?</dt>
+<dd><code>select dname from employee, department<br/>where employee.depno=department.depno and surname='Smith' and forenames='Robert';</code></dd>
+
+<dt>Who's in accounts?</dt>
+<dd><code>select surname, forenames from employee, department<br/>where employee.depno=department.depno and dname='accounts';</code></dd>
+
+<dt>What floor does Gordon Reid work on?</dt>
+<dd>??<code><font color="#333344">select location from employee, department<br/>where employee.depno=department.depno and surname='Reid' and forenames='Gordon';</font></code></dd>
+
+<dt>Give me the names and phone numbers of everyone who works on the first floor.</dt>
+<dd>??<code><font color="#333344">select surname, forenames, telno from employee, department<br/>where employee.depno=department.depno and location='floor 1';</font></code></dd>
+
+<dt>Who's taking Ada?</dt>
+<dd>??<code><font color="#333344">select surname, forenames from course, empcourse, employee<br/>where empcourse.courseno=course.courseno and empcourse.empno=employee.empno and cname='Ada';</font></code></dd>
+
+<dt>What courses are Robert Smith taking?</dt>
+<dd>??<code><font color="#333344">select cname from course, empcourse, employee<br/>where empcourse.courseno=course.courseno and empcourse.empno=employee.empno and surname='Smith' and forenames='Robert';</font></code></dd>
+
+<dt>What courses are the people from the second floor taking?</dt>
+
+<dd>??<code><font color="#333344">select surname, forenames, cname from course, empcourse, employee, department where department.depno=employee.depno and empcourse.courseno=course.courseno and empcourse.empno=employee.empno and location='floor 2';</code></dd>
+
+
+</dl>
+
+<pre>
+
+</pre>
+
+
+<hr/>
+
+<p style="text-align:right">
+  <a href="http://validator.w3.org/check/referer">
+  <img src="images/valid-xhtml10.gif" border="0"
+       alt="Valid XHTML 1.0!" height="31" width="88" />
+  </a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+       src="images/vcss.gif" 
+       alt="Valid CSS!" />
+  </a><br/>
+  Last updated: $Date: 2006/08/27 14:35:52 $
+</p>
+
+</body>
+</html>

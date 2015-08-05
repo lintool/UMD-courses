@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Social Networking Site Selector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+function jump_to_url() {
+
+  var age = document.age.box.value;
+
+  if ( age < 20 ) {
+    window.location = "http://www.myspace.com/";
+  } 
+  else if ( age >= 20 ) {
+    window.location = "http://www.linkedin.com/";
+  }
+
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<h1>Social Networking Site Selector</h1>
+
+<form name="age" action="">
+<b>Please enter your age:</b> 
+<input size="10" value=" " name="box"/> 
+</form>
+
+<p>Based on your age, we'll suggest a social networking site for you!</p>
+
+<form name="Search" action="">
+  <input onclick="jump_to_url()" type="button" size="10" value="Go!" name="go button"/>
+ </form>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>MathML Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<h1>MathML demo</h1>
+
+<table width="600">
+<tr><td width="300">Bernoulli Trials</td>
+<td>
+<math xmlns="http://www.w3.org/1998/Math/MathML"> 
+            <mrow> 
+              <maction actiontype='statusline'> 
+                <mrow> 
+                  <mi>P</mi> 
+                  <mo stretchy='false'>(</mo> 
+                  <mi>E</mi> 
+                  <mo stretchy='false'>)</mo> 
+                </mrow> 
+                <mtext>Probability of event E: Get exactly k heads in n coin flips. 
+                </mtext> 
+              </maction> 
+              <mo>=</mo> 
+              <maction actiontype='statusline'> 
+                <mrow> 
+                  <mo>(</mo> 
+                  <mfrac linethickness='0'> 
+                    <mi>n</mi> 
+                    <mi>k</mi> 
+                  </mfrac> 
+                  <mo>)</mo> 
+                </mrow> 
+                <mtext>Number of ways to get exactly k heads in n coin flips 
+                </mtext> 
+              </maction> 
+              <msubsup> 
+                <maction actiontype='statusline'> 
+                  <mi>p</mi> 
+                  <mtext>Probability of getting heads in one flip 
+                  </mtext> 
+                </maction> 
+                <mrow></mrow> 
+                <maction actiontype='statusline'> 
+                  <mi>k</mi> 
+                  <mtext>Number of heads</mtext> 
+                </maction> 
+              </msubsup> 
+              <msubsup> 
+                <maction actiontype='statusline'> 
+                  <mrow> 
+                    <mo stretchy='false'>(</mo> 
+                    <mn>1</mn> 
+                    <mo>-</mo> 
+                    <mi>p</mi> 
+                    <mo stretchy='false'>)</mo> 
+                  </mrow> 
+                  <mtext>Probability of getting tails in one flip 
+                  </mtext> 
+                </maction> 
+                <mrow></mrow> 
+                <maction actiontype='statusline'> 
+                  <mrow> 
+                    <mi>n</mi> 
+                    <mo>-</mo> 
+                    <mi>k</mi> 
+                  </mrow> 
+                  <mtext>Number of tails</mtext> 
+                </maction> 
+              </msubsup> 
+            </mrow> 
+</math>
+</td>
+</tr>
+
+<tr><td widht="100">Cauchy-Schwarz Inequality</td>
+<td>
+<math xmlns="http://www.w3.org/1998/Math/MathML"> 
+            <mstyle displaystyle='true'> 
+              <mrow> 
+                <msubsup> 
+                  <mrow> 
+                    <mo>(</mo> 
+                    <munderover> 
+                      <mo>&#x02211;</mo> 
+                      <mrow> 
+                        <mi>k</mi> 
+                        <mo>=</mo> 
+                        <mn>1</mn> 
+                      </mrow> 
+                      <mi>n</mi> 
+                    </munderover> 
+                    <msubsup> 
+                      <mi>a</mi> 
+                      <mi>k</mi> 
+                      <mrow></mrow> 
+                    </msubsup> 
+                    <msubsup> 
+                      <mi>b</mi> 
+                      <mi>k</mi> 
+                      <mrow></mrow> 
+                    </msubsup> 
+                    <mo>)</mo> 
+                  </mrow> 
+                  <mrow></mrow> 
+                  <mn>2</mn> 
+                </msubsup> 
+                <mo>&#x02264;</mo> 
+                <mrow> 
+                  <mo>(</mo> 
+                  <munderover> 
+                    <mo>&#x02211;</mo> 
+                    <mrow> 
+                      <mi>k</mi> 
+                      <mo>=</mo> 
+                      <mn>1</mn> 
+                    </mrow> 
+                    <mi>n</mi> 
+                  </munderover> 
+                  <msubsup> 
+                    <mi>a</mi> 
+                    <mi>k</mi> 
+                    <mn>2</mn> 
+                  </msubsup> 
+                  <mo>)</mo> 
+                </mrow> 
+                <mrow> 
+                  <mo>(</mo> 
+                  <munderover> 
+                    <mo>&#x02211;</mo> 
+                    <mrow> 
+                      <mi>k</mi> 
+                      <mo>=</mo> 
+                      <mn>1</mn> 
+                    </mrow> 
+                    <mi>n</mi> 
+                  </munderover> 
+                  <msubsup> 
+                    <mi>b</mi> 
+                    <mi>k</mi> 
+                    <mn>2</mn> 
+                  </msubsup> 
+                  <mo>)</mo> 
+                </mrow> 
+              </mrow> 
+            </mstyle> 
+
+</math>
+</td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

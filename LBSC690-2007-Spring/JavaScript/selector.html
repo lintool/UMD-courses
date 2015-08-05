@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Anytown Public Library Search Tool Selector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+// This JavaScript Program sends users to a search engine or directory that
+// is appropriate to their age.
+// Original: 10/6/99 D. W. Oard
+// modified: 9/26/2003, Daqing He
+
+function jump_to_url() {
+  var age = document.age.box.value;
+  if (is_valid(age)) {
+    if (is_adult(age)) {
+      adult_jump();
+    } else {
+      child_jump();
+    }
+  } else {
+    window.alert("Invalid age " + age);
+  }
+}
+
+// Some handy functions that simplify the code
+
+function is_adult(age){
+  if (age>17) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function is_valid(age) {
+  if (age > 0 && age < 120) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// The main redirection functions
+
+function adult_jump() {
+  if (document.type.selection[0].checked==true) {
+    window.location = "http://altavista.com";
+  } else {
+    if (document.type.selection[1].checked==true) {
+      window.location = "http://yahoo.com";
+    } else {
+      window.alert("You must select a search tool!");
+    }
+  }
+}
+
+function child_jump() {
+  if (document.type.selection[0].checked==true) {
+    window.location = "http://www.ajkids.com/";
+  } else {
+    if (document.type.selection[1].checked==true) {
+      window.location = "http://yahooligans.com"
+    } else {
+      window.alert("You must select a search tool!")
+    }
+  }
+}
+
+//-->
+</script>
+</head>
+
+<body>
+<h1>Anytown Public Library Search Tool Selector</h1>
+
+<form name="age" action="">
+<b>Please enter your age:</b> 
+<input size="10" value=" " name="box"/> 
+</form>
+
+<b>Select a Search Tool:</b> 
+
+<form name="type" action="">
+  <input type="radio" name="selection"/>Web Search Engine <br/>
+  <input type="radio" name="selection"/>Web Directory
+</form>
+
+<form name="Search" action="">
+  <input onclick="jump_to_url()" type="button" size="10" value="Go!" name="go button"/>
+ </form>
+
+<pre>
+
+</pre>
+
+<p>Original design: <a href="http://glue.umd.edu/~oard">Doug Oard</a>,
+Revisions: <a href="http://www.umiacs.umd.edu/~daqingd/">Daqing He</a>,
+<a href="http://www.umiacs.umd.edu/~jimmylin/">Jimmy Lin</a><br/>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+var updated = document.lastModified
+document.write("Last modified: "+ updated)
+
+//-->
+</script>
+</p>
+
+</body>
+</html>

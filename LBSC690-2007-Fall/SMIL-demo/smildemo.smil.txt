@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" 
+      xmlns:rn="http://features.real.com/2001/SMIL20/Extensions">
+
+<head>
+  <meta name="title" content="Apollo 17 Traverse"/>
+  <meta name="author" content="NASA"/>
+  <meta name="copyright" content="Public Domain"/>
+</head>
+
+<body>
+  <seq>
+    <audio src="http://www.hq.nasa.gov/alsj/a17/a17a1412742.ra"
+           clipBegin="195s"> 
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100929.jpg"
+	    begin="0.0min" 
+            alt="AS17-135-20550"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100930.jpg"
+	    begin="0.5min" 
+            alt="AS17-135-20551"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100931.jpg"
+	    begin="1.0min" 
+            alt="AS17-135-20552"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100932.jpg"
+	    begin="1.5min" 
+            alt="AS17-135-20553"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100933.jpg"
+	    begin="2.0min" 
+            alt="AS17-135-20554"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100934.jpg"
+	    begin="2.5min" 
+            alt="AS17-135-20555"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100935.jpg"
+	    begin="3.0min" 
+            alt="AS17-135-20556"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100936.jpg"
+	    begin="3.5min" 
+            alt="AS17-135-20557"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+    </audio>
+
+    <audio src="http://www.hq.nasa.gov/alsj/a17/a17a1413435.ra"
+           clipBegin="0s"> 
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100937.jpg"
+	    begin="0.3min" 
+            alt="AS17-135-20558"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100938.jpg"
+	    begin="0.8min" 
+            alt="AS17-135-20559"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100939.jpg"
+	    begin="1.3min" 
+            alt="AS17-135-20560"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100940.jpg"
+	    begin="1.8min" 
+            alt="AS17-135-20561"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100941.jpg"
+	    begin="2.3min" 
+            alt="AS17-135-20562"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100942.jpg"
+	    begin="2.8min" 
+            alt="AS17-135-20563"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100943.jpg"
+	    begin="3.3min" 
+            alt="AS17-135-20564"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100944.jpg"
+	    begin="3.8min" 
+            alt="AS17-135-20565"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100945.jpg"
+	    begin="4.3min" 
+            alt="AS17-135-20566"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100946.jpg"
+	    begin="4.8min" 
+            alt="AS17-135-20567"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100947.jpg"
+	    begin="5.3min" 
+            alt="AS17-135-20568"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+      <area href="http://www.hq.nasa.gov/alsj/a17/10100948.jpg"
+	    begin="5.8min" 
+            alt="AS17-135-20569"
+            external="true" actuate="onLoad" sourcePlaystate="play"
+	    rn:sendTo="_rpcontextwin" />
+    </audio>
+
+  </seq>
+</body>
+
+</smil>

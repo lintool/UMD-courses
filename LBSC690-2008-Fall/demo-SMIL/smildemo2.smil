@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" 
+      xmlns:rn="http://features.real.com/2001/SMIL20/Extensions">
+
+<head>
+  <meta name="title" content="Apollo 17 Traverse"/>
+  <meta name="author" content="NASA"/>
+  <meta name="copyright" content="Public Domain"/>
+      <layout>
+         <root-layout width="640" height="411"/>
+         <region id="pix_region" width="640" height="411" left="0" top="0"/>
+      </layout>
+
+</head>
+
+<body>
+  <par>
+    <audio src="http://www.hq.nasa.gov/alsj/a17/a17a1412742.ra"
+           clipBegin="195s" dur="40s" region="pix_region"/> 
+    <seq>
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100929.jpg"
+	    dur="5s" 
+             region="pix_region"/>
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100930.jpg"
+	    dur="5s" 
+            region="pix_region" />
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100931.jpg"
+	    dur="5s" 
+            region="pix_region" />
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100932.jpg"
+	    dur="5s" 
+            region="pix_region"/>
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100933.jpg"
+	    dur="5s" 
+            region="pix_region" />
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100934.jpg"
+	    dur="5s" 
+            region="pix_region" />
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100935.jpg"
+	    dur="5s" 
+             region="pix_region"/>
+      <img src="http://www.hq.nasa.gov/alsj/a17/10100936.jpg"
+	    dur="5s" 
+             region="pix_region"/>
+    </seq>
+  </par>
+</body>
+
+</smil>

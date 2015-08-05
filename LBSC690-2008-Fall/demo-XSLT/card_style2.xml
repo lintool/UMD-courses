@@ -1,0 +1,42 @@
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+                 xmlns="http://www.w3.org/1999/xhtml">
+ 
+   <xsl:template match="card">
+     <html>
+       <head>
+       <title>business card</title>
+       <link rel="stylesheet" href="cardstyle.css" type="text/css" />
+       </head>
+         <body>
+         <p>
+         <center>
+         <xsl:apply-templates select="name"/>
+
+         <table>
+         <xsl:apply-templates select="title"/>
+         <xsl:apply-templates select="email"/>
+         <xsl:apply-templates select="phone"/>
+         </table>
+         </center></p>
+     </body></html>
+   </xsl:template>
+ 
+   <xsl:template match="name">
+     <h1><font face="arial"><xsl:value-of select="text()"/></font></h1>
+   </xsl:template>
+ 
+   <xsl:template match="title">
+     <tr><td><b>Title:</b></td><td><xsl:value-of select="text()"/></td></tr>
+   </xsl:template> 
+
+   <xsl:template match="email">
+     <tr><td><b>Email:</b></td><td><a href="mailto:{text()}"><tt>
+       <xsl:value-of select="text()"/>
+     </tt></a></td></tr>
+   </xsl:template> 
+
+   <xsl:template match="phone">
+     <tr><td><b>Phone:</b></td><td><xsl:value-of select="text()"/></td></tr>
+   </xsl:template> 
+
+</xsl:stylesheet>

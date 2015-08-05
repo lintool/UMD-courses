@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="card_style1.xml"?>
+
+<card type="simple">
+  <name>John Doe</name>
+  <title>CEO, Widget Inc.</title>
+  <email>john.doe@widget.com</email>
+  <phone>(202) 456-1414</phone>
+</card>

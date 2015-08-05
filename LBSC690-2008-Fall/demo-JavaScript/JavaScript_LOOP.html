@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>JavaScript Exercise - While Loop</title>
+
+
+<script language="JavaScript" type="text/javascript">
+
+function takeOrder() 
+{
+  var i=prompt("How many scoops of ice cream would you like?", "")
+
+  while (i > 0){
+     document.write("Here is a scoop of ice cream!<br>"); 
+     i--;
+  }
+
+  document.write("<p>Now it's your turn. <br>Go back and make a second button with a second function that will give people the number of cookies they ask for.</p>");
+  document.close();
+
+}
+
+</script>
+</head>
+
+
+
+
+<body>
+
+<input type="button" onclick="takeOrder()" value="Order Dessert" />
+
+<!--Thus button tells the JavaScript Function named "takeOrder()" to run. Even though the function is located at the top of the HTML code, it is waiting for this signal to run.-->
+
+</body>
+</html>

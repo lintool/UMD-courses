@@ -1,0 +1,8 @@
+<!ELEMENT poem  (title, author, stanza* )>
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT author (firstname, lastname) >
+<!ELEMENT firstname (#PCDATA) >
+<!ELEMENT lastname (#PCDATA) >
+<!ELEMENT stanza (line+ | linein+) >
+<!ELEMENT linein (#PCDATA) >
+<!ELEMENT line (#PCDATA) >

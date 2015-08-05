@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>JavaScript Exercise - If/Else</title>
+
+
+<script language="JavaScript" type="text/javascript">
+
+function takeOrder() 
+{
+  var food=prompt("What food would you like for dinner? Asian or Italian?", "")
+
+  if ( food == "Asian" ) {
+    document.write("<p>Here, have some fried rice and egg rolls!</p>"); 
+    document.write("<p>Now it's your turn. <br>Go back and adjust this code to add different types of cuisine options.</p>");
+    document.close();
+  }
+  else if ( food == "Italian" ) {
+    document.write("<p>Here, have a big pizza with extra cheese!</p>"); 
+    document.write("<p>Now it's your turn. <br>Go back and adjust this code to add different types of cuisine options.</p>");
+    document.close();
+  } 
+
+}
+
+</script>
+</head>
+
+
+
+
+<body>
+
+<input type="button" onclick="takeOrder()" value="Order Dinner" />
+
+<!--Thus button tells the JavaScript Function named "takeOrder()" to run. Even though the function is located at the top of the HTML code, it is waiting for this signal to run.-->
+
+</body>
+</html>

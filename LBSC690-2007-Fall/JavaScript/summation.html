@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Summation Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+function calculate() {
+  var num = eval(document.input.number.value);
+  var total = 0.0;
+  var i = 0;
+
+  for ( i=0; i<=num; i++ ) {
+    total += i;
+  }
+
+  document.output.number.value = total;
+}
+
+//-->
+</script>
+</head>
+
+<body>
+<h1>Summation Demo</h1>
+
+<form name="input" action="">
+Please enter a number:
+<input size="10" value=" " name="number"/> 
+</form>
+
+<form name="output" action="">
+The sum of all numbers up to the number above is
+<input size="10" value=" " name="number" readonly="true"/>
+</form>
+
+<p>
+<form name="Search" action="">
+  <input onclick="calculate()" type="button" size="10" value="Go!" name="go button"/>
+ </form>
+</p>
+
+<pre>
+
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE POEM SYSTEM "poem.dtd">
+<poem>
+    <title>The Song of Wandering Aengus</title>
+    <author>
+	<firstname>W.B.</firstname> 
+	<lastname>Yeats</lastname>
+    </author>
+    <stanza>
+        <line>I went on to the hazel wood,</line> 
+        <linein>Because a fire was in my head,</linein> 
+        <line>And cut and peeled a hazel wand,</line> 
+        <linein>And hooked a berry on a thread;</linein>
+	<line>And when white moths were on the wing,</line> 
+	<linein>And moth-like stars were flickering out,</linein> 
+	<line>I dropped the berry in the stream</line> 
+	<linein>And caught a little silver trout.</linein>
+     </stanza>
+     <stanza>
+	<line>When I had laid it on the floor</line> 
+	<linein>I went to blow the fire flame,</linein>
+	<line>But something rustled on the floor,</line> 
+	<linein>And someone had called me by name:</linein>
+	<line>It had become a glimmering girl</line> 
+	<linein>With apple blossoms in her hair</linein>
+	<line>Who called me by my name and ran</line> 
+	<linein>And faded through the brightening air.</linein>
+     </stanza>
+     <stanza>
+	<line>Though I am old with wandering</line> 
+	<linein>Through hollow lands and hilly lands,</linein> 
+	<line>I will find out where she has gone,</line> 
+	<linein>And kiss her lips and take her hands,</linein>
+	<line>And walk along the long dappled grass,</line> 
+	<linein>And pluck till time and times are done,</linein> 
+	<line>The silver apples of the moon,</line> 
+	<linein>The golden apples of the sun.</linein>
+     </stanza>
+</poem>
