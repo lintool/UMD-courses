@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>VA Archives</title>
+        <script>
+            function runTransform(){
+            if(document.implementation && document.implementation.createDocument){
+            // Mozilla
+            
+            var xsltProcessor = new XSLTProcessor();
+            
+            // load the xslt file
+            var myXMLHTTPRequest = new XMLHttpRequest();
+            myXMLHTTPRequest.open("GET", "VA.xsl", false);
+            myXMLHTTPRequest.send(null);
+            
+            // get the XML document
+            xslStylesheet = myXMLHTTPRequest.responseXML;
+            xsltProcessor.importStylesheet(xslStylesheet);
+            
+            // load the xml file
+            myXMLHTTPRequest = new XMLHttpRequest();
+            myXMLHTTPRequest.open("GET", "../archives.xml", false);
+            myXMLHTTPRequest.send(null);
+            
+            var xmlSource = myXMLHTTPRequest.responseXML;
+            
+            //transform
+            var resultDocument = xsltProcessor.transformToFragment(xmlSource, document);
+            document.getElementById("example").appendChild(resultDocument);
+            
+            }else if(window.ActiveXObject){
+            // IE
+            
+            // Load XML
+            xml = new ActiveXObject("MSXML2.DOMDocument");
+            xml.async = false
+            xml.load("../archives.xml")
+            
+            // Load XSL
+            xsl = new ActiveXObject("MSXML2.DOMDocument");
+            xsl.async = false
+            xsl.load("VA.xsl")
+            
+            
+            // Transform            
+            document.getElementById("example").innerHTML=xml.transformNode(xsl);
+            }else{
+            // Browser unknown
+            alert("Browser unknown");
+            }
+            
+            }
+            
+        </script>
+        <link rel="stylesheet" href="../archives.css"/>
+    </head>
+    
+    <body onLoad="runTransform()">        
+        <table align="center" width="600">
+            <tr>
+                <td>
+                    <table cellpadding="0" cellspacing="0" border="1" bordercolor="black">
+                        <tr>
+                            <td>
+                                <table cellspacing="2" cellpadding="6" bgcolor="#FFFF22" width="600">
+                                    <tr>
+                                        <td align="left" width="250"><h1><a class="header" href="../index.html">LBSC 605</br>Practicum Sites</a></h1></td>
+                                        <td align="right">
+                                            <table cellpadding="6" cellspacing="2" border="0" align="right"
+                                                <tr>
+                                                    <td><a class="style1" href="../archives.html">All</a></td>
+                                                    <td align="center"><a class="style1" href="../type/index.html">Type</a></td>
+                                                    <td align="center"><a class="style1" href="../contact/index.html">Contact</a></td>
+                                                    <td align="center"><a class="style1" href="index.html">Geographic</a></td>
+                                                    <td align="center"><a class="style1" href="../UMD/index.html">UMD</a></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" align="center" cellspacing="3" cellpadding="3">
+                        <tr>
+                            <td><a class="style2" href="DC.html">DC Archives</a></td>
+                            <td><a class="style2" href="MD.html">MD Archives</a></td>
+                            <td><a class="style2" href="VA.html">VA Archives</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div id="example">
+            
+        </div>                
+                </br>
+        <table align="center" width="600" border="0" cellpadding="0" cellspacing="0">
+            <tr><td align="center"><hr>Web site created by Chip Chase and Alfie Paul for LBSC 690, Fall 2007</td></tr>
+        </table>
+    </body>
+</html>

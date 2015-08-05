@@ -1,0 +1,231 @@
+
+p.style1 { border: thin dotted black;
+background-color: #EEEEEE;
+padding: 10px 10px 10px 10px;
+FONT-SIZE:12px; FONT-FAMILY: arial, sans-serif;
+color: black }
+
+p.style2 { 
+FONT-SIZE:18px; FONT-FAMILY: arial, sans-serif;
+color: black }
+
+
+A:link {text-decoration: none; color: 330066}
+A:visited {text-decoration: none}
+A:active {text-decoration: none}
+A:hover {text-decoration: underline; color: 006633;}
+
+
+p.style3 { 
+background-color: #CC0000;
+padding: 5px 5px 5px 5px;
+  border-bottom: solid 0.5px #CC0000; 
+  border-right: solid 0.5px #CC0000; 
+  border-top: solid 0.5px #CC0000; 
+  border-left: solid 0.5px #CC0000;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:12px;
+color: white }
+
+.style3 a { COLOR: white; FONT-SIZE:12px; FONT-FAMILY: arial, sans-serif; DISPLAY:block; }
+.style3 a:link { COLOR: white; FONT-SIZE:12px; FONT-FAMILY: arial, sans-serif; TEXT-DECORATION: none;}
+.style3 a:visited { COLOR: #white;}
+.style3 a:hover {COLOR:#white; TEXT-DECORATION:underline;}
+.style3 a:active {COLOR: #white;}
+
+
+
+p.style4 { 
+background-color: #ffffff;
+padding: 5px 5px 5px 5px;
+  border-bottom: solid 0.5px #black; 
+  border-right: solid 0.5px black; 
+  border-top: solid 0.5px #black; 
+  border-left: solid 0.5px #black;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:12px;
+color: black }
+
+
+.style5 { 
+background-color: #ffffff;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:10px;
+color: black }
+
+p.style6 { 
+background-color: #ffffff;
+padding: 10px 5px 5px 5px;
+text-align: center;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:22px;
+color: black }
+
+.style6 a { COLOR: #CC0000; FONT-SIZE:18px; FONT-FAMILY: arial, sans-serif; TEXT-DECORTION: underline;}
+.style6 a:link { COLOR: #CC0000; FONT-SIZE:18px; FONT-FAMILY: arial, sans-serif; TEXT-DECORATION: underline;}
+.style6 a:visited { COLOR: #000000;TEXT-DECORATION:underline;}
+.style6 a:hover {COLOR:#000000; TEXT-DECORATION:underline;}
+.style6 a:active {COLOR: #000000; TEXT-DECORATION:underline;}
+
+
+p.style7 { 
+FONT-SIZE:14px; FONT-FAMILY: arial, sans-serif;
+color: black }
+
+.style7 a { COLOR: #CC0000; FONT-SIZE:14px; FONT-FAMILY: arial, sans-serif; TEXT-DECORTION: underline;}
+.style7 a:link { COLOR: #CC0000; FONT-SIZE:14px; FONT-FAMILY: arial, sans-serif; TEXT-DECORATION: underline;}
+.style7 a:visited { COLOR: #000000;TEXT-DECORATION:underline;}
+.style7 a:hover {COLOR:#000000; TEXT-DECORATION:underline;}
+.style7 a:active {COLOR: #000000; TEXT-DECORATION:underline;}
+
+p.style8 { 
+FONT-SIZE:12px; FONT-FAMILY: arial, sans-serif;
+color: black }
+
+p.topheader { 
+FONT-SIZE:28px;
+FONT-FAMILY: arial, sans-serif;
+FONT-WEIGHT: bold;
+color: CC0000 }
+
+
+div.header1 { 
+background-color: #CC0000;
+padding: 5px 5px 5px 5px;
+  border-bottom: solid 0.5px #CC0000; 
+  border-right: solid 0.5px #CC0000; 
+  border-top: solid 0.5px #CC0000; 
+  border-left: solid 0.5px #CC0000;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:28px;
+color: white }
+
+
+
+div.headernav { 
+background-color: black;
+padding: 5px 5px 5px 5px;
+  border-bottom: solid 0.5px #ffcc33; 
+  border-right: solid 0.5px #ffcc33; 
+  border-top: solid 0.5px #ffcc33; 
+  border-left: solid 0.5px #ffcc33;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:18px;
+font-weight: bold;
+color: #CC0000 }
+
+.headernav a { COLOR: #9D102D; FONT-SIZE:13px; FONT-FAMILY: arial, sans-serif;  }
+.headernav a:link { COLOR: white; FONT-SIZE:13px; FONT-FAMILY: arial, sans-serif; TEXT-DECORATION: none;}
+.headernav a:visited { COLOR: white;}
+.headernav a:hover {COLOR: #ffcc33; TEXT-DECORATION:underline;}
+.headernav a:active {COLOR: #9D102D;}
+
+
+div.body { 
+background-color: #ffffff;
+padding: 20px 20px 20px 20px;
+  border-bottom: solid 3px #ffcc33; 
+  border-right: solid 3px #ffcc33; 
+  border-top: solid 3px #ffcc33; 
+  border-left: solid 3px #ffcc33;
+text-align: center;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:40px;
+font-weight: 100;
+color: #CC0000}
+
+
+div.footernav { 
+background-color: #ffcc33;
+padding: 2px 2px 2px 2px;
+  border-bottom: solid 0.5px #ffcc33; 
+  border-right: solid 0.5px #ffcc33; 
+  border-top: solid 0.5px #ffcc33; 
+  border-left: solid 0.5px #ffcc33;
+FONT-FAMILY: arial, sans-serif;
+FONT-SIZE:12px;
+
+color: black }
+
+
+
+#leftnavigation {
+  position : absolute;
+	left : 0;
+	width : 150px;
+	margin-left : 0px;
+	margin-top : 0px;
+	color : #000000;
+	background-color: #ffcc33;
+	padding : 3px;
+}
+#content {
+  top : 0px;
+  margin : 0px 25% 0 165px;
+  padding : 3px;
+  color : #000000;
+}
+
+
+#content2 {
+  top : 0px;
+  margin : 0px 25% 0 15px;
+  padding : 3px;
+  color : #000000;
+}
+
+
+#contentfull {
+  position : absolute;
+	left : 0;
+
+	margin-left : 5px;
+	margin-top : 0px;
+	margin-right : 5px;
+	color : #000000;
+	background-color: #ffffff;
+	padding : 3px;
+}
+#contentleft {
+  position : absolute;
+	left : 0;
+	width : 350px;
+	margin-left : 5px;
+	margin-top : 20px;
+	margin-right : 5px;
+	color : #000000;
+	background-color: #ffffff;
+	padding : 3px;
+}
+#contentright {
+  position : absolute;
+	left : 0;
+	width : 350px;
+	margin-left : 375px;
+	margin-top : 20px;
+	color : #000000;
+	background-color: #ffffff;
+	padding : 3px;
+}
+
+#contentbottom {
+  position : absolute;
+	left : 0;
+
+	margin-left : 0px;
+	margin-top : 300px;
+	margin-bottom : 0px;
+	color : #000000;
+	background-color: #ffffff;
+	padding : 3px;
+}
+
+
+ul.leftsmallmargin { list-style-position: outside; 
+margin-left: 20px }
+
+
+
+0l.leftsmallmargin2 { list-style-position: outside; 
+margin-left: 20px }
+

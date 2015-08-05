@@ -1,0 +1,2170 @@
+<?xml version="1.0"?>
+<!DOCTYPE archiveslisting SYSTEM "archives.dtd">
+<archiveslisting>
+<archives type="public">
+   <parentinstitution>Alexandria City Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>801 S. Payne Street</address>
+   <address2>NA</address2>
+   <city>Alexandria</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jackie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Cohan</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.838.4591</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+      </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Alexandria Library Special Collections</parentinstitution>
+   <institution>NA</institution>
+   <address>717 Queen Street</address>
+   <address2>NA</address2>
+   <city>Alexandria</city>
+   <state>VA</state>
+   <zip>22314</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>George</firstname>
+      <middlename>K.</middlename>
+      <lastname>Combs</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist/Reference Librarian</title>
+      <phone>703.838.4577</phone>
+      <ext>213</ext>
+      <fax>NA</fax>
+      <email type2="yes">gcombs@alexandria.library.va.us</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>American Association for the Advancement of Science Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>1200 New York Avenue, N.W.</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20005</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Amy</firstname>
+      <middlename>NA</middlename>
+      <lastname>Crumpton</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.326.6791</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>American Historical Association</parentinstitution>
+   <institution>NA</institution>
+   <address>400 A Street, NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20003-3889</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Arnita</firstname>
+      <middlename>NA</middlename>
+      <lastname>Jones</lastname>
+      <suffix>NA</suffix>
+      <title>Executive Director</title>
+      <phone>202.544.2422</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="private">
+   <parentinstitution>American Institute of Architects</parentinstitution>
+   <institution>AIA Archives</institution>
+   <address>1735 New York Avenue, NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20006-5292</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Sarah H.</firstname>
+      <middlename>NA</middlename>
+      <lastname>Turner</lastname>
+      <suffix>NA</suffix>
+      <title>Records Manager/Curator</title>
+      <phone>202.626.7496</phone>
+      <ext>NA</ext>
+      <fax>202.626.7587</fax>
+      <email type2="yes">turners@aiamail.aia.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>American Institute for Conservation of Historic and Artistic Works</parentinstitution>
+   <institution>NA</institution>
+   <address>1717 K Street NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20006</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Hilary</firstname>
+      <middlename>NA</middlename>
+      <lastname>Kaplan</lastname>
+      <suffix>NA</suffix>
+      <title>National Archives</title>
+      <phone>301.837.0998</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>American Institute of Physics</parentinstitution>
+   <institution>Center for the History of Physics / Neils Bohr Library and Archives</institution>
+   <address>One Physics Ellipse</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>20740</zip>
+   <website>http://www.aip.org/history/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Joseph</firstname>
+      <middlename>NA</middlename>
+      <lastname>Anderson</lastname>
+      <suffix>NA</suffix>
+      <title>Associate Director</title>
+      <phone>301.209.3179</phone>
+      <ext>NA</ext>
+      <fax>301.209.0882</fax>
+      <email type2="yes">rja@aip.org</email>
+   </contact>
+<!-- Deleted Contact 2 -->
+</archives>
+<archives type="private">
+   <parentinstitution>American Psychological Association</parentinstitution>
+   <institution>Archives and Library Services</institution>
+   <address>750 First Street, NE</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20002-4242</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Wade</firstname>
+      <middlename>NA</middlename>
+      <lastname>Pickren</lastname>
+      <suffix>NA</suffix>
+      <title>Director</title>
+      <phone>202.336.5500</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">wpickren@apa.org</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>American University</parentinstitution>
+   <institution>Special Collections</institution>
+   <address>4400 Massachusetts Avenue NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20016-8046</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Susan</firstname>
+      <middlename>NA</middlename>
+      <lastname>McElrath</lastname>
+      <suffix>NA</suffix>
+      <title>University Archivist and Head of Special Collections</title>
+      <phone>202.885.3255</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">mcelrath@american.edu</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Arlington County Public Library</parentinstitution>
+   <institution>Arlington County Archives Virginia Room</institution>
+   <address>1015 N. Quincy Street</address>
+   <address2>NA</address2>
+   <city>Arlington</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Heather</firstname>
+      <middlename>NA</middlename>
+      <lastname>Crocetto</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.228.7724</phone>
+      <ext>NA</ext>
+      <fax>703.228.5692</fax>
+      <email type2="yes">Hcrocetto@arlingtonva.us</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Association of American Medical Colleges</parentinstitution>
+   <institution>Reference Center and Mary. H. Littlemeyer Archives</institution>
+   <address>2450 N Street NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20037</zip>
+   <website>http://www.aamc.org/about/history/archives.htm</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Molly</firstname>
+      <middlename>NA</middlename>
+      <lastname>Alexanfer</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.862.6261</phone>
+      <ext>NA</ext>
+      <fax>202.862.6136</fax>
+      <email type2="yes">malexander@aamc.org</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Banneker - Douglass Museum</parentinstitution>
+   <institution>NA</institution>
+   <address>84 Franklin St.</address>
+   <address2>NA</address2>
+   <city>Annapolis</city>
+   <state>MD</state>
+   <zip>21401</zip>
+   <website>http://www.bdmuseum.com/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Joni</firstname>
+      <middlename>L.</middlename>
+      <lastname>Jones</lastname>
+      <suffix>Ph.D.</suffix>
+      <title>Librarian - Archivist</title>
+      <phone>410.216.6187</phone>
+      <ext>NA</ext>
+      <fax>410.974.2553</fax>
+      <email type2="yes">JJones@mdp.state.md.us</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>Catholic University of America</parentinstitution>
+   <institution>The American Catholic History Research Center and University Archives</institution>
+   <address>101 Life Cycle Institute</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20064</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>John</firstname>
+      <middlename>NA</middlename>
+      <lastname>Shepherd</lastname>
+      <suffix>NA</suffix>
+      <title>Associate Archivist</title>
+      <phone>202.319.5065</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">shepherw@cua.edu</email>
+   </contact>
+</archives>
+<archives type="military">
+   <parentinstitution>Department of the Army</parentinstitution>
+   <institution>Office of the Deputy Chief of Staff for Personnel</institution>
+   <address>300 Army Pentagon</address>
+   <address2>Rm 2C729</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20310-0300</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Edward</firstname>
+      <middlename>W.</middlename>
+      <lastname>Arnold</lastname>
+      <suffix>NA</suffix>
+      <title>Deputy Director for Army Records</title>
+      <phone>703.614.0559</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">arnolew@hqda.army.mil</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Department of Treasury</parentinstitution>
+   <institution>Library and Records Management Units</institution>
+   <address>1500 Pennsylvania Ave., N.W.</address>
+   <address2>Room 1428</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20220</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Mike</firstname>
+      <middlename>NA</middlename>
+      <lastname>Conklin</lastname>
+      <suffix>NA</suffix>
+      <title>Director, Information Services Division</title>
+      <phone>202.622.0980</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">mike.conklin@do.treas.gov</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Enoch Pratt Free Library</parentinstitution>
+   <institution>Special Collections</institution>
+   <address>400 Cathedral Street</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21201</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Anita</firstname>
+      <middlename>NA</middlename>
+      <lastname>Carrico</lastname>
+      <suffix>NA</suffix>
+      <title>Special Collections Head</title>
+      <phone>443.984.2451</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">acarrico@epfl.net</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Fairfax County Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>6800 A Industrial Road</address>
+   <address2>NA</address2>
+   <city>Springfield</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Richard</firstname>
+      <middlename>NA</middlename>
+      <lastname>Harrington</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.256.2123</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Fairfax County Circuit Court Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>4110 Chain Bridge Road</address>
+   <address2>C level, Judicial center</address2>
+   <city>Fairfax</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Sandra</firstname>
+      <middlename>NA</middlename>
+      <lastname>Rathbun</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.246.4168</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Fairfax County Library</parentinstitution>
+   <institution>NA</institution>
+   <address>3915 Chain Bridge Road</address>
+   <address2>Virginia Room</address2>
+   <city>Fairfax</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Brian</firstname>
+      <middlename>NA</middlename>
+      <lastname>Conley</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.246.2123</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="military">
+   <parentinstitution>Federal Information and Records Management Council</parentinstitution>
+   <institution>NA</institution>
+   <address>1700 G St. N.W.</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20552</zip>
+   <website>http://firm.hq.navy.mil</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Carol</firstname>
+      <middlename>NA</middlename>
+      <lastname>Brock</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>NA</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">cbrock@opic.gov</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Folger Shakespeare Library</parentinstitution>
+   <institution>NA</institution>
+   <address>201 East Capitol St., SE</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20003</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>Dr.</prefix>
+      <firstname>Heather</firstname>
+      <middlename>NA</middlename>
+      <lastname>Wolfe</lastname>
+      <suffix>NA</suffix>
+      <title>Curator of Manuscripts</title>
+      <phone>202.675.0325</phone>
+      <ext>NA</ext>
+      <fax>202.675.0328</fax>
+      <email type2="yes">hwolfe@folger.edu</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Frederick County Library</parentinstitution>
+   <institution>C. Burr Artz Public Library</institution>
+   <address>110 East Patrick Street</address>
+   <address2>Maryland Room</address2>
+   <city>Frederick</city>
+   <state>MD</state>
+   <zip>21701</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Mary</firstname>
+      <middlename>K.</middlename>
+      <lastname>Mannix</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>301.694.1368</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">mmannix@fredco-md.net</email>
+   </contact>
+</archives>
+<archives type="private">
+   <parentinstitution>General Federation of Women’s Clubs</parentinstitution>
+   <institution>Women’s History and Resource Center</institution>
+   <address>1734 N Street NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20036</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Morgan</firstname>
+      <middlename>NA</middlename>
+      <lastname>Davis</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.347.3168</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">mdavis@gfwc.org</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>George Mason University Archives</parentinstitution>
+   <institution>Special Collections, Fenwick Library</institution>
+   <address>GMU</address>
+   <address2>NA</address2>
+   <city>Fairfax</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>http://www.gmu.edu/library/specialcollections/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>NA</firstname>
+      <middlename>NA</middlename>
+      <lastname>NA</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>703.993.2220</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="private">
+   <parentinstitution>George Meany Memorial Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>10000 New Hampshire Ave.</address>
+   <address2>NA</address2>
+   <city>Silver Spring</city>
+   <state>MD</state>
+   <zip>20903</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Lynda</firstname>
+      <middlename>L.</middlename>
+      <lastname>DeLoach</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>301.431.5441</phone>
+      <ext>NA</ext>
+      <fax>301.434.0371</fax>
+      <email type2="yes">ldeloach@georgemeany.org</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Greenbelt Museum</parentinstitution>
+   <institution>NA</institution>
+   <address>15 Greenbelt Road</address>
+   <address2>NA</address2>
+   <city>Greenbelt</city>
+   <state>MD</state>
+   <zip>20770</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Katie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Scott-Childress</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>301.507.6582</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Greenpeace</parentinstitution>
+   <institution>NA</institution>
+   <address>702 H Street NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20001</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jennifer</firstname>
+      <middlename>NA</middlename>
+      <lastname>Pizza</lastname>
+      <suffix>NA</suffix>
+      <title>Visual Archivist</title>
+      <phone>303.319.2480</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jennifer.pizza@wdc.greenpeace.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Historical Society of Frederick County</parentinstitution>
+   <institution>NA</institution>
+   <address>24 Church Street</address>
+   <address2>NA</address2>
+   <city>Frederick</city>
+   <state>MD</state>
+   <zip>21701</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Liz</firstname>
+      <middlename>NA</middlename>
+      <lastname>Conn</lastname>
+      <suffix>NA</suffix>
+      <title>Librarian/Curator</title>
+      <phone>301.663.1188</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">lconn@hsfcinfo.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Historical Society of Washington DC</parentinstitution>
+   <institution>NA</institution>
+   <address>801 K Street, NW</address>
+   <address2>at Mount Vernon Square</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20001</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Yvonne</firstname>
+      <middlename>NA</middlename>
+      <lastname>Carignan</lastname>
+      <suffix>NA</suffix>
+      <title>Library Director</title>
+      <phone>301.838.1851</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Jewish Historical Society of Greater Washington</parentinstitution>
+   <institution>NA</institution>
+   <address>600 I Street, NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20001</zip>
+   <website>http://www.jhsgw.org</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Wendy</firstname>
+      <middlename>NA</middlename>
+      <lastname>Turman</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.789.0900</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">Wendy@jhsgw.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>John Q. Adams Center for the History of Otolaryngology</parentinstitution>
+   <institution>Head and Neck Surgery Foundation</institution>
+   <address>1 Prince Street</address>
+   <address2>NA</address2>
+   <city>Alexandria</city>
+   <state>VA</state>
+   <zip>22314</zip>
+   <website>http://www.entnet.org/museum/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>M. Marie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Maxwell</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>703.519.1596</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">museum@entnet.org</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>Johns Hopkins University</parentinstitution>
+   <institution>NA</institution>
+   <address>3400 North Charles Street</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21218</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Cynthia</firstname>
+      <middlename>NA</middlename>
+      <lastname>Requardt</lastname>
+      <suffix>NA</suffix>
+      <title>Kurrelmeyer Curator of Special Collections</title>
+      <phone>410.516.8348</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Library of Congress</parentinstitution>
+   <institution>Manuscript Division</institution>
+   <address>101 Independence Avenue, SE</address>
+   <address2>James Madison Building</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20540-1400</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Richard</firstname>
+      <middlename>NA</middlename>
+      <lastname>Bickel</lastname>
+      <suffix>NA</suffix>
+      <title>Manuscript Division</title>
+      <phone>202.707.1111</phone>
+      <ext>NA</ext>
+      <fax>202.707.5389</fax>
+      <email type2="yes">rbic@loc.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Library of Congress</parentinstitution>
+   <institution>Reference</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>NA</city>
+   <state>NA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>James</firstname>
+      <middlename>NA</middlename>
+      <lastname>Hutson</lastname>
+      <suffix>NA</suffix>
+      <title>Reference</title>
+      <phone>202.707.5383</phone>
+      <ext>NA</ext>
+      <fax>202.707.6336</fax>
+      <email type2="yes">jhut@loc.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Library of Congress</parentinstitution>
+   <institution>Veteran’s History Project.</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>NA</city>
+   <state>NA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Sarah</firstname>
+      <middlename>Dashiell</middlename>
+      <lastname>Rouse</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.707.0213</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">srou@loc.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Library of Congress</parentinstitution>
+   <institution>Digital Conversion Services Team</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>NA</city>
+   <state>NA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Sue</firstname>
+      <middlename>NA</middlename>
+      <lastname>Manus</lastname>
+      <suffix>NA</suffix>
+      <title>Digital Conversion Services Team</title>
+      <phone>202.707.3741</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">sman@loc.gov</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Maryland Historical Society</parentinstitution>
+   <institution>NA</institution>
+   <address>201 West Monument Street</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21201-4674</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Elisabeth</firstname>
+      <middlename>NA</middlename>
+      <lastname>Proffen</lastname>
+      <suffix>NA</suffix>
+      <title>France-Merrick Director for the Library</title>
+      <phone>410.685.3750</phone>
+      <ext>327</ext>
+      <fax>410.385.2105</fax>
+      <email type2="yes">eproffen@mdhs.org</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Maryland State Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>350 Rowe Blvd.</address>
+   <address2>NA</address2>
+   <city>Annapolis</city>
+   <state>MD</state>
+   <zip>21401</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Ed</firstname>
+      <middlename>NA</middlename>
+      <lastname>Papenfuse</lastname>
+      <suffix>NA</suffix>
+      <title>State Archivist</title>
+      <phone>410.974.3867</phone>
+      <ext>NA</ext>
+      <fax>410.974.3895</fax>
+      <email type2="yes">archives@mdarchives.state.md.us</email>
+   </contact>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Christopher</firstname>
+      <middlename>NA</middlename>
+      <lastname>Allan</lastname>
+      <suffix>NA</suffix>
+      <title>Deputy Archivist</title>
+      <phone>410.974.3867</phone>
+      <ext>NA</ext>
+      <fax>410.974.3895</fax>
+      <email type2="yes">archives@mdarchives.state.md.us</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Montgomery County Historical Society</parentinstitution>
+   <institution>Montgomery County Archives</institution>
+   <address>111 West Middle Lane</address>
+   <address2>NA</address2>
+   <city>Rockville</city>
+   <state>MD</state>
+   <zip>20850</zip>
+   <website>http://www.montgomeryhistory.org/mcarch.html</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Rob</firstname>
+      <middlename>NA</middlename>
+      <lastname>Jenson</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>301.340.2974</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">rjenson@montgomeryhistory.org</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>Howard University</parentinstitution>
+   <institution>Moorland-Spingarn Research Center</institution>
+   <address>500 Howard Place</address>
+   <address2>Founders Library</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20059</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>JoEllen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Bashir</lastname>
+      <suffix>NA</suffix>
+      <title>Curator of Manuscripts</title>
+      <phone>202.806.7480</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jelbashir@howard.edu</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>National Agricultural Library</parentinstitution>
+   <institution>NA</institution>
+   <address>10301 Baltimore Ave.</address>
+   <address2>NA</address2>
+   <city>Beltsville</city>
+   <state>MD</state>
+   <zip>20705-2351</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Kristen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Welzenbach</lastname>
+      <suffix>NA</suffix>
+      <title>Special Collections</title>
+      <phone>301.504.5383</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">kwelzenbach@nal.usda.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>National Aeronautical and Space Administration</parentinstitution>
+   <institution>History Program</institution>
+   <address>300 E St. SW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20546-0005</zip>
+   <website>http://www.history.nasa.gov</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jane</firstname>
+      <middlename>H.</middlename>
+      <lastname>Odom</lastname>
+      <suffix>NA</suffix>
+      <title>Chief Archivist</title>
+      <phone>202.358.0384</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jane.odom@nasa.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>National Aeronautical and Space Administration</parentinstitution>
+   <institution>Library, Goddard Space Flight Center</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Greenbelt</city>
+   <state>MD</state>
+   <zip>20771</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Janet</firstname>
+      <middlename>D.</middlename>
+      <lastname>Ormes</lastname>
+      <suffix>NA</suffix>
+      <title>Library Director</title>
+      <phone>301.286.3217</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">janet.ormes@gfsc.nasa.gov</email>
+   </contact>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jane</firstname>
+      <middlename>NA</middlename>
+      <lastname>Riddle</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>301.286.3217</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jane.riddle@gsfc.nasa.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>National Archives and Records Administration</parentinstitution>
+   <institution>Office of Records Services</institution>
+   <address>8601 Adelphi Road</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>20740</zip>
+   <website>NA</website>
+   <opportunities>Textual Processing, Electronic Records, and Lifecycle Management</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Iva</firstname>
+      <middlename>NA</middlename>
+      <lastname>Scott-Cora</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>301.837.2965</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">ivadnia.scott-cora@nara.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>National Archives and Records Administration</parentinstitution>
+   <institution>Research Support Branch</institution>
+   <address>National Archives Building</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>Nixon Presidential Materials Project</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>NA</firstname>
+      <middlename>NA</middlename>
+      <lastname>NA</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>NA</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>National Coalition for History</parentinstitution>
+   <institution>NA</institution>
+   <address>400 A Street SE</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Bruce</firstname>
+      <middlename>NA</middlename>
+      <lastname>Craig</lastname>
+      <suffix>NA</suffix>
+      <title>Executive Director</title>
+      <phone>202.544.2422</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>National Gallery of Art</parentinstitution>
+   <institution>NA</institution>
+   <address>5th and Constitution Ave., NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>http://www.nga.gov</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Maygene</firstname>
+      <middlename>NA</middlename>
+      <lastname>Daniels</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.842.6175</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">m-daniels@nga.gov</email>
+   </contact>
+</archives>
+   <!-- Removed mail information from the above NGA account - 2000B South Club Drive, Landover MD 20785 -->
+<archives type="private">
+   <parentinstitution>National Geographic Society</parentinstitution>
+   <institution>Libraries and Information Services</institution>
+   <address>1145 17th Street, NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20036-4688</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Karen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Huffman</lastname>
+      <suffix>NA</suffix>
+      <title>Senior Librarian</title>
+      <phone>202.857.7061</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">khuffman@ngs.org</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>NIH National Library of Medicine/</parentinstitution>
+   <institution>History of Medicine Division</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Bethesda</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Paul</firstname>
+      <middlename>NA</middlename>
+      <lastname>Theerman</lastname>
+      <suffix>NA</suffix>
+      <title>Head, Non-Book Collections</title>
+      <phone>301.594.0975</phone>
+      <ext>NA</ext>
+      <fax>301.402.0872</fax>
+      <email type2="yes">paul_theerman@nlm.nih.gov</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>National Museum of Women in the Arts</parentinstitution>
+   <institution>NA</institution>
+   <address>1250 New York Avenue NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20005</zip>
+   <website>http://www.nmwa.org</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jason</firstname>
+      <middlename>NA</middlename>
+      <lastname>Stieber</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.266.2807</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">JStieber@NMWA.org</email>
+   </contact>
+</archives>
+<archives type="private">
+   <parentinstitution>Nuclear Energy Institute</parentinstitution>
+   <institution>NA</institution>
+   <address>1776 I. Street</address>
+   <address2>Room 400</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20006-3708</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Alice</firstname>
+      <middlename>NA</middlename>
+      <lastname>Clamp</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.739.8035</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="military">
+   <parentinstitution>Armed Forces Institute of Pathology</parentinstitution>
+   <institution>National Museum of Health and Medicine</institution>
+   <address>Walter Reed Army Medical Center, Bldg. 54</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20306-6000</zip>
+   <website>http://www.natmedmuse.afip.org</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Michael</firstname>
+      <middlename>G.</middlename>
+      <lastname>Rhode</lastname>
+      <suffix>NA</suffix>
+      <title>Chief Archivist</title>
+      <phone>202.782.2212</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">rhode@afip.osd.mil</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>National Press Club</parentinstitution>
+   <institution>Eric Friedheim Library at the National Press Club</institution>
+   <address>529 14th Street NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20045</zip>
+   <website>http://press.org/library/archives.cfm</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Christina</firstname>
+      <middlename>NA</middlename>
+      <lastname>Zamon</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist and Research Librarian</title>
+      <phone>202.662.7523</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">chostetter@press.org</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Office of Federal Housing Enterprise Oversight</parentinstitution>
+   <institution>NA</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>NA</city>
+   <state>NA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Alice</firstname>
+      <middlename>NA</middlename>
+      <lastname>Gannon</lastname>
+      <suffix>NA</suffix>
+      <title>Records Management Officer</title>
+      <phone>202.414.3791</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institute</parentinstitution>
+   <institution>National Gallery of Art</institution>
+   <address>Constitution Ave.</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>www.nga.gov</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Maygene</firstname>
+      <middlename>NA</middlename>
+      <lastname>Daniels</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.842.6175</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">m-daniels@nga.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>Walter Reed Medical Hospital</parentinstitution>
+   <institution>National Museum of Health and Medicine, Armed Forces Institute of Pathology</institution>
+   <address>Walter Reed Medical Hospital, Bldg. 54</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20306</zip>
+   <website>http://www.natmedmuse.afip.org</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Michael G.</firstname>
+      <middlename>NA</middlename>
+      <lastname>Rhode</lastname>
+      <suffix>NA</suffix>
+      <title>Chief Archivist</title>
+      <phone>202.782.2212</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">rhode@afip.osd.mil</email>
+   </contact>
+</archives>
+<archives type="private">
+   <parentinstitution>Organization of American States</parentinstitution>
+   <institution>Columbus Memorial Library</institution>
+   <address>Constitution Ave. NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20006</zip>
+   <website>http://www.oas.org/columbus/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Virginia</firstname>
+      <middlename>NA</middlename>
+      <lastname>Newton</lastname>
+      <suffix>NA</suffix>
+      <title>Director</title>
+      <phone>202.458.6040</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">Vnewton@oas.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Peerless Rockville Preservation, Ltd.</parentinstitution>
+   <institution>NA</institution>
+   <address>29 Courthouse Square, Room 110</address>
+   <address2>NA</address2>
+   <city>Rockville</city>
+   <state>DC</state>
+   <zip>20850</zip>
+   <website>http://www.peerlessrockville.org/</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Maizie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Cummings</lastname>
+      <suffix>NA</suffix>
+      <title>Collections Manager</title>
+      <phone>301.762.0096 (Mon-Wed-Sat 10-1), else 301.251.1628</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">collections@peerlessrockville.org</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Phillips Collection</parentinstitution>
+   <institution>NA</institution>
+   <address>1600 21st St. NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20009</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Karen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Schneider</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.387.2151</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">kschneider@phillipscollection.org</email>
+   </contact>
+</archives>
+<archives type="nonprofit">
+   <parentinstitution>Salvation Army</parentinstitution>
+   <institution>Salvation Army Archives</institution>
+   <address>605 Slater Lane</address>
+   <address2>NA</address2>
+   <city>Alexandria</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Susan</firstname>
+      <middlename>NA</middlename>
+      <lastname>Mitchum</lastname>
+      <suffix>NA</suffix>
+      <title>Archives Manager</title>
+      <phone>703.864.5500</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>NA</institution>
+   <address>Arts and Industries Building, Suite 2235, MRC 427</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20506</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Tracie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Spinale</lastname>
+      <suffix>NA</suffix>
+      <title>Internships Coordinator</title>
+      <phone>202.633.8901</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">tspinale@scems.si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Archives of American Art</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Barbara</firstname>
+      <middlename>NA</middlename>
+      <lastname>Aikens</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>NA</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">aikensb@si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Archives of American Gardens, Horticulture Collections Management and Education</institution>
+   <address>PO Box 37012, Arts and Industries Building, Room 2282, MRC 420</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20013</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Beth</firstname>
+      <middlename>NA</middlename>
+      <lastname>Page</lastname>
+      <suffix>NA</suffix>
+      <title>Museum Technician</title>
+      <phone>202.633.9239</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">pageb@opp.si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Air and Space Museum</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Khristine</firstname>
+      <middlename>NA</middlename>
+      <lastname>Kaske-Martin</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.357.3133</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Freer Gallery of Art and Arthur M. Sackler Gallery Archives</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>David</firstname>
+      <middlename>NA</middlename>
+      <lastname>Hogge</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202-633-0533</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">david.hogge@asia.si.edu</email>
+   </contact>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Linda</firstname>
+      <middlename>NA</middlename>
+      <lastname>Raditz</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.633.0533</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">linda.raditz@asia.si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>National Museum of American History</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Vanessa</firstname>
+      <middlename>NA</middlename>
+      <lastname>Broussard Simmons</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.633.3719</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">broussardv@si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Smithsonian Folkways, Ralph Rinzler Folklife Archive and Collection</institution>
+   <address>750 9th St. NW, Suite 4100</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jeff</firstname>
+      <middlename>NA</middlename>
+      <lastname>Place</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.275.1149</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jeff@folkways.si.edu</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Smithsonian Institution</parentinstitution>
+   <institution>Smithsonian Institution Archives</institution>
+   <address>A and I Buliding, Suite 2135, MRC 414</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20013</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Tracy</firstname>
+      <middlename>NA</middlename>
+      <lastname>Robinson</lastname>
+      <suffix>NA</suffix>
+      <title>Intern Coordinator</title>
+      <phone>202.357.1421</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>United States Department of Energy</parentinstitution>
+   <institution>Office of History and Heritage Resources</institution>
+   <address>19901 Germantown Rd.</address>
+   <address2>NA</address2>
+   <city>Germantown</city>
+   <state>MD</state>
+   <zip>20874</zip>
+   <website>www.mbe.doe.gov/me70/history/index.htm</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jennifer</firstname>
+      <middlename>NA</middlename>
+      <lastname>Johnson</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>301.903.9673</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jennifer.johnson@hq.doe.gov</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>United States Department of the Interior</parentinstitution>
+   <institution>National Historic Landmarks Survey</institution>
+   <address>National Park Service, 1849 C St. NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20204</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>John</firstname>
+      <middlename>NA</middlename>
+      <lastname>Sprinkle, Jr.</lastname>
+      <suffix>NA</suffix>
+      <title>Supervisory Historian</title>
+      <phone>202.343.8166</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">John_Sprinkle@nps.gov</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>United Holocaust Memorial Museum</parentinstitution>
+   <institution>NA</institution>
+   <address>100 Raoul Wallenberg Place SW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20024</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jeff</firstname>
+      <middlename>NA</middlename>
+      <lastname>Carter</lastname>
+      <suffix>NA</suffix>
+      <title>Records Management Officer and Institutional Archivist</title>
+      <phone>202.314.0339</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">jcarter@ushmm.org</email>
+   </contact>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Henry</firstname>
+      <middlename>NA</middlename>
+      <lastname>Mayer</lastname>
+      <suffix>NA</suffix>
+      <title>Chief Archivist</title>
+      <phone>202.479.9710</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">hmayer@ushmm.org</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>United States Environmental Protection Agency</parentinstitution>
+   <institution>NA</institution>
+   <address>401 M St. SW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20460</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Chris</firstname>
+      <middlename>NA</middlename>
+      <lastname>O'Donnell</lastname>
+      <suffix>NA</suffix>
+      <title>Agency Records Officer</title>
+      <phone>202.260.1324</phone>
+      <ext>NA</ext>
+      <fax>202.260.8550</fax>
+      <email type2="yes">odonnell.chris@epa.gov</email>
+   </contact>
+</archives>
+<archives type="military">
+   <parentinstitution>Marine Corps University</parentinstitution>
+   <institution>United States Marine Corps Historical Archives</institution>
+   <address>Marine Corps University</address>
+   <address2>NA</address2>
+   <city>Quantico</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Mike</firstname>
+      <middlename>NA</middlename>
+      <lastname>Miller</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>703.784.4685</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">millerm@usmcu.edu</email>
+   </contact>
+</archives>
+<archives type="military">
+   <parentinstitution>United States Naval Operations Archives</parentinstitution>
+   <institution>NA</institution>
+   <address>805 Kidder Breese St, SE, Washington Navy Yard</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20374</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Joel</firstname>
+      <middlename>NA</middlename>
+      <lastname>Westphal</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>NA</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">wade.wyckoff@navy.mil</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>United States Senate</parentinstitution>
+   <institution>Senate Historical Office</institution>
+   <address>Hart Building, Room 201</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20510</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Karen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Paul</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>202.224.3351</phone>
+      <ext>NA</ext>
+      <fax>202.224.5329</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="government">
+   <parentinstitution>United States Senate</parentinstitution>
+   <institution>Office of Senator Ted Stevens</institution>
+   <address>522 Hart Senate Office Building</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20510</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Juliette</firstname>
+      <middlename>NA</middlename>
+      <lastname>Arai</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202.224.7920</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>Univeristy of Baltimore</parentinstitution>
+   <institution>Langsdale Library Special Collections</institution>
+   <address>1420 Maryland Ave</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21201</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Tom</firstname>
+      <middlename>NA</middlename>
+      <lastname>Hollowak</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>NA</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">thollowak@ubalt.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (Baltimore)</parentinstitution>
+   <institution>Thurgood Marshall Law Library</institution>
+   <address>501 W. Fayette St.</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21201</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Bill</firstname>
+      <middlename>NA</middlename>
+      <lastname>Sleeman</lastname>
+      <suffix>NA</suffix>
+      <title>Bibliographic Control/Government Documents Librarian</title>
+      <phone>410.706.0783</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">bsleeman@law.umaryland.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland</parentinstitution>
+   <institution>School of Nursing, UMSON History Exhibition Project</institution>
+   <address>655 Lombard St., Room 502</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>21201</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Mary Beth</firstname>
+      <middlename>NA</middlename>
+      <lastname>Corrigan</lastname>
+      <suffix>NA</suffix>
+      <title>Collections Manager</title>
+      <phone>410.706.1502</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (Baltimore County)</parentinstitution>
+   <institution>Albin O. Kuhn Library and Gallery</institution>
+   <address>1000 Hilltop Circle</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Marcia</firstname>
+      <middlename>NA</middlename>
+      <lastname>Peri</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>410.455.6290</phone>
+      <ext>NA</ext>
+      <fax>410.455.1153</fax>
+      <email type2="yes">mperi@umbc.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>National Public Broadcasting Archives/Library of American Broadcasting</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Thomas</firstname>
+      <middlename>NA</middlename>
+      <lastname>Connars</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>202.405.9255</phone>
+      <ext>NA</ext>
+      <fax>301.314.9419</fax>
+      <email type2="yes">tconnors@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>McKeldin Library</institution>
+   <address>McKeldin Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>NA</firstname>
+      <middlename>NA</middlename>
+      <lastname>NA</lastname>
+      <suffix>NA</suffix>
+      <title>Head of Preservation</title>
+      <phone>301.405.9343</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Hornbake Library Archives and Manuscripts Department</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Lauren</firstname>
+      <middlename>NA</middlename>
+      <lastname>Brown</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>301.405.9059</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">lbrown3@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Hornbake Library Archives and Manuscripts Department</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Jennie</firstname>
+      <middlename>NA</middlename>
+      <lastname>Levine</lastname>
+      <suffix>NA</suffix>
+      <title>Curator for Historical Manuscripts</title>
+      <phone>301.314.2712</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">levjen@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Hornbake Library Archives and Manuscripts Department</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Beth</firstname>
+      <middlename>NA</middlename>
+      <lastname>Alvarez</lastname>
+      <suffix>NA</suffix>
+      <title>Curator of Literary Manuscripts</title>
+      <phone>301.405.9298</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">alvarez@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Hornbake Library Archives and Manuscripts Department</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Anne</firstname>
+      <middlename>NA</middlename>
+      <lastname>Turkos</lastname>
+      <suffix>NA</suffix>
+      <title>University Archivist and Associate Curator of Archives and Manuscripts</title>
+      <phone>301.405.9060</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">aturkos@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Hornbake Library Marylandia and Rare Books</institution>
+   <address>Hornbake Library</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Douglas</firstname>
+      <middlename>NA</middlename>
+      <lastname>McElrath</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>301.314.2709</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">mcelrat@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Clarice Smith Performing Arts Center (International Piano Archives at Maryland</institution>
+   <address>2511 Clarice Smith Performing Arts Center</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Donald</firstname>
+      <middlename>NA</middlename>
+      <lastname>Manildi</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>301.405.9224</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">godowsky@umd.edu</email>
+   </contact>
+</archives>
+<archives type="academic">
+   <parentinstitution>University of Maryland (College Park) Libraries</parentinstitution>
+   <institution>Special Collections in Performing Arts</institution>
+   <address>2511 Clarice Smith Performing Arts Center</address>
+   <address2>NA</address2>
+   <city>College Park</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Vin</firstname>
+      <middlename>NA</middlename>
+      <lastname>Novara</lastname>
+      <suffix>NA</suffix>
+      <title>Curator</title>
+      <phone>301.405.9220</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">vnovara@umd.edu</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Library of Virginia</parentinstitution>
+   <institution>Virginia State Archives</institution>
+   <address>NA</address>
+   <address2>NA</address2>
+   <city>Richmond</city>
+   <state>VA</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>NA</firstname>
+      <middlename>NA</middlename>
+      <lastname>NA</lastname>
+      <suffix>NA</suffix>
+      <title>NA</title>
+      <phone>804-692-3601</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="none">NA</email>
+   </contact>
+</archives>
+<archives type="museum">
+   <parentinstitution>Walters Art Gallery</parentinstitution>
+   <institution>NA</institution>
+   <address>600 North Charles St.</address>
+   <address2>NA</address2>
+   <city>Baltimore</city>
+   <state>MD</state>
+   <zip>NA</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Kathleen</firstname>
+      <middlename>NA</middlename>
+      <lastname>Stacey</lastname>
+      <suffix>NA</suffix>
+      <title>Head Librarian</title>
+      <phone>410-547-9000</phone>
+      <ext>274</ext>
+      <fax>410-752-4797</fax>
+      <email type2="yes">ks153@umail.umd.edu</email>
+   </contact>
+</archives>
+<archives type="public">
+   <parentinstitution>Washington DC Public Library</parentinstitution>
+   <institution>Washingtonian Division</institution>
+   <address>901 G St. NW</address>
+   <address2>NA</address2>
+   <city>Washington</city>
+   <state>DC</state>
+   <zip>20001</zip>
+   <website>NA</website>
+   <opportunities>NA</opportunities>
+   <contact>
+      <prefix>NA</prefix>
+      <firstname>Ryan</firstname>
+      <middlename>NA</middlename>
+      <lastname>Semmes</lastname>
+      <suffix>NA</suffix>
+      <title>Archivist</title>
+      <phone>202-727-2272</phone>
+      <ext>NA</ext>
+      <fax>NA</fax>
+      <email type2="yes">ryan.semmes@dc.gov</email>
+   </contact>
+</archives>
+</archiveslisting>

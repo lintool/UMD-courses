@@ -1,0 +1,149 @@
+<html>
+<head>
+
+<style type="text/css"> 
+/* CSS-based Image Maps
+   Based on: Frank Manno http://www.frankmanno.com/ideas/css-imagemap/
+   
+*/
+
+/* ---------- hidden ONLY if CSS is enabled.  If disabled, image is rendered ---------- */
+img.image{ display: none; }
+
+dl#CampusMap{
+	margin: 0;
+	padding: 0;
+	background: transparent url(gimpmap.jpg) top left no-repeat;
+	height: 629px;
+	width: 872px;
+	position: absolute;
+}
+
+dt{ margin: 0; padding: 0; position: absolute; font-size: 85%; display: none; }
+dd{ margin: 0; padding: 0; position: absolute;  font-size: 85%; }
+
+/* ---------- Hotspot Declarations ---------- */
+dd#MckDef{ top: 178px; left: 350px; }
+dd#MckDef a{ position: absolute; width: 84px; height: 72px; text-decoration: none; }
+dd#MckDef a span{ display: none; }
+dd#MckDef a:hover{ position: absolute; background: transparent url(gimpmapnofly.jpg) -350px -178px no-repeat; top: -0px; left: -0px; }
+dd#MckDef a:hover span{
+	display: block;
+	text-indent: 0;
+	vertical-align: top;
+	color: #000;
+	background-color: #F4F4F4;
+	font-weight: bold;
+	position: absolute;
+	border: 1px solid #BCBCBC;
+	bottom: 100%;
+	margin: 0;
+	padding: 5px;
+	width: 125%;
+}
+
+dd#ClsDef{ top: 280px; left: 283px; }
+dd#ClsDef a{ position: absolute; width: 80px; height: 80px; text-decoration: none; }
+dd#ClsDef a span{ display: none; }
+dd#ClsDef a:hover{ position: absolute; background: transparent url(gimpmapnofly.jpg) -283px -280px no-repeat; top: -0px; left: -0px; }
+dd#ClsDef a:hover span{
+	display: block;
+	text-indent: 0;
+	vertical-align: top;
+	color: #000;
+	background-color: #F4F4F4;
+	font-weight: bold;
+	position: absolute;
+	border: 1px solid #BCBCBC;
+	bottom: 100%;
+	margin: 0;
+	padding: 5px;
+	width: 125%;
+}
+
+
+dd#DormDef{ top:73px; left: 793px; }
+dd#DormDef a{ position: absolute; width: 76px; height: 302px; text-decoration: none; }
+dd#DormDef a span{ display: none; }
+dd#DormDef a:hover{ background: transparent url(gimpmapnofly.jpg) -793px -73px no-repeat; }
+dd#DormDef a:hover span{
+	display: block;
+	text-indent: 0;
+	vertical-align: top;
+	color: #000;
+	background-color: #F4F4F4;
+	font-weight: bold;
+	position: absolute;
+	border: 1px solid #BCBCBC;
+	bottom: 100%;
+	margin: 0;
+	padding: 5px;
+	width: 150%;
+}
+
+dd#StadDef{ top: 0px; left: 604px; }
+dd#StadDef a{ position: absolute; width: 182px; height: 190px; text-decoration: none;	}
+dd#StadDef a span{ display: none; }
+dd#StadDef a:hover{ background: transparent url(gimpmapnofly.jpg) -604px -0px no-repeat; }
+dd#StadDef a:hover span{
+	display: block;
+	text-indent: 0;
+	vertical-align: top;
+	color: #000;
+	background-color: #F4F4F4;
+	font-weight: bold;
+	position: absolute;
+	border: 1px solid #BCBCBC;
+	top: 100%;
+	margin: 0;
+	padding: 5px;
+	width: 100%;
+}
+
+dd#FrontDef{ top: 568px; left: 301px; }
+dd#FrontDef a{ position: absolute; width: 74px; height: 61px; text-decoration: none; }
+dd#FrontDef a span{ display: none; }
+dd#FrontDef a:hover{ background: transparent url(gimpmapnofly.jpg) -301px -568px no-repeat; }
+dd#FrontDef a:hover span{
+	display: block;
+	text-indent: 0;
+	vertical-align: top;
+	color: #000;
+	background-color: #F4F4F4;
+	font-weight: bold;
+	position: absolute;
+	border: 1px solid #BCBCBC;
+	top: 100%;
+	margin: 0;
+	padding: 5px;
+	width: 200%;
+}
+
+</style>
+
+</head>
+<body background="gimpmap.jpg">
+
+<img src="gimpmap.jpg" height="262" width="350" class="image" alt="Campus Map" />
+	
+	<dl id="ImageMap">
+
+		<dt id="Mck">McKeldin Library</dt>
+		<dd id="MckDef"><a href="mckeldin.html" target="_top"><span>McKeldin Library</span></a></dd>
+
+<dt id="Cls">Classrooms</dt>
+		<dd id="ClsDef"><a href="classroom.html" target="_top"><span>Classrooms</span></a></dd>
+		
+<dt id="Dorm">Dormitories</dt>
+		<dd id="DormDef"><a href="dormitory.html" target="_top"><span>Dormitories</span></a></dd>
+		
+<dt id="Stad">Byrd Stadium</dt>
+		<dd id="StadDef"><a href="stadium.html" target="_top"><span>Byrd Stadium</span></a></dd>
+
+		<dt id="Front">Rossborough Inn</dt>
+		<dd id="FrontDef"><a href="rossborough.html" target="_top"><span>Rossborough Inn</span></a></dd>
+	</dl>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT archiveslisting (archives+)>
+<!ELEMENT archives (parentinstitution, institution, address, address2, city, state, zip, website, opportunities, contact+)>
+
+<!ATTLIST archives type (academic | government | military | museum | nonprofit | private | public) #REQUIRED>
+<!ATTLIST email type2 (none | yes) #REQUIRED>
+
+<!ELEMENT parentinstitution (#PCDATA)>
+<!ELEMENT institution (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT address2 (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT zip (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+<!ELEMENT opportunities (#PCDATA)>
+<!ELEMENT contact (prefix, firstname, middlename, lastname, suffix, title, phone, ext, fax, email)>
+<!ELEMENT contact2 (prefix, firstname, middlename, lastname, suffix, title, phone, ext, fax, email)>
+
+<!ELEMENT prefix (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT middlename (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT suffix (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT ext (#PCDATA)>
+<!ELEMENT fax (#PCDATA)>
+<!ELEMENT email (#PCDATA)>

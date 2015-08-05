@@ -1,0 +1,25 @@
+<style type="text/css">
+<!--
+
+body { background-color: #FFFFFF; }
+
+a:link 		{ color: #000000; }
+a:active 	{ color: #CC0066; }
+a:visited 	{ color: #8C1717; }
+
+h1 {text-align: left; font-family: Arial, Verdana, Helvetica; font-size: 26; color:#000000; font-weight; bold;}
+
+h2 {text-align: left; font-family: Arial, Verdana, Helvetica; font-size: 16; color:#00000; font-weight; bold;}
+
+P.One {text-align: center; font-family: Arial, Verdana, Helvetica; font-size: 18; color:#000000; font-weight: bold;}
+
+P.Two {text-align: left; font-family: Arial, Verdana, Helvetica; font-size: 14; color:#000000; font-weight: normal;}
+
+P.Three {text-align: center; font-family: Arial, Verdana, Helvetica; font-size: 14; color:#000000; font-weight: normal;}
+
+table {border-color: #FFCC00; border-style: solid; border-width: 2; }
+
+td { padding: 5px 5px 5px 5px; align: center; } 
+
+-->
+</style>

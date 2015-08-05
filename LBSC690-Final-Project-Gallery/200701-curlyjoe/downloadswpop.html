@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<title>Curly Joe</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+<!--
+
+ var UniqueID = 314 // Make each link open in a new window
+    var newWinOffset = 0 // Position of first pop-up
+
+    function PlayerOpen(soundfiledesc,soundfilepath) {
+    PlayWin = window.open('',UniqueID,'width=370,height=800,top=' + newWinOffset +',left=0,resizable=0,scrollbars=0,titlebar=0,toolbar=0,menubar=0,status=0,directories=0,personalbar=0');
+    PlayWin.focus();
+
+    var winContent = "<HTML><HEAD><TITLE>" + soundfiledesc + "</TITLE></HEAD><BODY bgcolor='#cf9118'>";
+    winContent += "<B style='font-size:18px;font-family:Verdana,sans-serif;line-height:1.5'>" + soundfiledesc + "</B>";
+
+    winContent += "<OBJECT width='360' height='600'>";
+    winContent += "<param name='SRC' value='" + soundfilepath + "'>";
+    winContent += "<param name='AUTOPLAY' VALUE='true'>";
+    winContent += "<param name='CONTROLLER' VALUE='true'>";
+    winContent += "<param name='BGCOLOR' VALUE='#cf9118'>";
+    winContent += "<EMBED SRC='" + soundfilepath + "' AUTOSTART='TRUE' LOOP='FALSE' WIDTH='350' HEIGHT='600' CONTROLLER='TRUE' BGCOLOR='#cf9118'></EMBED>";
+    winContent += "</OBJECT>";
+
+    winContent += "<p style='font-size:12px;font-family:Verdana,sans-serif;text-align:center'><a href='" + soundfilepath +"'>Download this file</a> <SPAN style='font-size:10px'>(right-click or Option-click)</SPAN></p>";
+    winContent += "<FORM><DIV align='center'><INPUT type='button' value='Close this window' onclick='javascript:window.close();'></DIV></FORM>";
+    winContent += "</BODY></HTML>";
+
+    PlayWin.document.write(winContent);
+    PlayWin.document.close(); // "Finalizes" new window
+    UniqueID = UniqueID + 1 // newWinOffset = newWinOffset + 20 // subsequent pop-ups will be this many pixels lower
+    }
+
+//-->
+</script>
+ 
+</head>
+<body>
+<div id="wrapper">
+	<ul id="nav">
+
+		<li><a href="info.html">info</a></li>
+		<li><a href="guestbook.html">guestbook</a></li>
+		<li><a href="downloads.html">downloads</a></li>
+		<li><a href="songsearch.html">song search</a></li>
+		<li><a href="mailto:curlyjoeband@comcast.net">contact</a></li>
+	</ul>
+
+	<h1><a href="index.html"><img src="logo.gif" width="130" height="23" alt="Curly Joe" /></a></h1>
+	<div id="body">
+		<div id="bodyi">
+			<div id="bodyj">
+				<div id="sidebar">
+					<div class="content">
+						<h2>Latest News</h2>
+						<p>May 2007: The new Curly Joe site is officially open for business, and has several neat new elements. Be sure to check out the <a href="downloads.html">downloads</a> page, as well as the new <a href="songsearch.html">song search</a> and <a href="info.html">info</a> features, in order to better enhance your Curly Joe experience.</p>
+					</div>
+				</div>
+				<div id="content">
+
+					<img src="fullband.jpg" width="345" height="234">
+					<div class="content">
+This page provides access to Curly Joe's multimedia content! At the moment, this includes two video slideshows in a neat jukebox player, which plays two songs from the band's demo CD. You will need Quicktime or another movie player program to view these files; if you don't have it, you can download it <a href="http://www.apple.com/quicktime/download/win.html">here</a>. <p>
+<a href="jethromovie.mov" target="_blank" onclick="javascript:PlayerOpen('',this.href); return false">Locomotive Breath (Jethro Tull)</a></p>
+<p><a href="otismovie.mov" target="_blank" onclick="javascript:PlayerOpen('',this.href); return false">Hard to Handle (Otis Reading)</a></p>
+
+
+You can also see some snapshots of Curly Joe from their gigs at <a href="http://www.toadmail.com/~imgbox/CurlyJoe-60429.html">Spargos</a> and <a href="http://www.toadmail.com/~imgbox/Spargos-20060610.html">2 Doors Down</a>, photographed in a very flattering manner by Carla Bakke. 
+
+<center>
+						<p class="guestbook"><a href="guestbook.html">PLEASE SIGN OUR GUESTBOOK!</a></p></center>
+
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

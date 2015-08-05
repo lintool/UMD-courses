@@ -1,0 +1,38 @@
+
+
+B.headline {font-family: desdemona, serif, georgia, arial; font-size: 42px; color: black}
+
+B.headline2 {font-family: serif, georgia, arial; font-size: 20px; color: black}
+
+I.headline {font-family: serif, georgia, arial; font-size: 20px; color: black}
+
+H3 {font-family: serif, georgia, arial; font-size: 28px; color: indigo}
+H4 {font-family: serif, georgia, arial; font-size: 20px; color: indigo}
+
+p.style1 { border: thick ridge gray;
+background-color: khaki;
+padding: 10px 50px 10px 50px; 
+align: center
+    font-family:serif, georgia, arial; 
+    color: black }
+
+p.style2 { border: thick ridge black; 
+    background-color: #eeeeee; 
+    padding: 10px 10px 10px 10px; 
+    font-family: serif; font-size: 24px;
+    align: center;   
+    color: black }
+
+p.style3 { border: thin ridge black; 
+    background-color: #F4A460; 
+    padding: 10px 50px 10px 50px; 
+    font-family: serif; font-size: 16px;
+    align: center;   
+    color: black }
+
+p.style4 { border: thick ridge black; 
+    background-color: #48D1cc; 
+    padding: 10px 50px 10px 50px; 
+    font-family: serif; font-size: 16px;
+    align: center;   
+    color: black }

@@ -1,0 +1,18 @@
+.tableheader {
+	BACKGROUND-COLOR: #800000; TEXT-ALIGN: center; font-color: #F5F5F5
+}
+TABLE.sample TD {
+	BORDER-RIGHT: black 2px inset; PADDING-RIGHT: 2px; BORDER-TOP: black 2px inset; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: black 2px inset; PADDING-TOP: 2px; BORDER-BOTTOM: black 2px inset; BACKGROUND-COLOR: oldlace; font-color: black; moz-border-radius: 0px 0px 0px 0px; style: medium
+}
+.style1 {
+	BACKGROUND-COLOR: #800000; TEXT-ALIGN: center; font-color: whitesmoke
+}
+P.style2 {
+	PADDING-RIGHT: 50px; PADDING-LEFT: 50px; FONT-SIZE: 18pt; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; FONT-FAMILY: arial; BACKGROUND-COLOR: khaki; TEXT-ALIGN: center; font-color: black
+}
+.style3 {
+	BACKGROUND-COLOR: midnightblue; TEXT-ALIGN: center; font-color: whitesmoke
+}
+.style4 {
+	BACKGROUND-COLOR: midnightblue; TEXT-ALIGN: justify; font-color: whitesmoke
+}

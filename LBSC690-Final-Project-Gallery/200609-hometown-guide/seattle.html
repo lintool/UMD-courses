@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>Seattle Hometown Guide</TITLE>
+<meta NAME="description" CONTENT="Seattle Hometown Guide">
+<link rel="stylesheet" type="text/css" href="seattlestyle.css">
+</HEAD>
+<body background="images/seattlebackground.jpg" TEXT="#oooooo" LINK="#4B0082" VLINK="#9370d8" ALINK="#BA55D3">
+
+
+
+<TABLE WIDTH="100%">
+<TR>
+<TD VALIGN=top>
+
+<img src="images/spacer.jpg" WIDTH="100" HEIGHT="1">
+
+</TD>
+<TD VALIGN=top>
+
+
+<table border="5" bordercolor=Saddlebrown bgcolor="white" cellspacing="3" cellpadding="3">
+
+<tr>
+	<td height="150" width="250" bgcolor="#666633"><img src="images/seattle2.jpg" height="150" width="250"></td>
+	<td align="center" bgcolor="#9966cc"><img src="images/seattle1.jpg" height="150" width="600"></td>
+	
+<td align="center" height="150" width="250" bgcolor="#666633"><img src="images/seattle3.jpg" height="150" width="260"></td>
+</tr>
+<tr>
+
+	<td align="center" valign="top" bgcolor="#00BB00"><br>
+	<a href="main.html"><img src="images/690homeseattle.jpg" border="0"></a><br><br>
+	<a href="austin.html"><img src="images/austins.jpg" border="0"></a><br><br>
+<a href="sacramento.html"><img src="images/sacramentos.jpg" border="0"></a><br><br>
+<a href="seattle.html"><img src="images/seattles.jpg" border="0"></a><br><br>
+<a href="tucson.html"><img src="images/tucsons.jpg" border="0"></a><br><br></td>
+	
+	<td  bgcolor="CCFFCC">
+
+	<P class="style1"> Welcome to the Seattle City Guide. The largest city in the Pacific Northwest, Seattle lies between the Puget Sound and Lake Washington. Though it it known for a rainy climate, Seattle actually has a warm, mild temperate marine climate and averages only 38 inches of rain per year.<br> <br>
+
+Despite their heavy coffee consumption, Seattleites are among the healthiest urban dwellers in the country, as well as the most literate. As a result, the city has a vibrant and diverse cultural community and numerous outdoor activities to enjoy. 
+<br>
+
+<br>
+The reviews for Seattle were written by graduate students and young professionals who call Seattle home. Try some of our search features below and plan a day in Seattle!<br><br></p></td>
+
+<td align="center" valign="top" bgcolor="#00BB00"><br>
+	<p class="style4">Want to submit a review?  Email the database manager at hitthewall55@yahoo.com  Include your name, your hometown, an attraction and your review and comments.</P><br><br></td>
+</tr>
+
+
+<tr><td bgcolor=#666633><center><img src="images/seattle7.jpg" width="225" height="150"></center></td>
+
+<td valign="top" bgcolor="CCFFCC">
+
+<table height="100%" width="100%" border="0"><tr><td width="10%"></td><td>
+
+
+
+<font size=5 color="#00BB00" link="#CC5500" alink="#CC5500" vlink="#CC5500" face=arial><br>Restaurants</font>
+<form action="./seattleresults.php" method="post">
+<SELECT name="Type">
+<OPTION SELECTED>Cuisine
+<OPTION>Italian
+<OPTION>Mexican
+<OPTION>Chinese
+<OPTION>Indian
+<OPTION>American
+<OPTION>Other
+</SELECT>
+<br>
+
+<SELECT name="Level">
+<OPTION SELECTED>Price
+<OPTION>Cheap
+<OPTION>Moderate
+<OPTION>Expensive
+</SELECT>
+<br>
+
+<SELECT name="Rating">
+<OPTION SELECTED>Rating
+<OPTION>1
+<OPTION>2
+<OPTION>3
+
+</SELECT><br>
+<input type="reset"><input type="submit" value="Submit">
+<INPUT TYPE="hidden" NAME="action" VALUE="restaurants">
+</form></td></table>
+</td>
+
+<td rowspan=4 bgcolor=#666633 width="100%" border=0> </td>
+
+
+<tr><td bgcolor=#666633><center><img src="images/seattle4.jpg" width="225" height="150"></center></td>
+<td valign="top"  bgcolor="CCFFCC"><table height="100%" width="100%" border="0"><tr><td width="10%"></td><td><font size=5 color="#00BB00" link="#CC5500" alink="#CC5500" vlink="#CC5500" face=arial><br>Attractions</font>
+<form action="./seattleresults.php" method="post">
+<SELECT name="Type">
+<OPTION SELECTED>Type
+<OPTION>Museum
+<OPTION>Theater
+<OPTION>Landmark
+<OPTION>Other
+</SELECT>
+
+<br>
+
+<SELECT name="Level">
+<OPTION SELECTED>Price
+<OPTION>Free
+<OPTION>Under $10
+<OPTION>Over $10
+</SELECT>
+<br>
+
+<SELECT name="Rating">
+<OPTION SELECTED>Rating
+<OPTION>1
+<OPTION>2
+<OPTION>3
+</SELECT><br>
+<INPUT TYPE="hidden" NAME="action" VALUE="cultural">
+<input type="reset"><input type="submit" value="Submit">
+
+</form></td></table>
+</td>
+
+
+<tr>
+
+
+<tr><td bgcolor=#666633><center><img src="images/seattle5.jpg" width="225" height="150"></center></td>
+<td valign="top"  bgcolor="CCFFCC"><table height="100%" width="100%" border="0"><tr><td width="10%"></td><td><font size=5 color="#00BB00" link="#CC5500" alink="#CC5500" vlink="#CC5500" face=arial><br>Outdoors</font>
+<form action="./seattleresults.php" method="post">
+<SELECT name="Type">
+<OPTION SELECTED>Type
+<OPTION>Water
+<OPTION>Parks
+<OPTION>Hiking
+<OPTION>Other
+</SELECT>
+<br>
+
+<SELECT name="Level">
+<OPTION SELECTED>Activity Level
+<OPTION>Easy
+<OPTION>Moderate
+<OPTION>Difficult
+</SELECT>
+<br>
+
+<SELECT name="Rating">
+<OPTION SELECTED>Rating
+<OPTION>1
+<OPTION>2
+<OPTION>3
+</SELECT><br>
+<INPUT TYPE="hidden" NAME="action" VALUE="outdoors">
+<input type="reset"><input type="submit" value="Submit">
+</form>
+</td>
+</table>
+
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
