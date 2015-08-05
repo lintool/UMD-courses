@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data-Intensive Computing with MapReduce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="overview.html">Overview</a></li>
+              <li><a href="syllabus.html">Syllabus</a></li>
+              <li class="active"><a href="assignments.html">Assignments</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+  <div class="page-header">
+    <h1>Assignments <small>Data-Intensive Computing with MapReduce (Spring 2013)</small></h1>
+  </div>
+
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#assignment0">0</a></li>
+      <li><a href="#assignment1">1</a></li>
+      <li><a href="#assignment2">2</a></li>
+      <li><a href="#assignment3">3</a></li>
+      <li><a href="#assignment4">4</a></li>
+      <li><a href="#assignment5">5</a></li>
+      <li><a href="#assignment6">6</a></li>
+      <li><a href="#finalproject">Final Project</a></li>
+    </ul>
+  </div>
+
+
+<section id="assignment0" style="padding-top:35px">
+<div>
+<h3>Assignment 0: Prelude <small>due 6:00pm January 24</small></h3>
+
+<p>Complete
+the <a href="http://lintool.github.com/Cloud9/docs/word-count.html">word
+count tutorial</a> in Cloud<sup>9</sup>, which is a Hadoop toolkit we're
+going to use throughout the course. The tutorial will take you
+through setting up Hadoop on your local machine and running Hadoop on
+the virtual machine. It'll also begin familiarizing you with
+GitHub.</p>
+
+<p><b>Note:</b> This assignment is not explicitly graded, except as
+part of Assignment 1.</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment1" style="padding-top:35px">
+<div>
+<h3>Assignment 1: Warmup <small>due 6:00pm January 31</small></h3>
+
+<p>Make sure you've completed
+the <a href="http://lintool.github.com/Cloud9/docs/word-count.html">word
+count tutorial</a> in Cloud<sup>9</sup>.</p>
+
+<p>Sign up for a <a href="http://github.com/">GitHub</a> account. It is
+very important that you do so as soon as possible, because GitHub is
+the mechanism by which you will submit assignments. Once you've signed
+up for an account, go to this page
+to <a href="https://github.com/edu">request an educational
+account</a>.</p>
+
+<p>Next, create a <b>private</b> repo
+called <code>MapReduce-assignments</code>. Here
+is <a href="https://help.github.com/articles/create-a-repo">how you
+create a repo on GitHub</a>. For "Who has access to this repository?",
+make sure you click "Only the people I specify". If you've
+successfully gotten an educational account (per above), you should be
+able to create private repos for free. Take some time to learn about
+git if you've never used it before. There are plenty of good tutorials
+online: do a simple web search and find one you like. If you've used
+svn before, many of the concepts will be familiar, except that git
+is far more powerful.</p>
+
+<p>After you've learned about git, set aside the repo for now; you'll
+come back to it later.</p>
+
+<p>In the single node virtual cluster in the word count tutorial, you
+should have run the word count demo with five reducers:</p>
+
+<pre>
+etc/hadoop-cluster.sh edu.umd.cloud9.example.simple.DemoWordCount \
+  -input bible+shakes.nopunc.gz -output wc -numReducers 5
+</pre>
+
+<p>Answer the following questions:</p>
+
+<p><b>Question 1.</b> What is the first term
+in <code>part-r-00000</code> and how many times does it appear?</p>
+
+<p><b>Question 2.</b> What is the third to last term
+in <code>part-r-00004</code> and how many times does it appear?</p>
+
+<p><b>Question 3.</b> How many unique terms are there? (Hint: read the
+counter values)</p>
+
+<p>Let's do a little bit of cleanup of the words. Modify the word
+count demo so that only words consisting entirely of letters are
+counted. To be more specific, the word must match the following Java
+regular expression:</p>
+
+<pre>
+word.matches("[A-Za-z]+")
+</pre>
+
+<p>Now run word count again, also with five reducers. Answer the
+following questions:</p>
+
+<p><b>Question 4.</b> What is the first term
+in <code>part-r-00000</code> and how many times does it appear?</p>
+
+<p><b>Question 5.</b> What is the third to last term
+in <code>part-r-00004</code> and how many times does it appear?</p>
+
+<p><b>Question 6.</b> How many unique terms are there?
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Please follow these instructions carefully!</p>
+
+<p>Per above, you should have a private GitHub repo called
+<code>MapReduce-assignments</code>. Inside the repo, create a
+directory called <code>assignment1</code>; in that directory, create a
+file called <code>assignment1.md</code>. In that file, put your
+answers to the above questions 1 through 6. Use the Markdown
+annotation format: here's
+a <a href="http://daringfireball.net/projects/markdown/basics">simple
+guide</a>. Here's an <a href="http://markable.in/editor/">online
+editor</a> that's also helpful.</p>
+
+<p>Create a directory called <code>assignment1/src/</code> and
+put your source code in there (i.e., the modified word count
+demo).</p>
+
+<p>Next, in the directory <code>assignment1/</code>, create a shell
+script called <code>run-assignment1.sh</code>, which when executed
+will run the code that answers questions 4 through 6 (i.e., modified
+word count). When I check out your repo in my copy of the virtual
+machine, I should be able to execute that script to run your code.</p>
+
+<p>You can assume, just like in the the word count tutorial, that the
+input file is already in HDFS
+as <code>bible+shakes.nopunc.gz</code>. Your script should put the
+word count output in a directory that is the same as your GitHub
+username. Please don't name the output directory <code>output/</code>
+or something generic.
+
+<p>However you structure your repo to make the script work is up to
+you. My recommendation would be to check in compiled jars into the
+repo and then have <code>run-assignment1.sh</code> execute the
+appropriate Hadoop command, but working out these details is part of the
+assignment.</p>
+
+<table><tr><td valign="top"><span class="label label-warning">Warning</span></td>
+<td style="padding-left: 10px">Make sure your assignment <b>does
+not</b> depend on any files or paths outside your repo. If you have a
+hard-coded absolute path in your run script, for example, it will
+probably break, since the same locations may not exist on my
+machine. The only exception is the <code>bible+shakes.nopunc.gz</code>
+data, which you can except to be in HDFS.</td></tr></table>
+
+<p>In summary, there are three deliverables to this homework:</p>
+
+<ul>
+
+  <li><code>MapReduce-assignments/assignment1/assignment1.md</code>: actual answers to questions.</li>
+  <li><code>MapReduce-assignments/assignment1/src/</code>: source code goes into this directory.</li>
+  <li><code>MapReduce-assignments/assignment1/run-assignment1.sh</code>: run script.</li>
+
+</ul>
+
+<p>Make sure you've committed your code and pushed your repo back to
+origin. You can verify that it's there by logging into your GitHub
+account, and your assignment should be viewable in the web
+interface.</p>
+
+<p>Almost there! Add the
+user <a href="https://github.com/teachtool">teachtool</a> a
+collaborator to your repo so that I can check it out (under settings
+in the main web interface on the top right corner of your repo). Note:
+do <b>not</b> add my primary GitHub
+account <a href="https://github.com/lintool">lintool</a> as a
+collaborator.</p>
+
+<p>Finally, send me an email, to jimmylin@umd.edu with the subject
+line "MapReduce Assignment #1". In the body of the email message, tell
+me what your GitHub username is so that I can link your repo to
+you. Also, in your email please tell me how long you spent doing the
+assignment, including everything (installing the VM, learning about
+git, working through the tutorial, etc.).</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The purpose of this assignment is to familiarize you with the
+Hadoop development environment. You'll get a "pass" if you've
+successfully completed the assignment. I expect everyone to get a
+"pass".</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment2" style="padding-top:35px">
+<div>
+<h3>Assignment 2: Counting <small>due 6:00pm February 14</small></h3>
+
+<h4>Setting Up Your Development Environment</h4>
+
+<p>First, just so everyone's VM is sync'ed up, update all packages
+via:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>If it's the first time you've done this after downloading the VM
+image, it might take a bit, so grab a cup of coffee.</p>
+
+<p>After the VM is updated, clone
+the <a href="https://github.com/lintool/MapReduce-course-2013s">Git
+repo for the course</a>. If you have the repo already cloned,
+make sure you do a pull to get the latest updates.  When in
+doubt, type <code>git log</code> in your console to pull up the most
+recent commits, and it should match the latest commit
+<a href="https://github.com/lintool/MapReduce-course-2013s">here</a>.</p>
+
+<p>You'll find a
+directory named <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/">assignments-stub/</a></code>, which provides a template
+for your assignment. Copy the contents of the directory into your own assignments
+private repo,
+under <code>MapReduce-assignments/assignment2/</code>.
+Note that the source directory contains (normally invisible) dot-files
+e.g., <code>.gitignore</code>, etc.; remember to copy these also.
+Go ahead and
+commit the contents so that you can revert to this point easily. Go
+into <code>MapReduce-assignments/assignment2/</code>: you should be
+able to type <code>ant</code> and successfully build the project.</p>
+
+<p>Since we're going to be working with this basic repository
+structure for subsequent assignments, you should familiarize yourself
+with the setup. Let's first take a tour: <a href="http://ant.apache.org/">Ant</a> is a build
+system, and through <a href="http://ant.apache.org/ivy/">Ivy</a>, it
+downloads all dependent jars and places them
+in <code>lib/</code>. That is, all the jars in <code>lib/</code> are
+automatically placed there&mdash;you shouldn't ever need to worry
+about copying jars there directly. Also, <code>lib/</code> should <b>not</b>
+be placed under version control.</p>
+
+<p>How does Ivy know what dependencies to pull in? This is specified
+in <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/ivy/ivy.xml">ivy/ivy.xml</a></code>,
+in this line:</p>
+
+<pre>
+&lt;dependency org="edu.umd" name="cloud9" rev="1.4.10" conf="*->*,!sources,!javadoc"/&gt;
+</pre>
+
+<p>Ivy automatically finds and downloads Cloud<sup>9</sup> and
+transitively pulls its dependencies also. Add to this file if you want
+to use any external libraries.</p>
+
+<p>Source code is kept in <code>src/</code>: main code goes
+into <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/src/main">src/main/</a></code>,
+JUnit tests go
+into <code><a href="https://github.com/lintool/MapReduce-course-2013s/blob/master/assignments-stub/src/test">src/test/</a></code>. There
+are source code stubs to get you started. If you use Eclipse as your
+IDE, you should be able to directly import the project.</p>
+
+<p>After Ant successfully completes the build, the packaged jar is
+created in <code>dist/</code>. Note that <code>dist/</code>
+should <b>not</b> be placed under version control since it is built
+automatically.</p>
+
+<p>For your convenience, <code>ant</code> generates four run scripts
+in <code>etc/</code>:</p>
+
+<p>Use <code>run.sh</code> to run any normal Java class with
+a <code>main</code>, e.g.:</p>
+
+<pre>
+etc/run.sh HelloWorld
+</pre>
+
+<p>Use <code>junit.sh</code> to run a specific JUnit test, e.g.:</p>
+
+<pre>
+etc/junit.sh SampleTest
+</pre>
+
+<p>Use <code>hadoop-local.sh</code> to run a Hadoop job in local
+(standalone) mode, e.g.:</p>
+
+<pre>
+etc/hadoop-local.sh WordCount -input bible+shakes.nopunc.gz -output wc
+</pre>
+
+<p>Use <code>hadoop-cluster.sh</code> to run a Hadoop job in the VM in
+pseudo-distributed mode, e.g.:</p>
+
+<pre>
+etc/hadoop-cluster.sh WordCount -input bible+shakes.nopunc.gz -output wc -numReducers 5
+</pre>
+
+<p>Ant provides a couple other useful features. To run all test
+cases:</p>
+
+<pre>
+ant test
+</pre>
+
+<p>If you're getting an error along the lines of "the class
+org.apache.tools.ant.taskdefs.optional.junit.JUnitTask was not found"
+or "java.lang.ClassNotFoundException:
+org.apache.tools.ant.taskdefs.optional.TraXLiaison", do:</p>
+
+<pre>
+sudo yum install ant-junit
+sudo yum install ant-trax
+</pre>
+
+<p>To generate Javadoc:</p>
+
+<pre>
+ant javadoc
+</pre>
+
+<p>The API docs will be deposited in <code>docs/api/</code>.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>This assignment begins with an optional <i>but recommended</i>
+component: complete
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/bigrams.html">bigram
+counts exercise</a> in Cloud<sup>9</sup>. The solution is already
+checked in the repo, so it won't be graded. Even if you decide not to
+write code for the exercise, take some time to sketch out what the
+solution would look like. The exercises are designed to help you
+learn: jumping directly to the solution defeats this purpose.</p>
+
+<p>In this assignment you'll be
+computing <a href="http://en.wikipedia.org/wiki/Pointwise_mutual_information">pointwise
+mutual information</a>, which is a function of two events <i>x</i>
+and <i>y</i>:</p>
+
+<p><img width="200" src="assets/images/PMI.png"/></p>
+
+<p>The larger the magnitude of PMI for <i>x</i> and <i>y</i> is,
+the more information you know about the probability of seeing <i>y</i>
+having just seen <i>x</i> (and vice-versa, since PMI is
+symmetrical). If seeing <i>x</i> gives you no information about seeing
+<i>y</i>, then <i>x</i> and <i>y</i> are independent and the PMI is
+zero.</p>
+
+<p>Write a program that computes the PMI of words in the
+sample <code>bible+shakes.nopunc.gz</code> corpus. To be more
+specific, the event we're after is <i>x</i> occurring on a line in the
+file or <i>x</i> and <i>y</i> co-occurring on a line. That is, if a
+line contains A, A, B; then there are <i>not</i> two instances of A
+and B appearing together, only one. To reduce the number of spurious
+pairs, we are only interested in pairs of words that co-occur in ten
+or more lines. Use the same definition of "word" as in the word count
+demo: whatever Java's <code>StringTokenizer</code> gives.</p>
+
+<p>You will build two versions of the program:</p>
+
+<ol>
+
+  <li>A "pairs" implementation. The implementation must use
+  combiners. Name this implementation <code>PairsPMI</code>.</li>
+
+  <li>A "stripes" implementation.  The implementation must use
+  combiners. <code>StripesPMI</code>.</li>
+
+</ol>
+
+<p>If you feel compelled (for extra credit), you are welcome to try
+out the "in-mapper combining" technique for both implementations.</p>
+
+<p>Since PMI is symmetrical, PMI(x, y) = PMI(y, x). However, it's
+actually easier in your implementation to compute both values, so
+don't worry about duplicates. Also, use <code>TextOutputFormat</code>
+so the results of your program are human readable.</p>
+
+<p><b>Note:</b> just so everyone's answer is consistent, please use
+log base 10.</p>
+
+<p>Answer the following questions:</p>
+
+<p><b>Question 0.</b> <i>Briefly</i> describe in prose your solution,
+both the pairs and stripes implementation. For example: how many
+MapReduce jobs? What are the input records? What are the intermediate
+key-value pairs? What are the final output records? A paragraph for
+each implementation is about the expected length.</p>
+
+<p><b>Question 1.</b> What is the running time of the complete pairs
+implementation (in your VM)? What is the running time of the complete
+stripes implementation (in your VM)?</p>
+
+<p><b>Question 2.</b> Now disable all combiners. What is the running
+time of the complete pairs implementation now? What is the running
+time of the complete stripes implementation?</p>
+
+<p><b>Question 3.</b> How many distinct PMI pairs did you extract?</p>
+
+<p><b>Question 4.</b> What's the pair (x, y) with the highest PMI?
+Write a sentence or two to explain what it is and why it has such a
+high PMI.</p>
+
+<p><b>Question 5.</b> What are the three words that have the highest
+PMI with "cloud" and "love"? And what are the PMI values?</p>
+
+<p>Note that you can compute the answer to questions 3&mdash;6 however
+you wish: a helper Java program, a Python script, command-line
+manipulation, etc.</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Please follow these instructions carefully!</p>
+
+<p>Make sure your repo has the following items:</p>
+
+<ul>
+
+<li>Similar to your first assignment, the answers to the questions go
+in <code>MapReduce-assignments/assignment2/assignment2.md</code>.</li>
+
+<li>The pairs implementation should be
+in <code>MapReduce-assignments/assignment2/src/main/PairsPMI.java</code>.</li>
+
+<li>The stripes implementation should be
+in <code>MapReduce-assignments/assignment2/src/main/StripesPMI.java</code>.</li>
+
+<li>Of course, your repo may contain other Java code, which goes in
+in <code>MapReduce-assignments/assignment2/src/main/</code>.</li>
+
+</ul>
+
+<p>When grading, I will perform a clean clone of your repo in my
+VM, <code>cd MapReduce-assignments/assignment2/</code> and
+type <code>ant</code> to build. Your code should build
+successfully.</p>
+
+<p>Next, I'll type (exactly) the following command to run the pairs
+implementation (in the VM):</p>
+
+<pre>
+etc/hadoop-cluster.sh PairsPMI -input bible+shakes.nopunc.gz -output YOURNAME-pairs -numReducers 5
+</pre>
+
+<p>You can assume that <code>bible+shakes.nopunc.gz</code> is already
+in HDFS but otherwise there is nothing else on HDFS. The final output
+should appear in a directory called <code>YOURNAME-pairs</code>. The part
+files in that directory should be human readable.</p>
+
+<p>Similarly, I'll type the following command to run the stripes
+implementation (in the VM):</p>
+
+<pre>
+etc/hadoop-cluster.sh StripesPMI -input bible+shakes.nopunc.gz -output YOURNAME-stripes -numReducers 5
+</pre>
+
+<p>As in the pairs case, you can assume
+that <code>bible+shakes.nopunc.gz</code> is already in HDFS but
+otherwise there is nothing else on HDFS. The final output should
+appear in a directory called <code>YOURNAME-stripes</code>. The part
+files in that directory should be human readable.</p>
+
+<p>Before you consider the assignment "complete", I would recommend
+that you verify everything above works by performing a clean clone of
+your repo and going through the steps above.</p>
+
+<p>One final suggestion: sometimes Ivy gets into a weird state due to
+multiple interacting repositories. Just to make sure I can pull in all
+dependencies, remove the Ivy cache with <code>rm -r
+~/.ivy2/cache</code> and make sure the build still works. Ivy should
+re-download all dependent jars from their original sources.</p>
+
+<p>When you've done everything, commit to your repo and remember to
+push back to origin. You should be able to see your edits in the web
+interface. That's it! There's no need to send me anything&mdash;I
+already know your username from the first assignment. Note that
+everything should be committed and pushed to origin before the
+deadline (before class on February 14).</p>
+
+<h4 style="padding-top: 10px">Hints</h4>
+
+<ul>
+  <li>Did you take a look at the <a href="http://lintool.github.com/Cloud9/docs/exercises/bigrams.html">bigram
+counts exercise</a>?</li>
+
+  <li>Your solution may require more than one MapReduce job.</li>
+
+  <li>Recall from lecture techniques for loading in "side data"?</li>
+
+  <li>Look in <code>edu.umd.cloud9.example.cooccur</code> for a reference implementation of the pairs and stripes techniques.</li>
+
+  <li>Note that you have access to everything that's in Cloud<sup>9</sup>, for example, there are many useful <code>Writable</code> types in <code>edu.umd.cloud9.io</code>.</li>
+
+</ul>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 35 points:
+
+<ul>
+
+<li>Each of the questions 1 to 5 is worth 2 points, for a total of 10
+points.</li>
+
+<li>The pairs implementation is worth 10 points and the stripes
+implementation is worth 10 points. The purpose of question 0 is to
+help me understand your implementation.</li>
+
+<li>Getting your code to run is worth 5
+points. That is, to earn all five points, I should be able to run your
+code (building and running), following exactly the procedure
+above. Therefore, if all the answers are correct and the
+implementation seems correct, but I cannot get your code to build and
+run inside my VM, you will only get a score of 30/35.</li>
+
+</ul>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment3" style="padding-top:35px">
+<div>
+<h3>Assignment 3: Inverted Indexing <small>due 6:00pm February 28</small></h3>
+
+<h4>Setting Up Your Development Environment</h4>
+
+<p>Before you begin, update all packages in the VM:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>In your private repo,
+create <code>MapReduce-assignments/assignment3/</code>. Pull the
+<a href="https://github.com/lintool/MapReduce-course-2013s">Git repo
+for the course</a> to make sure you have the latest updates.  Copy
+the contents of <code>assignments-stub/</code>
+into <code>MapReduce-assignments/assignment3/</code>. Make sure you have
+the latest version of the files: <b>do not</b> just copy files from
+<code>MapReduce-assignments/assignment2/</code> because you may not
+get the latest code updates.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>This assignment begins with an optional <i>but recommended</i>
+component: complete
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/indexing.html">inverted
+indexing exercise</a>
+and <a href="http://lintool.github.com/Cloud9/docs/exercises/retrieval.html">boolean
+retrieval exercise</a> in Cloud<sup>9</sup>. The solution is already
+checked in the repo, so it won't be graded. However, the rest of the
+assignment builds from there. Even if you decide not to write code for
+those two exercises, take some time to sketch out what the solution
+would look like. The exercises are designed to help you learn: jumping
+directly to the solution defeats the purpose.</p>
+
+<p>Starting from the inverted indexing baseline, modify the indexer
+code in the two following ways:</p>
+
+<p><b>1. Index Compression.</b> The index should be compressed using
+VInts: see <code>org.apache.hadoop.io.WritableUtils</code>. You should
+also use gap-compression techniques as appropriate.</p>
+
+<p><b>2. Scalability.</b> The baseline indexer implementation
+currently buffers and sorts postings in the reducer, which as we
+discussed in class is not a scalable solution. Address this
+scalability bottleneck using techniques we discussed in class and in
+the textbook.</p>
+
+<p><b>Note:</b> The major scalability issue is
+buffering <i>uncompressed</i> postings in memory. In your solution,
+you'll still end up buffering each postings list, but
+in <i>compressed</i> form (raw bytes, no additional object
+overhead). This is fine because if you use the right compression
+technique, the postings lists are quite small. As a data point, on a
+collection of 50 million web pages, 2GB heap is more than enough for a
+full <i>positional</i> index (and in this assignment you're not asked
+to store positional information in your postings).</p>
+
+<p>To go into a bit more detail: in the reference implementation, the
+final key type is <code>PairOfWritables&lt;IntWritable,
+ArrayListWritable&lt;PairOfInts&gt;&gt;</code>. The most obvious idea
+is to change that into something
+like <code>PairOfWritables&lt;VIntWritable,
+ArrayListWritable&lt;PairOfVInts&gt;&gt;</code>. This does not work!
+The reason is that you will still be materializing each posting, i.e.,
+all <code>PairOfVInts</code> objects in memory. This translates into a
+Java object for every posting, which is wasteful in terms of memory
+usage and will exhaust memory pretty quickly as you scale. In other
+words, you're <i>still</i> buffering objects&mdash;just inside
+the <code>ArrayListWritable</code>.
+
+<p>This new indexer should be
+named <code>BuildInvertedIndexCompressed</code>.</p>
+
+<p>Modify <code><a href="https://github.com/lintool/Cloud9/blob/master/src/dist/edu/umd/cloud9/example/ir/LookupPostings.java">LookupPostings</a></code>
+so that it works with the new compressed indexes. Name this new
+class <code>LookupPostingsCompressed</code> in your private repo under 
+<code>MapReduce-assignments/assignment3/src/main/</code>. This new
+class should give <i>exactly</i> the same output as the old
+version.</p>
+
+<p>Modify <code><a href="https://github.com/lintool/Cloud9/blob/master/src/dist/edu/umd/cloud9/example/ir/BooleanRetrieval.java">BooleanRetrieval</a></code>
+so that it works with the new compressed indexes. Name this new
+class <code>BooleanRetrievalCompressed</code> in your private repo under 
+<code>MapReduce-assignments/assignment3/src/main/</code>. This new
+class should give <i>exactly</i> the same output as the old
+version.</p>
+
+<p>The single question to answer is:</p>
+
+<p><b>Question 1.</b> What is the size of your compressed index? (In
+need this value just in case I can't get your code to compile and
+run)</p>
+
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Make sure your repo has the following items:</p>
+
+<ul>
+
+<li>The answer to the question goes
+in <code>MapReduce-assignments/assignment3/assignment3.md</code>.</li>
+
+<li><code>MapReduce-assignments/assignment3/src/main/BuildInvertedIndexCompressed.java</code>.</li>
+
+<li><code>MapReduce-assignments/assignment3/src/main/LookupPostingsCompressed.java</code>.</li>
+
+<li><code>MapReduce-assignments/assignment3/src/main/BooleanRetrievalCompressed.java</code>.</li>
+
+<li><code>MapReduce-assignments/assignment3/LookupPostingsCompressed.out</code>: the output of <code>LookupPostingsCompressed</code>.</li>
+
+<li><code>MapReduce-assignments/assignment3/BooleanRetrievalCompressed.out</code>: the output of <code>BooleanRetrievalCompressed</code>.</li>
+
+<li>Of course, your repo may contain other Java code, which goes in
+in <code>MapReduce-assignments/assignment3/src/main/</code>.</li>
+
+</ul>
+
+<p>When grading, I will perform a clean clone of your repo in my
+VM, <code>cd MapReduce-assignments/assignment3/</code> and
+type <code>ant</code> to build. Your code should build
+successfully.</p>
+
+<p>Next, I'll type (exactly) the following command to run the indexer
+(in the VM):</p>
+
+<pre>
+etc/hadoop-cluster.sh BuildInvertedIndexCompressed -input bible+shakes.nopunc -output YOURNAME-index -numReducers 1
+</pre>
+
+<p>You can assume that <code>bible+shakes.nopunc</code> is already
+in HDFS but otherwise there is nothing else on HDFS. The final output
+should appear in a directory called <code>YOURNAME-index</code> on HDFS. There
+is no need for the index to be human readable; in fact, it shouldn't
+be.</p>
+
+<p>I will then issue the following commands:</p>
+
+<pre>
+etc/hadoop-cluster.sh LookupPostingsCompressed -index YOURNAME-index -collection bible+shakes.nopunc > lookup.out
+etc/hadoop-cluster.sh BooleanRetrievalCompressed -index YOURNAME-index -collection bible+shakes.nopunc > retrieval.out
+</pre>
+
+<p><b>Note:</b> The above two classes should read the index and
+collection directly from HDFS. If you look at the solutions to the
+inverted indexing exercise and boolean retrieval exercise, you'll see
+that the equivalent classes can also read data directly from HDFS.</p>
+
+<p>The file <code>lookup.out</code> should be identical to what you
+checked in as <code>LookupPostingsCompressed.out</code> and the file
+<code>retrieval.out</code> should be identical to what you checked in
+as <code>BooleanRetrievalCompressed.out</code>. I will use the
+command <code>diff</code> to verify. The purpose of you storing the
+two <code>.out</code> files is in case I can't get your code to run, I
+still have the output to examine.</p>
+
+<p>Note that the output of your new classes should match the old
+versions in Cloud<sup>9</sup> <i>exactly</i>. I will
+use <code>diff</code> to verify this.</p>
+
+<p>Before you consider the assignment "complete", I would recommend
+that you verify everything above works by performing a clean clone of
+your repo and going through the steps above. When you've done
+everything, commit to your repo and remember to push back to
+origin. You should be able to see your edits in the web
+interface. That's it! There's no need to send me anything&mdash;I
+already know your username from before. Note that everything should be
+committed and pushed to origin before the deadline (before class on
+February 28).</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 35 points:
+
+<ul>
+
+<li>The implementation of index compression is worth 10 points.</li>
+
+<li>The implementation of the scalable algorithm is worth 10
+points.</li>
+
+<li>The implementation of <code>LookupPostingsCompressed</code> is
+worth 5 points.</li>
+
+<li>The implementation of <code>BooleanRetrievalCompressed</code> is
+worth 5 points.</li>
+
+<li>Getting your code to run is worth 5 points. That is, to earn all
+five points, I should be able to run your code (building and running),
+following exactly the procedure above. Therefore, if all the answers
+are correct and the implementation seems correct, but I cannot get
+your code to build and run inside my VM, you will only get a score of
+30/35.</li>
+
+</ul>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment4" style="padding-top:35px">
+<div>
+<h3>Assignment 4: Graphs <small>due 6:00pm March 14</small></h3>
+
+
+<h4>Setting Up Your Development Environment</h4>
+
+<p>Before you begin, update all packages in the VM:</p>
+
+<pre>
+sudo yum update
+</pre>
+
+<p>In your private repo,
+create <code>MapReduce-assignments/assignment4/</code>. Pull the
+<a href="https://github.com/lintool/MapReduce-course-2013s">Git repo
+for the course</a> to make sure you have the latest updates.  Copy
+the contents of <code>assignments-stub/</code>
+into <code>MapReduce-assignments/assignment4/</code>. Make sure you have
+the latest version of the files: <b>do not</b> just copy files from
+<code>MapReduce-assignments/assignment3/</code> because you may not
+get the latest code updates.</p>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>Begin this assignment by taking the time to understand
+the <a href="http://lintool.github.com/Cloud9/docs/exercises/pagerank.html">PageRank
+reference implementation</a> in Cloud<sup>9</sup>. There is no need to
+try the exercise from scratch, but study the code carefully to
+understand exactly how it works.</p>
+
+<p>For this assignment, you are going to implement multiple-source
+personalized PageRank. As we discussed in class, personalized PageRank
+is different from ordinary PageRank in a few respects:</p>
+
+<ul>
+
+  <li>There is the notion of a <i>source</i> node, which is what we're
+  computing the personalization with respect to.</li>
+
+  <li>When initializing PageRank, instead of a uniform distribution
+  across all nodes, the source node gets a mass of one and every other
+  node gets a mass of zero.</li>
+
+  <li>Whenever the model makes a random jump, the random jump is
+  always back to the source node; this is unlike in ordinary PageRank,
+  where there is an equal probability of jumping to any node.</li>
+
+  <li>All mass lost in the dangling nodes are put back into the source
+  node; this is unlike in ordinary PageRank, where the missing mass is
+  evenly distributed across all nodes.</li>
+
+</ul>
+
+<p>Here are some publications about personalized PageRank if you're
+interested. They're just provided for background; neither is necessary
+for completing the assignment.</p>
+
+<ul>
+
+  <li>Daniel Fogaras, Balazs Racz, Karoly Csalogany, and Tamas Sarlos. (2005) <a href="material/Fogaras_etal_2005.pdf">Towards Scaling Fully Personalized PageRank: Algorithms, Lower Bounds, and Experiments.</a> Internet Mathematics, 2(3):333-358.</li>
+
+  <li>Bahman Bahmani, Abdur Chowdhury, and Ashish Goel. (2010) <a href="material/Bahmani_etal_VLDB2010.pdf">Fast Incremental and Personalized PageRank.</a> Proceedings of the 36th International Conference on Very Large Data Bases (VLDB 2010).</li>
+
+
+</ul>
+
+<p>Your implementation is going to run multiple personalized PageRank
+computations in parallel, one with respect to each source. The user is
+going to specify on the command line the sources. This means that each
+PageRank node object (i.e., <code>Writable</code>) is going to contain
+an array of PageRank values.</p>
+
+<p>Here's how the implementation is going to work; it largely follows
+the reference implementation in the exercise above. It's your
+responsibility to make your implementation work with respect to the
+command-line invocations specified below.</p>
+
+<p>First, the user is going to convert the adjacency list into
+PageRank node records:</p>
+
+<pre>
+etc/hadoop-cluster.sh BuildPersonalizedPageRankRecords -input sample-large.txt \
+  -output YOURNAME-PageRankRecords -numNodes 1458 -sources 9627181,9370233,10207721
+</pre>
+
+<p>Note that we're going to use the "large" graph from the exercise
+linked above. The <code>-sources</code> option specifies the source
+nodes for the personalized PageRank computations. In this case, we're
+running three computations in parallel, with respect to node
+ids 9627181, 9370233, and 10207721. You can expect the option value to
+be in the form of a comma-separated list, and that all node ids
+actually exist in the graph. The list of source nodes may be
+arbitrarily long, but for practical purposes I won't test your code
+with more than a few.</p>
+
+<p>Since we're running three personalized PageRank computations in
+parallel, each PageRank node is going to hold an array of three
+values, the personalized PageRank values with respect to the first
+source, second source, and third source. You can expect the array
+positions to correspond exactly to the position of the node id in the
+source string.</p>
+
+<p>Next, the user is going to partition the graph and get ready to
+iterate:</p>
+
+<pre>
+hadoop fs -mkdir YOURNAME-PageRank
+
+etc/hadoop-cluster.sh PartitionGraph -input YOURNAME-PageRankRecords \
+  -output YOURNAME-PageRank/iter0000 -numPartitions 5 -numNodes 1458
+</pre>
+
+<p>This will be standard hash partitioning.</p>
+
+<p>After setting everything up, the user will iterate multi-source
+personalized PageRank:</p>
+
+<pre>
+etc/hadoop-cluster.sh RunPersonalizedPageRankBasic -base YOURNAME-PageRank \
+  -numNodes 1458 -start 0 -end 20 -sources 9627181,9370233,10207721
+</pre>
+
+<p>Note that the sources are passed in from the command-line
+again. Here, we're running twenty iterations.</p>
+
+<p>Finally, the user runs a program to extract the top ten personalized
+PageRank values, with respect to each source.</p>
+
+<pre>
+etc/hadoop-cluster.sh ExtractTopPersonalizedPageRankNodes -input YOURNAME-PageRank/iter0020 \
+  -top 10 -sources 9627181,9370233,10207721
+</pre>
+
+<p>The output should look something like this (printed to stdout):</p>
+
+<pre>
+Source: 9627181
+0.43721 9627181
+0.10006 8618855
+0.09015 8980023
+0.07705 12135350
+0.07432 9562469
+0.07432 10027417
+0.01749 9547235
+0.01607 9880043
+0.01402 8070517
+0.01310 11122341
+
+Source: 9370233
+0.42118 9370233
+0.08627 11325345
+0.08378 11778650
+0.07160 10952022
+0.07160 10767725
+0.07160 8744402
+0.03259 10611368
+0.01716 12182886
+0.01467 12541014
+0.01467 11377835
+
+Source: 10207721
+0.38494 10207721
+0.07981 11775232
+0.07664 12787320
+0.06565 12876259
+0.06543 8642164
+0.06543 10541592
+0.02224 8669492
+0.01963 10940674
+0.01911 10867785
+0.01815 9619639
+</pre>
+
+<h4 style="padding-top: 10px">Additional Specifications</h4>
+
+<p>To make the final output easier to read, in the
+class <code>ExtractTopPersonalizedPageRankNodes</code>, use the
+following format to print each (personalized PageRank value, node id)
+pair:</p>
+
+<pre>
+String.format("%.5f %d", pagerank, nodeid)
+</pre>
+
+<p>This will generate the final results in the same format as
+above. Also note: print actual probabilities, not log
+probabilities&mdash;although during the actual PageRank computation
+keeping values as log probabilities is better.</p>
+
+<p>The final class <code>ExtractTopPersonalizedPageRankNodes</code>
+does not need to be a MapReduce job (but it does need to read from
+HDFS). Obviously, the other classes need to run MapReduce jobs.</p>
+
+<p>The reference implementation of PageRank in Cloud<sup>9</sup> has
+many options: you can either use in-mapper combining or
+ordinary combiners. In your implementation, choose one or the
+other. You do not need to implement both options. Also, the reference
+implementation has an option to either use range partitioning or hash
+partitioning: you only need to implement hash partitioning. You can
+start with the reference implementation and remove code that you don't
+need (see #2 below).</p>
+
+<h4 style="padding-top: 10px">Hints and Suggestion</h4>
+
+<p>To help you out, there's a small helper program in
+Cloud<sup>9</sup> that computes personalized PageRank using a
+sequential algorithm. Use it to check your answers:</p>
+
+<pre>
+etc/run.sh edu.umd.cloud9.example.pagerank.SequentialPersonalizedPageRank -input sample-large.txt -source 9627181
+</pre>
+
+<p>The values from your implementation should be pretty close to the
+output of the above program, but might differ a bit due to convergence
+issues. After 20 iterations, the output of the MapReduce
+implementation should match to at least the fourth decimal place.</p>
+
+<p>This is complex assignment. I would suggest breaking the
+implementation into the following steps:</p>
+
+<ol>
+
+<li>First, copy the reference PageRank implementation into your own
+assignments repo (renaming the classes appropriately). Make sure you
+can get it to run and output the correct results with ordinary
+PageRank.</li>
+
+<li>Simplify the code; i.e., if you decide to use the in-mapper
+combiner, remove the code that works with ordinary combiners.</li>
+
+<li>Implement personalized PageRank from a single source; that is, if
+the user sets option <code>-sources w,x,y,z</code>, simply
+ignore <code>x,y,z</code> and run personalized PageRank with respect
+to <code>w</code>. This can be accomplished with the
+existing <code>PageRankNode</code>, which holds a single floating
+point value.</li>
+
+<li>Extend the <code>PageRankNode</code> class to store an array of
+floats (length of array is the number of sources) instead of a single
+float. Make sure single-source personalized PageRank still runs.</li>
+
+<li>Implement multi-source personalized PageRank.</li>
+
+</ol>
+
+<p>In particular, #3 is a nice checkpoint. If you're not able to get
+the multiple-source personalized PageRank to work, at least completing
+the single-source implementation will allow me to give you partial
+credit.</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>When grading, I will pull your repo in my VM, <code>cd
+MapReduce-assignments/assignment4/</code> and type <code>ant</code> to
+build. Your code should build successfully.</p>
+
+<p>I will test your code by issuing the following commands:</p>
+
+<pre>
+etc/hadoop-cluster.sh BuildPersonalizedPageRankRecords -input sample-large.txt \
+  -output YOURNAME-PageRankRecords -numNodes 1458 -sources RECORDS
+
+hadoop fs -mkdir YOURNAME-PageRank
+
+etc/hadoop-cluster.sh PartitionGraph -input YOURNAME-PageRankRecords \
+  -output YOURNAME-PageRank/iter0000 -numPartitions 5 -numNodes 1458
+
+etc/hadoop-cluster.sh RunPersonalizedPageRankBasic -base YOURNAME-PageRank \
+  -numNodes 1458 -start 0 -end 20 -sources RECORDS
+
+etc/hadoop-cluster.sh ExtractTopPersonalizedPageRankNodes -input YOURNAME-PageRank/iter0019 \
+  -top 10 -sources RECORDS
+</pre>
+
+<p>Where <code>RECORDS</code> stands for a list of node ids of
+arbitrary length (although for practical reasons it won't be more than
+a few nodes long). This is hidden from you. The final
+program <code>ExtractTopPersonalizedPageRankNodes</code> should print
+to stdout a list of top 10 nodes with highest personalized PageRank
+values with respect to each source node (as above).</p>
+
+<p>In <code>MapReduce-assignments/assignment4/assignment4.md</code>,
+tell me if you were able to successfully complete the assignment. This
+is in case I can't get your code to run, I need to know if it is
+because you weren't able to complete the assignment successfully, or
+if it is due to some other issue. If you were not able to implement
+everything, describe how far you've gotten. Feel free to use this
+space to tell me additional things I should look for in your
+implementation.</p>
+
+<p>Also, in the
+file <code>MapReduce-assignments/assignment4/assignment4.md</code>,
+run your implementation with respect to the
+sources <code>9470136,9300650</code>. Run 20 iterations. Copy and
+paste the top ten personalized PageRank values with respect to each
+source in the file. So it should look something like this:</p>
+
+<pre>
+Source: 9470136
+...
+
+Source: 9300650
+...
+</pre>
+
+<p>In case I can't get your code to run, the file will at least give
+me something to look at.</p>
+
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 35 points:
+
+<ul>
+
+<li>The single-source personalized PageRank implementation is worth 10
+points.</li>
+
+<li>That I am able to run the single-source personalized PageRank
+implementation is worth 5 points.</li>
+
+<li>The multiple-source personalized PageRank implementation is worth 15
+points.</li>
+
+<li>That I am able to run the multiple-source personalized PageRank
+implementation is worth 5 points.</li>
+
+</ul>
+
+<p>For example, if you've only managed to get single-source working,
+but I was able to build it and run it successfully, then you'd get 15
+points. That is, I put in <code>-sources w,x,y,z</code> as the option,
+and your implementation ignores <code>x,y,z</code> but does correctly
+compute the personalized PageRank with respect to <code>w</code>.</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment5" style="padding-top:35px">
+<div>
+<h3>Assignment 5: Project Proposal <small>due 6:00pm April 4</small></h3>
+
+<p>We discussed the general parameters of the final project in the
+class session just before spring break. Send me an email with the
+following information:</p>
+
+<ul>
+
+  <li>Who's on your project team.</li>
+  <li>What you're planning to work on for your project.</li>
+  <li>What data you're planning to use.</li>
+
+</ul>
+
+<p>Only one email per team is sufficient.</p>
+
+<p>The project proposal doesn't need to be more than a couple of
+paragraphs. The primary purpose is to start a discussion with me,
+where I will help refine your ideas and try to focus your
+efforts. There is no explicit grade for this assignment: think of it
+as an initial checkpoint to make sure you're making progress on the
+final project.</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="assignment6" style="padding-top:35px">
+<div>
+<h3>Assignment 6: Data Analytics <small>due 6:00pm April 18</small></h3>
+
+<h4 style="padding-top: 10px">Pig and Hive Demo</h4>
+
+<p>To begin, follow these steps to replicate the Pig and Hive demo I
+showed in class.</p>
+
+<p>First, let's break up our usual collection into two parts:</p>
+
+<pre>
+head -31103 bible+shakes.nopunc > bible.txt
+tail -125112 bible+shakes.nopunc > shakes.txt
+</pre>
+
+<p>Put these two files into HDFS.</p>
+
+<p>Inside your VM, pull up a shell and type <code>pig</code>, which
+will drop you into the "Grunt" shell. You can interactively input the
+Pig script that I showed in class:</p>
+
+<pre>
+a = load 'bible.txt' as (text: chararray);
+b = foreach a generate flatten(TOKENIZE(text)) as term;
+c = group b by term;
+d = foreach c generate group as term, COUNT(b) as count;
+
+store d into 'cnt-bible';
+
+p = load 'shakes.txt' as (text: chararray);
+q = foreach p generate flatten(TOKENIZE(text)) as term;
+r = group q by term;
+s = foreach r generate group as term, COUNT(q) as count;
+
+store s into 'cnt-shakes';
+
+x = join d by term, s by term;
+y = foreach x generate d::term as term, d::count as bcnt, s::count as scnt;
+z = filter y by bcnt > 10000 and scnt > 10000;
+
+dump z;
+</pre>
+
+<p>The first part performs word count on the bible portion of the
+collection, the second part performs word count on the Shakespeare
+portion of the collection, and the third part joins the terms from
+both collections and retains only those that occur over 10000 times in
+both parts (basically, stopwords). Note that the <code>store</code>
+command materializes data onto HDFS, so you can use normal HDFS
+commands to look at the results in <code>cnt-bible/</code>
+and <code>cnt-shakes/</code>. The <code>dump</code> command outputs to
+console.</p>
+
+<p>A neat thing you can do in Pig is to use the <code>describe</code>
+command to print out the schema for each alias, as in <code>describe
+a</code>.</p>
+
+<p>Next, let's move onto Hive. Type <code>hive</code> to drop into the
+Hive shell. Type <code>show tables</code> to see what happens. There
+shouldn't any tables. However, if you get an error, follow the
+instructions in
+<a href="http://grokbase.com/t/cloudera/hue-user/133ba05yef/problem-with-demo-vm">this
+thread</a> to fix it (there's a bug in the Cloudera VM).</p>
+
+<p>Let's create two tables and populate them with the word count
+information generated by Pig:</p>
+
+<pre>
+create table wordcount_bible (term string, count int) row format delimited fields terminated by '\t' stored as textfile;
+load data inpath '/user/cloudera/cnt-bible' into table wordcount_bible;
+
+create table wordcount_shakes (term string, count int) row format delimited fields terminated by '\t' stored as textfile;
+load data inpath '/user/cloudera/cnt-shakes' into table wordcount_shakes;
+</pre>
+
+<p>After that, we can issue SQL queries. For example, this query does
+the same thing as the Pig script above:</p>
+
+<pre>
+SELECT b.term, b.count, s.count FROM
+  wordcount_bible b JOIN wordcount_shakes s ON
+  (b.term = s.term)
+  WHERE b.count > 10000 AND s.count > 10000
+  ORDER BY term;
+</pre>
+
+<p>Go ahead and play around with Hive by issuing a few more SQL queries.</p>
+
+<p>Another thing to note, as we discussed in class: the actual
+contents of the Hive tables are stored in HDFS, e.g.:</p>
+
+<pre>
+hadoop fs -ls /user/hive/warehouse
+</pre>
+
+<h4 style="padding-top: 10px">The Assignment</h4>
+
+<p>In this assignment, you'll be working with a collection of tweets
+on the hoth cluster (you'll be getting login credentials
+separately). You are still advised to do initial development and
+testing within your VM, but the actual assignment will require running
+code on the hoth cluster.</p>
+
+<p>On hoth, in HDFS
+at <code>/user/shared/tweets2011/tweets2011.txt</code>, you'll find a
+collection of 13.6 million tweets, totaling 1.94 GB. These are tweet
+randomly sampled from January 23, 2011 to February 8, 2011
+(inclusive). The tweets are stored as TSV, with the following fields:
+tweet id, creation time, username, tweet text.</p>
+
+<p>On this dataset, you will perform two analyses:</p>
+
+<ol>
+
+<li>Compute the tweet volume on an hourly basis (i.e., number of
+tweets per hour) for the time period from 1/23 to 2/8,
+inclusive&mdash;that's a total of 408 data points. Note that there are
+tweets in the dataset outside this time range: ignore them. You'll end
+up with output along these lines (counts are completely made up):
+
+<p/>
+
+<pre>
+1/23 00      37401
+1/23 01      36025
+1/23 02      35968
+...
+2/08 23      30115
+</pre>
+
+<p/>
+
+Plot this time series, with time on the <i>x</i> axis and volume on
+the <i>y</i> axis. Use whatever tool you're comfortable with: Excel,
+gnuplot, Matlab, etc.
+</li>
+
+<li><p>Compute the tweet volume on an hourly basis for tweets that
+contain either the word Egypt or Cairo: same as above, except that
+we're only counting tweets that contain those two terms (note that
+this dataset contains the period of the Egyptian revolution). Also
+plot this time series, with time on the <i>x</i> axis and volume on
+the <i>y</i> axis.</p>
+
+<p>For the purposes of this assignment, don't worry about matching
+word boundaries and interior substrings of longer words; simply match
+the following regular expression pattern:
+
+<pre>
+.*([Ee][Gg][Yy][Pp][Tt]|[Cc][Aa][Ii][Rr][Oo]).*
+</pre>
+
+</li>
+
+</ol>
+
+<p>You are going to perform these two analyses using two approaches:
+Java MapReduce and Pig. Then you'll compare and contrast the two
+approaches.</p>
+
+<table><tr><td valign="top"><span class="label label-warning">Important</span></td>
+<td style="padding-left: 10px">Feel free to play with the Twitter data
+on the cluster. However, you <b>cannot</b> copy this dataset out of
+the cluster (e.g., onto your personal laptop). If you want to play
+with tweets, come talk to me and we'll make separate arrangements.</td></tr></table>
+
+<h4 style="padding-top: 10px">Hints and Suggestion</h4>
+
+<p>Writing the Java MapReduce programs to complete the above two
+analyses should be pretty straightforward.</p>
+
+<p>Most of the Pig you'll need to learn to complete this assignment is
+contained in the demo above. Everything else you need to know is
+contained in these two links:</p>
+
+<ul>
+
+<li><a href="http://pig.apache.org/docs/r0.11.0/basic.html">Pig Latin Basics</a></li>
+<li><a href="http://pig.apache.org/docs/r0.11.0/func.html">Built-In Functions</a></li>
+
+</ul>
+
+<p>I would suggest doing development inside your VM for faster
+iteration and run your code on the cluster only once you've debugged
+everything.</p>
+
+<p>When you type <code>pig</code> to drop into the "Grunt" shell, it
+will automatically connect you to the Hadoop (both in the VM or on
+hoth). However, for learning Pig, "local mode" is useful: in local
+mode, Pig does not execute scripts on Hadoop, but rather on the local
+machine, so it's a lot faster when you're playing around with toy
+datasets. To get into local mode type <code>pig -x local</code>. Note
+that in local mode your paths refer to local disk and not HDFS.</p>
+
+<p>Since you're not allowed to copy the Twitter data out of the
+cluster, when you're developing in your VM, simply make up some test
+data.</p>
+
+<h4 style="padding-top: 10px">Turning in the Assignment</h4>
+
+<p>Set up your assignment repo in the same way as the previous
+assignments.</p>
+
+<p>When grading, I will pull your repo on the hoth cluster, <code>cd
+MapReduce-assignments/assignment6/</code> and type <code>ant</code> to
+build. Your code should build successfully.</p>
+
+<p>I will then execute the following command:</p>
+
+<pre>
+etc/hadoop-cluster.sh ExtractHourlyCountsAll
+</pre>
+
+<p>After the MapReduce job finishes, there should be a directory in
+HDFS named <code>YOURNAME-all/</code> which has plain text files that
+contain the hourly counts for analysis #1 (above), i.e., (day and
+hour, count). It's okay if there are multiple <code>part</code> files
+in the directory and if the contents are not sorted. Note that in
+your program you can hard code the input path and output path.</p>
+
+<p>I will then execute the following command:</p>
+
+<pre>
+etc/hadoop-cluster.sh ExtractHourlyCountsEgypt
+</pre>
+
+<p>After the MapReduce job finishes, there should be a directory in
+HDFS named <code>YOURNAME-egypt/</code> which has plain text files that
+contain the hourly counts for analysis #2 (above), i.e., (day and
+hour, count). It's okay if there are multiple <code>part</code> files
+in the directory and if the contents are not sorted.  Note that in
+your program you can hard code the input path and output path.</p>
+
+<p>As with all the other assignments, your source code should go into
+the <code>src/</code> subdirectory.</p>
+
+<p>In <code>MapReduce-assignments/assignment6/assignment6.md</code>,
+put the two Pig scripts for analysis #1 and analysis #2. The output of
+these two scripts should be the same as your Java MapReduce program;
+if it isn't, there's a bug.</p>
+
+<p>In the directory <code>MapReduce-assignments/assignment6/</code>,
+there should be two text files, <code>hourly-counts-all.txt</code>
+and <code>hourly-counts-egypt.txt</code> that contains the results of
+analysis #1 and analysis #2, respectively.</p>
+
+<p>Finally, in the
+directory <code>MapReduce-assignments/assignment6/</code>, there
+should be two plots (i.e., graphics
+files), <code>hourly-counts-all</code>
+and <code>hourly-counts-egypt</code> that plots the time series. The
+extensions of the two files should be whatever graphics format is
+appropriate, e.g., <code>.png</code>. Use whatever tool you're
+comfortable with: Excel, gnuplot, Matlab, etc.</p>
+
+<h4 style="padding-top: 10px">Grading</h4>
+
+<p>The entire assignment is worth 25 points:</p>
+
+<ul>
+
+  <li>10 points for the Java MapReduce implementations.</li>
+  <li>10 points for the Pig implementations.</li>
+  <li>5 points for the plots.</li>
+
+</ul>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="finalproject" style="padding-top:35px">
+<div>
+<h3>Final Project <small>presentations on May 2 and May 9</small></h3>
+
+<p>There will be two deliverables for the final project: a
+presentation and a final project report. In more detail:</p>
+
+<ul>
+
+  <li>The final project report is due on May 9. I expect the report to
+  describe the problem you're trying to solve (i.e., motivation), how
+  you went about solving it (i.e., methodology and algorithm design,
+  etc.), and how well your solution works (i.e., experimental results
+  and evaluation). Use
+  the <a href="http://www.acm.org/sigs/publications/proceedings-templates">ACM
+  templates</a>. I'm expecting a report of around 5-6 pages in the ACM
+  format. Send the final project report to me over email; include your
+  presentation slides also.</li>
+
+  <li>The presentations will take place during class on May 2 and May
+  9. For an individual project, you'll get 10 minutes for the
+  presentation; for a group project you'll get 15 minutes for the
+  presentation. Your presentation should cover the same aspects of the
+  project mentioned above, but if you're giving your presentation in
+  the earlier class session (May 2), it's okay not to have complete
+  results yet (although I'd hope you have some <i>preliminary</i>
+  results).</li>
+
+</ul>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<p style="padding-top:100px" />
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

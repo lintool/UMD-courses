@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data-Intensive Computing with MapReduce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="overview.html">Overview</a></li>
+              <li class="active"><a href="syllabus.html">Syllabus</a></li>
+              <li><a href="assignments.html">Assignments</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+  <div class="page-header">
+    <h1>Syllabus <small>Data-Intensive Computing with MapReduce (Spring 2013)</small></h1>
+  </div>
+
+<section id="schedule">
+<div>
+<h3>Schedule of Classes</h3>
+
+<table class="table table-striped table-condensed">
+<thead>
+<tr><td><b>Session</b></td>
+    <td><b>Date</b></td>
+    <td><b>Topic</b></td>
+    <td><b>Assignment due</b></td></tr>
+</thead>
+<tbody>
+
+<tr><td>1</td><td>January 24</td><td><a href="#session1">Introduction to MapReduce</a></td>
+<td><a href="assignments.html#assignment0">Assignment #0: Prelude</a></td></tr>
+
+<tr><td>2</td><td>January 31</td><td><a href="#session2">Hadoop Nuts and Bolts</a></td>
+<td><a href="assignments.html#assignment1">Assignment #1: Warmup</a></td></tr>
+
+<tr><td>3</td><td>February 7</td><td><a href="#session3">Basic Algorithm Design</a></td><td></td></tr>
+
+<tr><td>4</td><td>February 14</td><td><a href="#session4">Language Models and Inverted Indexing</a></td>
+<td><a href="assignments.html#assignment2">Assignment #2: Counting</a></td></tr>
+
+<tr><td>5</td><td>February 21</td><td><a href="#session5">Graph Processing</a></td><td></td></tr>
+
+<tr><td>6</td><td>February 28</td><td><a href="#session6">Similar Item Detection</a></td>
+<td><a href="assignments.html#assignment3">Assignment #3: Inverted Indexing</a></td></tr>
+
+<tr><td>7</td><td>March 7</td><td><a href="#session7">Clustering and Classification</a></td><td></td></tr>
+
+<tr><td>8</td><td>March 14</td><td><a href="#session8">Sequence Labeling</a></td>
+<td><a href="assignments.html#assignment4">Assignment #4: Graphs</a></td></tr>
+
+<tr><td colspan="4">Spring Break</td></tr>
+
+<tr><td>9</td><td>March 28</td><td><a href="#session9">Midterm</a></td><td></td></tr>
+
+<tr><td>10</td><td>April 4</td><td><a href="#session10">Data Warehousing</a></td>
+<td><a href="assignments.html#assignment5">Assignment #5: Project Proposal</a></td></tr>
+
+<tr><td>11</td><td>April 11</td><td><a href="#session11">Beyond MapReduce</a></td><td></td></tr>
+
+<tr><td>12</td><td>April 18</td><td><a href="#session12">NoSQL</a></td>
+<td><a href="assignments.html#assignment6">Assignment #6: Data Analytics</a></td></tr>
+
+<tr><td>13</td><td>April 25</td><td><a href="#session13">Production Workflows</a></td><td></td></tr>
+
+<tr><td>14</td><td>May 2</td><td>Project Presentations I</td>
+<td><a href="assignments.html#finalproject">Final Project</a></td></tr>
+
+<tr><td>15</td><td>May 9</td><td>Project Presentations II</td>
+<td><a href="assignments.html#finalproject">Final Project</a></td></tr>
+
+<tr><td>16</td><td>May 16</td><td>Final Exam</td><td></td></tr>
+
+</tbody>
+</table>
+
+</div>
+</section>
+
+
+<section id="session1" style="padding-top:35px">
+<div>
+<h3>Session 1: Introduction to MapReduce <small>January 24</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>
+
+    <ul>
+      <li>Chapter 1: Introduction</li>
+      <li>Chapter 2: MapReduce Basics</li>
+    </ul>
+
+  </li>
+
+  <li>Hadoop: The Definitive Guide (3rd Edition):
+
+    <ul>
+      <li>Chapter 1: Meet Hadoop</li>
+
+      <li>Chapter 2: MapReduce (Skip sections on "Hadoop Streaming"
+      and "Hadoop Pipes".)</li>
+
+      <li>Chapter 3: The Hadoop Distributed File System (Focus on the
+      mechanics of the HDFS commands and don't worry so much about
+      learning the Java API all at once&mdash;you'll pick it up in
+      time. Stop when you get to the section on "Data Ingest with
+      Flume and Sqoop".)</li>
+
+   </ul>
+
+  <li>Ghemawat et al. (2003) <a href="material/Ghemawat_etal_SOSP2003.pdf">The Google File System.</a> <i>SOSP</i>.</li>
+
+  <li>Dean and Ghemawat. (2004) <a href="material/Dean_Ghemawat_OSDI2004.pdf">MapReduce: Simplified Data Processing on Large Clusters.</a> <i>OSDI</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session01.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session01.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+
+</div>
+</section>
+
+
+<section id="session2" style="padding-top:35px">
+<div>
+<h3>Session 2: Hadoop Nuts and Bolts <small>January 31</small></h3>
+
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li>Hadoop: The Definitive Guide (3rd Edition):
+
+    <ul>
+      <li>Chapter 4: Hadoop I/O (Read section on "Serialization",
+      pages 93&mdash;108 and section on "File-Based Data Structures",
+      pages 130&mdash;142)</li>
+
+      <li>Chapter 5: Developing a MapReduce Application (Skip sections
+      on "Writing a Unit Test with MRUnit" and "Apache Oozie")</li>
+
+      <li>Chapter 6: How MapReduce Works (Skip section on
+      "Configuration Tuning")</li>
+
+      <li>Chapter 7: MapReduce Types and Formats</li>
+
+      <li>Chapter 8: MapReduce Features (Read sections on "Counters"
+      and "Side Data distribution")</li>
+
+   </ul>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session02.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session02.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session3" style="padding-top:35px">
+<div>
+<h3>Session 3: Basic Algorithm Design <small>February 7</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>
+
+    <ul>
+      <li>Chapter 3: MapReduce Algorithm Design</li>
+    </ul>
+
+  </li>
+
+  <li>Hadoop: The Definitive Guide (3rd Edition):
+
+    <ul>
+
+      <li>Chapter 8: MapReduce Features (Read section on "Sorting")</li>
+
+   </ul>
+
+   <li>Ullman. (2012) <a href="material/Ullman_2012.pdf">Designing Good Mapreduce Algorithms.</a> <i>Crossroads</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session03.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session03.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session4" style="padding-top:35px">
+<div>
+<h3>Session 4: Language Models and Inverted Indexing <small>February 14</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>:
+     Chapter 4: Inverted Indexing for Text Retrieval</li>
+
+   <li>Brants et al. (2007) <a href="http://acl.ldc.upenn.edu/D/D07/D07-1090.pdf">Large Language Models in Machine Translation.</a> <i>EMNLP</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session04.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session04.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session5" style="padding-top:35px">
+<div>
+<h3>Session 5: Graph Processing <small>February 21</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>:
+     Chapter 5: Graph Algorithms</li>
+
+   <li>Cohen. (2009) <a href="material/Cohen_2009.pdf">Graph Twiddling in a MapReduce World.</a> <i>Computing in Science and Engineering</i>.</li>
+
+   <li>Lin and Schatz. (2010) <a href="material/Lin_Schatz_MLG2010.pdf">Design Patterns for Efﬁcient Graph Algorithms in MapReduce.</a> <i>MLG</i>.</li>
+
+  </li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session05.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session05.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session6" style="padding-top:35px">
+<div>
+<h3>Session 6: Similar Item Detection <small>February 28</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+<li>Ture et al. (2011) <a href="material/Ture_etal_SIGIR2011.pdf">No Free Lunch: Brute Force vs. Locality-Sensitive Hashing for Cross-lingual Pairwise Similarity.</a> <i>SIGIR</i>.</li>
+
+<li>Chapter 3, <a href="http://infolab.stanford.edu/~ullman/mmds/ch3.pdf">"Finding Similar Items"</a> of <a href="http://infolab.stanford.edu/~ullman/mmds.html">Mining of Massive Datasets</a> by Rajaraman, Ullman, and Leskovec.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session06.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session06.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session7" style="padding-top:35px">
+<div>
+<h3>Session 7: Clustering and Classification <small>March 7</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+<li>Chu et al. (2006) <a href="material/ChuCT_etal_2006.pdf"> Map-Reduce for Machine Learning on Multicore.</a> <i>NIPS</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session07.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session07.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session8" style="padding-top:35px">
+<div>
+<h3>Session 8: Sequence Labeling <small>March 14</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>:
+  Chapter 7: EM Algorithms for Text Processing</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session08.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session08.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session9" style="padding-top:35px">
+<div>
+<h3>Session 9: Midterm <small>March 28</small></h3>
+
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session10" style="padding-top:35px">
+<div>
+<h3>Session 10: Data Warehousing <small>April 4</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+  <li><a href="http://lintool.github.com/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf">Data-Intensive Text Processing with MapReduce</a>:
+  Chapter 6: Processing Relational Data</li>
+
+  <li><a href="http://homes.cs.washington.edu/~billhowe/mapreduce_a_major_step_backwards.html">MapReduce: A major step backwards</a></li>
+
+  <li>Stonebraker et al. (2010) <a href="material/Stonebraker_etal_CACM2010.pdf">MapReduce and Parallel DBMSs: Friends or Foes?</a> <i>Communications of the ACM</i>, 53(1):64-71.</li>
+
+  <li>Dean and Ghemawat. (2010) <a href="material/Dean_Ghemawat_CACM2010.pdf ">MapReduce: A Flexible Data Processing Tool</a> <i>Communications of the ACM</i>, 53(1):72-77.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session10.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session10.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session11" style="padding-top:35px">
+<div>
+<h3>Session 11: Beyond MapReduce <small>April 11</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+  <li>Olston et al. (2008) <a href="material/Olston_etal_SIGMOD2008.pdf">Pig Latin: A Not-So-Foreign Language for Data Processing.</a> <i>SIGMOD</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session11.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session11.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session12" style="padding-top:35px">
+<div>
+<h3>Session 12: NoSQL <small>April 18</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+  <li>Chang et al. (2006) <a href="material/ChangFay_etal_OSDI2006.pdf">Bigtable: A Distributed Storage System for Structured Data.</a> <i>OSDI</i>.</li>
+
+</ul>
+
+<p style="padding-top: 5px"/>
+
+<h4>Slides</h4>
+
+<p><a href="slides/session12.pptx" class="btn btn-small btn-primary" style="width: 75px">PPTX (Mac)</a> &nbsp;
+   <a href="slides/session12.pdf" class="btn btn-small btn-info" style="width: 75px">PDF</a>
+</p>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<section id="session13" style="padding-top:35px">
+<div>
+<h3>Session 13: Production Workflows <small>April 25</small></h3>
+
+<h4>Readings <small>(to be completed before class)</small></h4>
+
+<ul>
+
+  <li>Lin and Ryaboy. (2012) <a href="material/Lin_Ryaboy_2012.pdf">Scaling Big Data Mining Infrastructure: The Twitter Experience</a>, <i>SIGKDD Explorations</i>, 14(2):6-19.</li>
+
+</ul>
+
+<p style="padding-top: 20px"><a href="#">Back to top</a></p>
+</div>
+</section>
+
+
+<p style="padding-top:100px" />
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

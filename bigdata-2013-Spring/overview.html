@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data-Intensive Computing with MapReduce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="overview.html">Overview</a></li>
+              <li><a href="syllabus.html">Syllabus</a></li>
+              <li><a href="assignments.html">Assignments</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+  <div class="page-header">
+    <h1>Overview <small>Data-Intensive Computing with MapReduce (Spring 2013)</small></h1>
+  </div>
+
+<h3>About the Course</h3>
+
+<p>Our world is being revolutionized by "big data": petabyte-scale
+data stores are popping up everywhere, opening up exciting
+opportunities for computing applications and scientific
+discovery. Data-intensive computing requires programming models that
+allow us to easily distribute computations across large clusters, and
+this is where MapReduce comes in. MapReduce, especially the Hadoop
+open-source implementation, has recently emerged as a popular
+framework for data-intensive computing. Among its advantages include
+the ability to horizontally scale to petabytes of data on thousands of
+commodity servers, easy-to-understand programming semantics, and a
+high degree of fault tolerance. Hadoop lies at the core of an
+application stack that is gaining widespread adoption in both industry
+and academia.</p>
+
+<p>This course will provide an introduction to Hadoop, focusing
+specifically on algorithm design and "thinking at scale", applied to a
+variety of domains: text, graphs, relational data, etc. We will also
+cover other components in the Hadoop ecosystem and alternative
+programming models.</p>
+
+<p><b>Course Credit in Computer Science:</b> For graduate students in
+the Computer Science Department, this course has been approved as a
+Ph.D. qualifying course in DB, an MS qualifying course in DB, and an
+MS Comp in DB.</p>
+
+<h3>About Me</h3>
+
+<p>If you're interested in my research, here is
+<a href="http://www.umiacs.umd.edu/~jimmylin/">my homepage</a>. The
+best way to get in touch with me is via email, at jimmylin@umd.edu. I
+am available by appointment to discuss material from class, the
+readings, homework assignments, the project, etc.  Email is the best
+way to reach me to set up an appointment, and it's also a good way to
+get a quick answer to a simple question.</p>
+
+<h3>Course Materials</h3>
+
+<p>The most recent version of all materials for the course will be
+posted on this website, including the syllabus, readings, slides used
+in class, and homework assignments. Please check the site frequently
+for updates.</p>
+
+<p>The principal textbooks for this course are:</p>
+
+<div class="row">
+<div class="span9">
+
+<table class="table">
+<tbody>
+<tr><td>Data-Intensive Text Processing with MapReduce</td>
+<td><a href="http://mapreduce.cc/" class="btn btn-small btn-inverse">Book website</a>
+</td></tr>
+
+<tr><td>Hadoop: The Definitive Guide</td>
+<td><a href="http://proquest.safaribooksonline.com/book/software-engineering-and-development/9781449328917" class="btn btn-small btn-inverse">Online version (3rd Ed.)</a>
+</td></tr>
+
+</tbody>
+</table>
+
+</div>
+</div>
+
+<p>Readings from other sources will be assigned as appropriate.</p>
+
+<p>University of Maryland students have free access to the second book
+via Safari Books Online (click the "Online version" links above), but
+you may wish to purchase paper copies for convenience. Any online
+bookseller will have these books.</p>
+
+<p>You're encouraged to use the course mailing list to share
+information that would be of general interest or for any other purpose
+that seems reasonable. Mail sent to that address will reach me and all
+students. If you have not received a message from the mailing list
+yet, please contact me to make sure that your correct address is
+included.</p>
+
+<h3>Grading</h3>
+
+<p>Components of the final grade are as follows:</p>
+
+<div class="row">
+<div class="span4">
+
+<table class="table table-striped">
+<thead>
+<tr><td><b>Component</b></td><td style="text-align:right"><b>Weight</b></td></tr>
+</thead>
+<tbody>
+
+<tr><td>Assignment 1</td>         <td style="text-align:right">4%</td></tr>
+<tr><td>Assignment 2</td>         <td style="text-align:right">8%</td></tr>
+<tr><td>Assignment 3</td>         <td style="text-align:right">8%</td></tr>
+<tr><td>Assignment 4</td>         <td style="text-align:right">10%</td></tr>
+<tr><td>Assignment 6</td>         <td style="text-align:right">10%</td></tr>
+<tr><td>Final Project</td>        <td style="text-align:right">30%</td></tr>
+<tr><td>Midterm</td>              <td style="text-align:right">15%</td></tr>
+<tr><td>Final Exam</td>           <td style="text-align:right">15%</td></tr>
+<tr><td><b>Total</b></td>         <td style="text-align:right">100%</td></tr>
+
+</tbody>
+</table>
+
+</div>
+</div>
+
+<p>The homework assignments are designed to provide an opportunity for
+you to explore specific topics in a structured way. You may work
+together on the homework assignments, but all of the material that is
+turned in for grading must be produced individually. For example, you
+may form study groups and work out homework solutions together on a
+whiteboard or by each working separately on different computers and
+then sharing what you've learned, but it would not be permissible for
+someone to prepare an answer set and then for others to copy those
+answers and submit it as their own work. Turning in copied files is
+specifically prohibited; you <b>must</b> individually write (type) any
+material that is submitted for grading, including code.</p>
+
+<p>Assignments are due before the class indicated on
+the <a href="syllabus.html">syllabus</a>.</p>
+
+<p><i>Late policy:</i> For assignments turned in 24 hours late (or
+less), I will take the grade you would have gotten and multiply it by
+0.75; For assignments turned in more than 24 hours late but less than
+48 hours late, I will take the grade you have gotten and multiply it
+by 0.5, and so on.</p>
+
+<p>The course will include a final group project. More details can be
+found at <a href="assignments.html#finalproject">here</a>. In
+addition, there will be a midterm and a final exam for the course.</p>
+
+<h3>Academic Integrity</h3>
+
+<p>The University of Maryland, College Park has a nationally recognized
+Code of Academic Integrity, administered by the Student Honor
+Council. This Code sets standards for academic integrity at Maryland
+for all undergraduate and graduate students. As a student you are
+responsible for upholding these standards for this course. It is very
+important for you to be aware of the consequences of cheating,
+fabrication, facilitation, and plagiarism. For more information on the
+Code of Academic Integrity or the Student Honor Council, please visit
+<a href="http://www.shc.umd.edu">this site</a>.</p>
+
+
+<h3>Class Attendance</h3>
+
+<p>This is a graduate course in which <i>you</i> are responsible for
+making your own decisions regarding how best to master the material.
+You will be held accountable for all content covered in class, in the
+assigned readings, and in assignments. Experience strongly suggests
+that you should attend classes. Class attendance for the midterm,
+final, and final project presentations (May 2 and May 9) is
+required.</p>
+
+<b>Accommodations for Religious Holidays and Other Special
+Circumstances.</b> Students wishing to discuss accommodations for
+religious holidays on dates that assignments are due, or other
+circumstances not addressed in this course information page, should
+discuss those circumstances with me <u>before</u> the third class
+session in order to permit adequate time for planning. Only
+accommodations for unforeseeable circumstances will be considered
+after that date.</p>
+
+<b>Accommodations for Disabilities.</b> The University is legally
+obligated to provide appropriate accommodations for students with
+documented disabilities.  Accommodations will be made only in
+accordance with University policy.  Students who are entitled to
+accommodations due to disabilities must first set up an appointment
+with the <a href="http://www.counseling.umd.edu/DSS/">Disability
+Support Services (DSS)</a>. To permit adequate planning, this process
+must be completed and I must be notified by DSS at least two weeks
+before the session in which the accommodation is required.</p>
+
+<p style="padding-bottom: 100px"/>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
