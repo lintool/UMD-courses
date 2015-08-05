@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simple Bar Graph</title>
+
+<style type="text/css">
+
+.chart rect {
+   stroke: white;
+   fill: steelblue;
+ }
+
+</style>
+
+</head>
+<body>
+
+<svg class="chart" width="500" height="120" id="svg">
+</svg>
+
+<script type="text/javascript">
+
+var data = [4, 8, 15, 16, 23, 42];
+
+for (i=0; i<data.length; i++) {
+  var bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  bar.setAttribute("x", 0);
+  bar.setAttribute("y", i * 20);
+  bar.setAttribute("width", data[i] * 10);
+  bar.setAttribute("height", 20);
+
+  document.getElementById("svg").appendChild(bar);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+# Create table to keep track of the riders
+
+create table Ride (
+ RideId int not null auto_increment key,
+ Driver varchar(30),
+ Phone varchar(30),
+ Origin varchar(30),
+ Destination varchar(30),
+ Date date,
+ Seats int
+);
+
+# Populate the Ride table
+
+insert into Ride (Driver, Phone, Origin, Destination, Date, Seats) values
+ ('John', '301-382-9834', 'DC', 'New York', '2012-10-31', 3);
+
+insert into Ride (Driver, Phone, Origin, Destination, Date, Seats) values
+ ('Mary', '202-128-4212', 'DC', 'New York', '2012-10-24', 4);
+
+insert into Ride (Driver, Phone, Origin, Destination, Date, Seats) values
+ ('Joe', '703-921-7835', 'DC', 'Springfield', '2012-10-24', 4);
+
+insert into Ride (Driver, Phone, Origin, Destination, Date, Seats) values
+ ('Bob', '301-560-8371', 'DC', 'Richmond', '2012-10-31', 3);
+
+# Create table to keep track of bookings
+
+create table Booking (
+ RideId int,
+ Passenger varchar(30),
+ Phone varchar(30)
+);
+
+# Looking for a ride.
+
+select RideId, Driver from Ride
+  where origin = "DC" and destination = "New York" and Date = "2012-10-31" and Seats > 0;
+
+# Passengers make reservations
+
+insert into Booking (RideId, Passenger, Phone) values
+ (1, 'Abby', '301-276-9235');
+
+update Ride set Seats = Seats - 1 where RideId = 1;
+
+insert into Booking (RideId, Passenger, Phone) values
+ (1, 'Steve', '703-309-6540');
+
+update Ride set Seats = Seats - 1 where RideId = 1;
+
+insert into Booking (RideId, Passenger, Phone) values
+ (1, 'Harry', '301-278-2116');
+
+update Ride set Seats = Seats - 1 where RideId = 1;  
+
+# Driver is ready to leave: who are my passengers?
+
+select Passenger, Booking.Phone from Booking
+  join Ride on Booking.RideId = Ride.RideId
+ where Driver = "John" and Date = "2012-10-31";
