@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><title>Investment Calculator</title>
+<meta charset="utf-8">
+
+<script>
+function calculate() {
+  // Holds the contents of the box "Starting amount"
+  var amount = eval(document.input.amount.value);
+  // Holds the contents of the box "Yearly interest rate"
+  var interest = eval(document.input.interest.value);
+  // Holds the contents of the box "How many years?"
+  var years = eval(document.input.years.value);
+
+  console.log("amount: " + amount);
+  console.log("interest: " + interest);
+  console.log("years: " + years);
+
+  // Your code goes here!
+
+  // Set the output value box.
+  document.output.number.value = 1;
+}
+</script>
+</head>
+
+<body>
+<h1>Investment Calculator</h1>
+
+<form name="input" action="">
+<table>
+<tr><td>Starting amount:</td><td><input size="10" value="1000" name="amount"></td></tr>
+<tr><td>Yearly interest rate:</td>  <td><input size="3" value="7" name="interest"> %</td></tr>
+<tr><td>How many years?</td> <td><input size="3" value="1" name="years"> years</td></tr>
+</table>
+</form>
+
+<hr/>
+
+<p><form name="output" action="">
+After that time, the investment would be worth
+<input size="10" value=" " name="number" readonly="true">
+<input onclick="calculate()" value="Compute!" name="compute" type="button">
+</form></p>
+
+</body></html>

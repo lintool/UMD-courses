@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Summation Demo</title>
+<meta charset="utf-8">
+
+<script>
+function sumIterative() {
+  var v = eval(document.getElementById("numInput").value);
+
+  var sum = 0;
+  for (var i=1; i<=v; i++) {
+    sum += i;
+  }
+
+  document.getElementById("results").innerHTML = "Sum of numbers from 1 to " + v + " is " + sum;
+}
+
+function sumRecursive() {
+  var v = eval(document.getElementById("numInput").value);
+  var sum = r(v);
+
+  document.getElementById("results").innerHTML = "Sum of numbers from 1 to " + v + " is " + sum;
+}
+
+function r(n) {
+  console.log("Called with n = " + n);
+  if ( n == 1 ) {
+    return 1;
+  }
+
+  return n + r(n-1);
+}
+
+</script>
+
+</head>
+<body>
+
+<h1>Summation Demo</h1>
+
+<form>
+Sum from 1 to <input type="text" id="numInput" size="5"></p>
+<input onclick="sumIterative()" type="button" id="sumIterativeButton" value="Sum (Iterative)">
+<input onclick="sumRecursive()" type="button" id="sumRecursiveButton" value="Sum (Recursive)">
+</form>
+
+<h3>Results</h3>
+
+<div id="results"></div>
+
+</body>
+</html>
+

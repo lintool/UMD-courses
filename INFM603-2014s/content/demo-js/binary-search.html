@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Binary Search Demo</title>
+<meta charset="utf-8">
+
+<script>
+var nums = [];
+
+function generateRandom() {
+  nums = [];
+  for (var i=0; i<100; i++) {
+    nums.push(Math.floor((Math.random()*1000)));
+  }
+  nums = DedupAndSort(nums);
+  document.getElementById("randomNumbers").innerHTML = "<p>" + nums.join(", ") + "</p>";
+}
+
+function DedupAndSort(arr) {
+  var o = {}, i, l = arr.length, r = [];
+  for(i=0; i<l;i+=1) o[arr[i]] = arr[i];
+  for(i in o) r.push(o[i]);
+  return r;
+}
+
+function sequentialSearch() {
+  var v = document.getElementById("numInput").value;
+  console.log("Searching for " + v);
+
+  if (v == "") {
+    alert("Please enter a number");
+  } else if ( nums.length == 0 ) {
+    alert("Generate random numbers first");
+  } else {
+    var steps = 0;
+    for (var i=0; i<nums.length; i++) {
+      steps++;
+      if (nums[i] == v) {
+        console.log("Found item at index " + i);
+        console.log("Number of steps taken: " + steps);
+
+        document.getElementById("results").innerHTML = "<b>sequential search</b>: " +
+          v + " found at index position " + i + " after " + steps + " steps.";
+        break;
+      }
+
+      if (nums[i] > v) {
+        console.log(v + " is not in the list");
+        console.log("Number of steps taken: " + steps);
+
+        document.getElementById("results").innerHTML = "<b>sequential search</b>: " +
+          v + " is not in the list, discovered after " + steps + " steps.";
+
+        break;
+      }
+    }
+  }
+}
+
+function binarySearch() {
+  var v = document.getElementById("numInput").value;
+  console.log("Searching for " + v);
+
+  if (v == "") {
+    alert("Please enter a number");
+  } else if ( nums.length == 0 ) {
+    alert("Generate random numbers first");
+  } else {
+    var steps = 0;
+
+    var low = 0;
+    var high = nums.length - 1;
+    var i;
+
+    while (low <= high) {
+      steps++;
+      i = Math.floor((low + high) / 2);
+      console.log("low = " + low + ", high = " + high + ", i = " + i + ", nums[i] = " + nums[i]);
+
+      if (v > nums[i]) { low = i + 1; continue; };
+      if (v < nums[i]) { high = i - 1; continue; };
+
+      console.log("Found item at index " + i);
+      console.log("Number of steps taken: " + steps);
+
+      document.getElementById("results").innerHTML = "<b>binary search</b>: " +
+        v + " found at index position " + i + " after " + steps + " steps.";
+
+      return;
+    }
+
+    console.log(i + " is not in the list");
+    console.log("Number of steps taken: " + steps);
+
+    document.getElementById("results").innerHTML = "<b>binary search</b>: " +
+      v + " is not in the list, discovered after " + steps + " steps.";
+  }
+}
+</script>
+
+</head>
+<body>
+
+<h1>Binary Search Demo</h1>
+
+<input onclick="generateRandom()" type="button" id="generateRandom" value="Generate Random Numbers!">
+
+<form>
+<p><input type="text" id="numInput" size="5"></p>
+<input onclick="sequentialSearch()" type="button" id="sequentialSearchButton" value="Sequential Search">
+<input onclick="binarySearch()" type="button" id="binarySearchButton" value="Binary Search">
+</form>
+
+<h3>Random Numbers</h3>
+
+<div id="randomNumbers"></div>
+
+<div id="results"></div>
+
+</body>
+</html>
+
